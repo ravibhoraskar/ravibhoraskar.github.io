@@ -1,0 +1,11 @@
+name: "Ravi Bhoraskar"
+description: ""
+
+url: "ravibhoraskar.github.io"
+
+paginate: 10
+
+markdown: rdiscount
+permalink: pretty
+pygments: true
+
