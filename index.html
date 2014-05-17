@@ -36,8 +36,4 @@ notitle: true
 {% endfor %}
 </ul>
 {% assign numposts = site.posts | size %}
-{% if numposts >= site.front_page_news %}
-<p><a href="{{ site.base }}/blog/">All news&hellip;</a></p>
-{% else %}
 <p><a href="{{ site.base }}/news.html">All news&hellip;</a></p>
-{% endif %}
