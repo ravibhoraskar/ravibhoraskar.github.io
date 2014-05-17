@@ -1,0 +1,43 @@
+---
+layout: default
+title: Home
+notitle: true
+---
+
+<div class="span4 clearfix">
+  <img class="pull-right img-circle" src="img/ravi.jpg" width=15%/>
+  <div class="paragraph">
+    Ravi Bhoraskar is a <s>penguin</s> second year graduate student in the
+    Computer Science
+    department at the University of Washington. Although he is interested in
+    everything that exists in the universe, he currently focuses on mobile
+    systems, and his recent research is driven by a strong desire to make mobile
+    apps suck less. He enjoys solving puzzles, playing sports,
+    and gyring and gimbling in the wabe with the slithy
+    toves and mimsy borogoves.
+  </div>
+</div>
+
+
+<h3>News</h3>
+<ul class="news list-unstyled">
+{% for post in site.posts limit: site.front_page_news %}
+    {% if post.shortnews %}
+        <li class="shortnews">
+            <span class="date">{{ post.date | date_to_long_string }}</span>
+            {{ post.content }}
+        </li>
+    {% else %}
+        <li class="bloglink">
+            <span class="date">{{ post.date | date_to_long_string }}</span>
+            <a href="{{ post.url }}">&raquo; {{ post.title }}</a>
+        </li>
+    {% endif %}
+{% endfor %}
+</ul>
+{% assign numposts = site.posts | size %}
+{% if numposts >= site.front_page_news %}
+<p><a href="{{ site.base }}/blog/">All news&hellip;</a></p>
+{% else %}
+<p><a href="{{ site.base }}/news.html">All news&hellip;</a></p>
+{% endif %}

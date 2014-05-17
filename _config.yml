@@ -1,11 +1,48 @@
-name: "Ravi Bhoraskar"
-description: ""
+name: Ravi Bhoraskar
+url: http://ravibhoraskar.github.io
 
-url: "ravibhoraskar.github.io"
+exclude: [bibble, README.md, Makefile]
 
-paginate: 10
+# use this library to parse Markdown
+markdown: redcarpet
+redcarpet:
+    extensions: [smart, tables]
 
-markdown: rdiscount
-permalink: pretty
+# colorize code snippets with the pygment module
 pygments: true
 
+# The path structure for blog posts.
+permalink: /blog/:year/:month/:day/:title.html
+
+# Sections on the "people" page.
+roles:
+    - {key: faculty, name: Faculty}
+#    - {key: staff, name: Staff}
+    - {key: postdoc, name: Researchers}
+    - {key: grad, name: Graduate Students}
+#    - {key: collab, name: Collaborators}
+#    - {key: alum, name: Alumni}
+
+# Number of news stories on the front page.
+front_page_news: 4 
+
+# Base pathname for links.
+base: ''
+
+# Navigation bar links.
+navigation:
+    - title: Home
+      link: /
+    - title: Publications
+      link: /publications.html
+    - title: Random
+      link: /random
+    - title: Blog
+      link: http://blogbloggityblog.wordpress.com/
+# Rewriting of old path names.
+redirects:
+    People: people.html
+    Projects: research/
+    Publications: publications.html
+    Funding: ''
+    Main_Page: ''
