@@ -4,11 +4,14 @@ import jinja2
 import jinja2.sandbox
 import re
 from calendar import month_name
+import os
 
 _months = {
     'jan': 1, 'feb': 2, 'mar': 3, 'apr': 4, 'may': 5, 'jun': 6,
     'jul': 7, 'aug': 8, 'sep': 9, 'oct': 10, 'nov': 11, 'dec': 12,
 }
+
+papersdir='papers'
 
 def _author_fmt(author):
     return u' '.join(author.first() + author.middle() + author.last())
@@ -73,10 +76,18 @@ def _title(entry):
 
 def _main_url(entry):
     urlfields = ('url', 'ee')
+    defaultpath=papersdir+'/'+entry.fields['key']+'.pdf'
+    #print(os.getcwd())
+    #print(entry)
     for f in urlfields:
         if f in entry.fields:
             return entry.fields[f]
-    return None
+        elif os.path.isfile(defaultpath):
+            #print("returning")
+            return defaultpath
+        else:
+            #print("nope "+defaultpath)
+            return None
 
 def _extra_urls(entry):
     """Returns a dict of URL types to URLs, e.g.
