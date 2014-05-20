@@ -38,6 +38,12 @@ And concoct a page title for your post. The body of the post goes after the `---
 [yfm]: http://jekyllrb.com/docs/frontmatter/
 [postsdir]: https://github.com/uwsampa/sampa-www/tree/master/_posts
 
+Bibliography
+----------------------
+pubs.html is generated using pybtex. It reads pubs.bib and generates the list of
+publications in chronological order. The URL to the paper is read from the bibtex
+if it exists, and the default location is scanned for a PDF otherwise. To change
+the default location, change the 'papersdir' variable in bibble/bibble.py
 
 Building and Deploying
 ----------------------
