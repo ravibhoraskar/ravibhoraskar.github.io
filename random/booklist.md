@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "Sudha Shastri Recommends: Reading List"
+redirect_from: "/random/booklist/"
+
 ---
 
   * Catch 22, Joseph Heller
