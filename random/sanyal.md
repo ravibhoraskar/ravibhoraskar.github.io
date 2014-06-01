@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Prof Amitabha Sanyal"
+redirect_from: "/random/profs/sanyal"
 ---
 He is probably one of the few Professors in CSE-IITB who teaches considering the grasping speed of the slowest student in the class. When you sit through an hour of his class you can literally feel the time he has put in, preparing just to teach us. His teaching style has this approach that makes you believe he knows his subject very well, and that there is so much more that one can learn from him.
 

@@ -48,3 +48,8 @@ redirects:
     Publications: publications.html
     Funding: ''
     Main_Page: ''
+
+# Addons
+gems:
+  - jekyll-redirect-from
+
