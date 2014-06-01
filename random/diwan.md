@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Prof Ajit Diwan"
-redirect_from: "/random/profs/diwan"
+redirect_from: "/random/profs/diwan/"
 ---
 
 As a teacher Prof. Diwan has a no-nonsense style of teaching that makes his class refreshingly informative. His classes have an impromptu feel to it that makes a student comfortable, encouraging discussion or asking doubts, almost as comfortable as learning from a peer.
