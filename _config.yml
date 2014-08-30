@@ -34,7 +34,7 @@ navigation:
     - title: Home
       link: /
     - title: CV
-      link: CV.pdf
+      link: /CV.pdf
     - title: Publications
       link: /publications.html
     - title: Random
