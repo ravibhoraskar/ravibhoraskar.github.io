@@ -9,6 +9,7 @@ BUILDARGS :=
 _site/index.html:
 	jekyll build $(BUILDARGS)
 
+#Build the publication files to include in publications.html
 _includes/cspubs.html: bib/cspubs.bib bib/publications.tmpl
 	mkdir -p _includes
 	$(PYTHON) bibble/bibble.py $+ > $@
@@ -21,6 +22,7 @@ _includes/otherpubs.html: bib/otherpubs.bib bib/publications.tmpl
 	mkdir -p _includes
 	$(PYTHON) bibble/bibble.py $+ > $@
 
+# Concatenate the bibtex files together to get a single bibtex file to download
 bib/pubs.bib: bib/cspubs.bib bib/posterpubs.bib bib/otherpubs.bib
 	cat $+ > $@
 
