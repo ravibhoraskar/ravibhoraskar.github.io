@@ -2,7 +2,8 @@ Ravi's website
 ===================
 
 This site uses [Jekyll](https://github.com/jekyll/jekyll) and [bibble](https://github.com/sampsyo/bibble) to generate a static website
-complete with publications. It uses [Bootstrap](https://github.com/twbs/bootstrap) to make things pretty.
+complete with publications. It uses [Bootstrap](https://github.com/twbs/bootstrap) to make things pretty. Credits to the 
+[SAMPA website](http://sampa.cs.washington.edu/) off which this was cloned. 
 
 
 Editing
