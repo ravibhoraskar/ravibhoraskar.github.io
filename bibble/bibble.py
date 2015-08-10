@@ -1,4 +1,6 @@
 import sys
+reload(sys)  
+sys.setdefaultencoding('utf8')
 from pybtex.database.input import bibtex
 import jinja2
 import jinja2.sandbox
