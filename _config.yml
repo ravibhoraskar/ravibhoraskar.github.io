@@ -5,7 +5,7 @@ exclude: [bibble, README.md, Makefile]
 
 # use this library to parse Markdown
 markdown: kramdown
-highlighter: rogue
+highlighter: rouge
 
 # The path structure for blog posts.
 permalink: /blog/:year/:month/:day/:title.html
