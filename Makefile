@@ -14,6 +14,10 @@ _includes/cspubs.html: bib/cspubs.bib bib/publications.tmpl
 	mkdir -p _includes
 	$(PYTHON) bibble/bibble.py $+ > $@
 
+_includes/patentpubs.html: bib/patentpubs.bib bib/publications.tmpl
+	mkdir -p _includes
+	$(PYTHON) bibble/bibble.py $+ > $@
+
 _includes/posterpubs.html: bib/posterpubs.bib bib/publications.tmpl
 	mkdir -p _includes
 	$(PYTHON) bibble/bibble.py $+ > $@
@@ -23,10 +27,10 @@ _includes/otherpubs.html: bib/otherpubs.bib bib/publications.tmpl
 	$(PYTHON) bibble/bibble.py $+ > $@
 
 # Concatenate the bibtex files together to get a single bibtex file to download
-bib/pubs.bib: bib/cspubs.bib bib/posterpubs.bib bib/otherpubs.bib
+bib/pubs.bib: bib/cspubs.bib bib/patentpubs.bib bib/posterpubs.bib bib/otherpubs.bib
 	cat $+ > $@
 
-_site/index.html: $(wildcard *.html) _includes/cspubs.html _includes/posterpubs.html _includes/otherpubs.html _config.yml \
+_site/index.html: $(wildcard *.html) _includes/cspubs.html _includes/patentpubs.html _includes/posterpubs.html _includes/otherpubs.html _config.yml \
 	_layouts/default.html
 
 clean:
