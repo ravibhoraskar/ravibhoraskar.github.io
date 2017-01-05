@@ -7,7 +7,7 @@ all: bib/pubs.bib _site/index.html
 
 BUILDARGS :=
 _site/index.html:
-	jekyll build $(BUILDARGS)
+	bundle exec jekyll build $(BUILDARGS)
 
 #Build the publication files to include in publications.html
 _includes/cspubs.html: bib/cspubs.bib bib/publications.tmpl
