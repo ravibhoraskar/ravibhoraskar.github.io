@@ -55,3 +55,4 @@ redirect_from: "/random/booklist/"
   * Nagamandala, Girish Karnad (play)
   * Hayavadana, Girish Karnad (play)
   * The Great Derangement, Amitav Ghosh (non-fiction)
+  * Ghashiram Kotwal, Vijay Tendulkar (play)
