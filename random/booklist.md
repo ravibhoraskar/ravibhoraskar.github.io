@@ -54,3 +54,4 @@ redirect_from: "/random/booklist/"
   * Nagamandala, Girish Karnad (play)
   * <del>Tughlaq, Girish Karnad (play)</del>
   * Hayavadana, Girish Karnad (play)
+  * The Great Derangement, Amitav Ghosh (non-fiction)
