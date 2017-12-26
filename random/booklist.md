@@ -51,7 +51,7 @@ redirect_from: "/random/booklist/"
   * Voices from Chernobyl, Svetlana Alexievich
   * The Remains of the Day, Kazuo Ishiguro
   * Piya Behrupiya, Amitosh Nagpal (play; translation of Twelfth Night)
-  * Nagamandala, Girish Karnad (play)
   * <del>Tughlaq, Girish Karnad (play)</del>
+  * Nagamandala, Girish Karnad (play)
   * Hayavadana, Girish Karnad (play)
   * The Great Derangement, Amitav Ghosh (non-fiction)
