@@ -46,3 +46,11 @@ redirect_from: "/random/booklist/"
   * The Great Gatsby, F Scott Fitzgerald
   * A History of the World in 10½ Chapters, Julian Barnes
   * <del>Farewell My Lovely, Raymond Chandler</del>
+  * The Return of Martin Guerre, Natalie Zemon Davis
+  * Palestine, Joe Sacco
+  * Voices from Chernobyl, Svetlana Alexievich
+  * The Remains of the Day, Kazuo Ishiguro
+  * Piya Behrupiya, Amitosh Nagpal (play; translation of Twelfth Night)
+  * Nagamandala, Girish Karnad (play)
+  * <del>Tughlaq, Girish Karnad (play)</del>
+  * Hayavadana, Girish Karnad (play)
