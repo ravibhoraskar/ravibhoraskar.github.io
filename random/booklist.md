@@ -56,3 +56,4 @@ redirect_from: "/random/booklist/"
   * Hayavadana, Girish Karnad (play)
   * The Great Derangement, Amitav Ghosh (non-fiction)
   * Ghashiram Kotwal, Vijay Tendulkar (play)
+  * The Sun's 7th Horse, Dharamvir Bharati
