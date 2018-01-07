@@ -52,7 +52,7 @@ redirect_from: "/random/booklist/"
   * The Remains of the Day, Kazuo Ishiguro
   * Piya Behrupiya, Amitosh Nagpal (play; translation of Twelfth Night)
   * <del>Tughlaq, Girish Karnad (play)</del>
-  * Nagamandala, Girish Karnad (play)
+  * <del>Nagamandala, Girish Karnad (play)</del>
   * Hayavadana, Girish Karnad (play)
   * The Great Derangement, Amitav Ghosh (non-fiction)
   * Ghashiram Kotwal, Vijay Tendulkar (play)
