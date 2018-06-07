@@ -7,6 +7,8 @@ Just a collection of random objects under the sun, in the ocean, and within the 
 
 ### Miscellany
 
+- A [minesweeper](/Minesweeper) implementation that [Antariksh](http://www.antarikshbothale.com/) and I built together. 
+
 - An app to play [Tambola](/Tambola) even if you don't have a board and pieces handy. 
 
 - Faithful to the Original: Comparing Sherlock and Sherlock Holmes. [Article](http://blogbloggityblog.wordpress.com/2012/03/03/faithful-to-the-original-comparing-sherlock-and-sherlock-holmes/) that appeared in proceedings of the Pondicherry Lodge, Vol 1 Issue 1.
