@@ -22,7 +22,7 @@ redirect_from: "/random/booklist/"
   * The Blind Assassin, Margaret Atwood
   * Purple Hibiscus, Chimamanda Ngozi Adichie
   * Jazz, Toni Morrison
-  * The Color Purple, Alice Walker
+  * <del>The Color Purple, Alice Walker</del>
   * Things Fall Apart, Chinua Achebe 
   * The God of Small Things, Arundhati Roy
   * <del>Extremely Loud and Incredibly Close, Jonathan Safran Foer</del>
