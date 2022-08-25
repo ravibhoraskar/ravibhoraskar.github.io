@@ -22,6 +22,6 @@ author:
   last_name: Bhoraskar
 permalink: "/2022/08/25/im-done-with-wordpress/"
 ---
-<p><!-- wp:paragraph --></p>
-<p>The number and size of annoying distracting ads on wordpress has gotten pretty ridiculous. I'm done! Going to move this blog over to Jekyll. Stay tuned for more details.</p>
-<p><!-- /wp:paragraph --></p>
+The number and size of annoying distracting ads on wordpress has gotten pretty ridiculous. I'm done! Going to move this blog over to Jekyll. Stay tuned for more details.
+
+Update: Blog has been moved here: http://ravi.bhoraskar.com/blog.html
