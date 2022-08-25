@@ -11,7 +11,7 @@ highlighter: rouge
 permalink: /blog/:year/:month/:day/:title.html
 
 # Number of news stories on the front page.
-front_page_news: 5 
+front_page_news: 5
 
 # Base pathname for links.
 base: ''
@@ -27,7 +27,7 @@ navigation:
     - title: Random
       link: /random
     - title: Blog
-      link: http://blogbloggityblog.wordpress.com/
+      link: /updates.html
 # Rewriting of old path names.
 redirects:
     People: people.html
@@ -39,4 +39,3 @@ redirects:
 # Addons
 gems:
   - jekyll-redirect-from
-
