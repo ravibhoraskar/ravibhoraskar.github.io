@@ -27,7 +27,7 @@ navigation:
     - title: Random
       link: /random
     - title: Blog
-      link: /updates.html
+      link: /blog
 # Rewriting of old path names.
 redirects:
     People: people.html
