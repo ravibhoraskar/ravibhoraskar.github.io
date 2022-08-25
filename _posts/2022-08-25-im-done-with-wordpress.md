@@ -1,19 +1,9 @@
 ---
 layout: post
 title: I'm done with Wordpress
-date: 2022-08-25 22:30:58.000000000 -07:00
 type: post
-parent_id: '0'
 published: true
-password: ''
 status: publish
-categories: []
-tags: []
-meta:
-  _last_editor_used_jetpack: block-editor
-  wordads_ufa: s:wpcom-ufa-v3-beta:1661447063
-  timeline_notification: '1661446861'
-  _publicize_job_id: '76098093282'
 author:
   login: ravibhoraskar
   email: ravibhoraskar@gmail.com
