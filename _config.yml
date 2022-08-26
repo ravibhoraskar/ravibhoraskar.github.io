@@ -8,7 +8,7 @@ markdown: kramdown
 highlighter: rouge
 
 # The path structure for blog posts.
-permalink: /blog/:year/:month/:day/:title.html
+permalink: /blog/:year/:month/:day/:title
 
 # Number of news stories on the front page.
 front_page_news: 5
