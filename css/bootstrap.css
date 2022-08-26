@@ -4327,6 +4327,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .post {
   font-size: medium;
+  border-bottom: 1px solid #e5e5e5;
 }
 .badge {
   display: inline-block;
