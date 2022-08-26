@@ -4325,6 +4325,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .label-danger[href]:focus {
   background-color: #c9302c;
 }
+.post {
+  font-size: medium;
+}
 .badge {
   display: inline-block;
   min-width: 10px;
