@@ -10,7 +10,6 @@ author:
   display_name: Bhoraskar
   first_name: Ravi
   last_name: Bhoraskar
-permalink: "/2022/08/25/im-done-with-wordpress/"
 ---
 The number and size of annoying distracting ads on wordpress has gotten pretty ridiculous. I'm done! Going to move this blog over to Jekyll. Stay tuned for more details.
 
