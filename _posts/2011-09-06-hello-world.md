@@ -17,6 +17,5 @@ author:
   display_name: Bhoraskar
   first_name: Ravi
   last_name: Bhoraskar
-permalink: "/2011/09/06/hello-world/"
 ---
 Hello. Let's get started.

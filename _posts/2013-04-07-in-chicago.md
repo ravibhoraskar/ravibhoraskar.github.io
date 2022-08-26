@@ -10,7 +10,6 @@ tags:
 - lights
 - stars
 - stories
-permalink: "/2013/04/07/in-chicago/"
 ---
 As I gaze out of my plane window and I watch down, I see the lights of the Chicago night. Cars, skyscrapers, houses — all form these patterns, these constellations, these pictures. Look, isn't that a mother chasing her laughing child around the house? And aren't the lights on the coastline against Lake Michigan's vast empty nothingness somewhat in Lincoln's likeness, as he stares out into the infinite, contemplating about the future of the nation? Are those blinking lights next to the highway transmitting a message in code? Calling the mothership back to take E.T. home? The lights tell stories probably as fascinating and as vivid as the lives of all the people who form them.
 
