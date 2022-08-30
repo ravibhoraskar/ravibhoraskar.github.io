@@ -37,5 +37,5 @@ redirects:
     Main_Page: ''
 
 # Addons
-gems:
+plugins:
   - jekyll-redirect-from
