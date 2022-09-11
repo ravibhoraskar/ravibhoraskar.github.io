@@ -6,7 +6,6 @@ published: true
 status: publish
 author:
   login: ravibhoraskar
-  email: ravibhoraskar@gmail.com
   display_name: Bhoraskar
   first_name: Ravi
   last_name: Bhoraskar
