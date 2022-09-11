@@ -42,3 +42,7 @@ redirects:
 # Addons
 plugins:
   - jekyll-redirect-from
+  - jekyll-feed
+
+feed:
+  path: /blog/blog.xml
