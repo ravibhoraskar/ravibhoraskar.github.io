@@ -1,19 +1,31 @@
 ---
 layout: default
-title: Blog Posts and Updates
 ---
+<table width=100%>
+    <tr>
+        <td>
+            <a href="#" onclick="showMailchimpPopup()">Subscribe to new posts</a>
+        </td>
+        <td>
+            <p align="right">
+                <a href="all.html">See list of all posts</a>
+            </p>
+        </td>
+    </tr>
+</table>
+<h2>Blog Posts and Updates</h2>
 <ul class="news list-unstyled">
-{% for post in site.posts %}
+    {% for post in site.posts %}
     {% if post.shortnews %}
-        <li class="shortnews">
-            <span class="date">{{ post.date | date_to_long_string }}</span>
-            {{ post.content }}
-        </li>
+    <li class="shortnews">
+        <span class="date">{{ post.date | date_to_long_string }}</span>
+        {{ post.content }}
+    </li>
     {% else %}
-        <li class="shortnews">
-            <span class="date">{{ post.date | date_to_long_string }}</span>
-            <a href="{{ post.url }}"> {{ post.title }}</a>
-        </li>
+    <li class="shortnews">
+        <span class="date">{{ post.date | date_to_long_string }}</span>
+        <a href="{{ post.url }}"> {{ post.title }}</a>
+    </li>
     {% endif %}
-{% endfor %}
+    {% endfor %}
 </ul>
