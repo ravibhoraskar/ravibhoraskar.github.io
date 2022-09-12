@@ -1,13 +1,18 @@
 ---
 layout: default
 ---
-<p align="left">
-    <a href="#" onclick="showMailchimpPopup()">Subscribe</a>
-</p>
+<table class="table" width = 100%>
+    <tr>
+        <td>
+            <a href="#" onclick="showMailchimpPopup()">Subscribe</a>
+        </td>
+        <td>
+            <p align="right">
+            <a href="all.html">Click here to see list of all blog posts</a></p>
+        </td>
+    </tr>
+</table>
 
-<p align="right">
-    <a href="all.html">Click here to see list of all blog posts</a>
-</p>
 <ul class="news list-unstyled">
     {% for post in site.posts limit: site.blog_post_count%}
     {% unless post.shortnews %}
