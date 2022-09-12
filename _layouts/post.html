@@ -4,5 +4,21 @@ layout: default
 <p class="meta">{{ page.date | date_to_string }}</p>
 
 <div class="post">
-{{ content }}
+    {{ content }}
+</div>
+<div class="footer">
+    <table width=100%>
+        <tr>
+            <td>
+                <p align="left">
+                    <a href="#" onclick="showMailchimpPopup()">Subscribe to new posts</a>
+                </p>
+            </td>
+            <td>
+                <p align="right">
+                    <a href="{{ site.base }}/blog/all.html">See list of all posts</a>
+                </p>
+            </td>
+        </tr>
+    </table>
 </div>
