@@ -11,7 +11,7 @@ redirect_from: "/random/booklist/"
   * Crime and Punishment, Dostyovesky
   * The Castle, Kafka
   * Odyssey, Homer
-  * True History of the Kelly Gangs, Peter Carey 
+  * True History of the Kelly Gangs, Peter Carey
   * The Plot Against America, Philip Roth
   * Atonement, Ian Mcewan
   * <del>Like Water for Chocolate, Laura Esquivel</del>
@@ -23,7 +23,7 @@ redirect_from: "/random/booklist/"
   * Purple Hibiscus, Chimamanda Ngozi Adichie
   * Jazz, Toni Morrison
   * <del>The Color Purple, Alice Walker</del>
-  * Things Fall Apart, Chinua Achebe 
+  * Things Fall Apart, Chinua Achebe
   * The God of Small Things, Arundhati Roy
   * <del>Extremely Loud and Incredibly Close, Jonathan Safran Foer</del>
   * If on a Winter's Night a Traveler, Italo Calvino
@@ -40,7 +40,7 @@ redirect_from: "/random/booklist/"
   * <del>My Name Is Red, Orhan Pamuk</del>
   * <del>Mother Night, Kurt Vonnegut</del>
   * <del>The Curious Incident of the Dog in the Night-Time, Mark Haddon </del>
-  * Reading Lolita in Tehran, Azar Nafisi
+  * <del>Reading Lolita in Tehran, Azar Nafisi</del>
   * The Mystery of Edwin Drood, Charles Dickens
   * The Turn of the Screw, Henry James
   * The Great Gatsby, F Scott Fitzgerald
