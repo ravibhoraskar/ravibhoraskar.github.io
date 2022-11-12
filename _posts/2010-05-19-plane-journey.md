@@ -4,21 +4,26 @@ title: 'Summer in Beantown: The plane journey'
 author: Ravi
 tags:
 ---
-<p>Whenever I thought about my first solitary foreign trip, I imagined a huge party of
+
+Whenever I thought about my first solitary foreign trip, I imagined a huge party of
     people come to drop me at the airport, plenty of last minute advice and at least one crying woman :P (makes you
     feel that you're not inconsequential). So what happened came as a bit of a surprise. After a wonderful dinner
     with my beloved (the dinner wasn't as wonderful as the company), I took an auto, and set to the airport – all
-    alone.</p>
-<p>To understand what I am about to say, you must answer this trivia question: </p>
-<p>However hungry he might get, a polar bear <b>never</b> eats a penguin. Why not?
+    alone.
+
+To understand what I am about to say, you must answer this trivia question:
+
+However hungry he might get, a polar bear **never** eats a penguin. Why not?
     Well, the answer is that polar bears live on the
     north pole and penguins on the opposite side of the earth. If a polar bear is that hungry, he'll die on the
     way to the south pole before he can eat a penguin. So a polar bear is destined never to taste sweet penguin
     meat (sweet only in the metaphorical sense. I can't vouch for the actual taste of it, never having tasted it
-    – not that I am a polar bear). </p>
-<p>And so as I was saying, I set of to the airport
-    all alone – alone as a penguin on the north pole.</p>
-<p>The moment has come to introduce you to a certain person called Javelin. Not that he
+    – not that I am a polar bear).
+
+And so as I was saying, I set of to the airport
+    all alone – alone as a penguin on the north pole.
+
+The moment has come to introduce you to a certain person called Javelin. Not that he
     needs an introduction. He does not need an introduction, not because he is famous. Of course he isn't. Otherwise
     you would have heard his name, and would have gone, “Ooohh! Javelin! I love that chap. He is the nicest bloke in
     the world!” or something to that effect. But since you didn't – as I knew you wouldn't, I conclude – as I know,
@@ -29,10 +34,11 @@ tags:
     fact that goat meat is indeed delicious (unlike penguin meat, I have had the priviledge to have eaten goat meat,
     and hence the ability to vouch for its taste), it certainly can't write a travel diary once it is eaten. And
     since I am not an egomaniac, I generally do not ramble on and on about myself. However, in this particular case,
-    since you are taking the pains to read <b>my</b> travel diary, I would assume
+    since you are taking the pains to read **my** travel diary, I would assume
     that you are more interested in me than you are in a certain individual called Javelin, or even penguins or
-    bears – howsoever interesting may they be. </p>
-<p>So this certain individual called Javelin had
+    bears – howsoever interesting may they be.
+
+So this certain individual called Javelin had
     predicted right before I left, that my flight would be cancelled due to the dust and ash from the volcano,
     that had disrupted so many flights flying into and out of Europe since the last month. Incidentally, someone
     told me at the airport that the Economy of Europe had suffered a 10% setback, just because of the volcano.
@@ -40,8 +46,9 @@ tags:
     trust these statistics all that much, since statistics are like bikinis. Everyone can wear one, but it looks
     good on only a few. (The smart ones out of you, readers, may already have realised that what I mean to say
     is that out of the gazillions of statistics floating around, like the gazillions of bikini clad women
-    floating around, only a few are true). </p>
-<p>Now this certain individual called Javelin has a
+    floating around, only a few are true).
+
+Now this certain individual called Javelin has a
     reputation to make dark and ominous predictions about all and every thing in the Universe and beyond (he
     happens to be a believer in the muliple-universes theory predicted by Quantum Mechanics). However, in this
     particular case, his prediction turned out to be true. My flight to Amsterdam was canceled. Canceled like a
@@ -60,17 +67,19 @@ tags:
     all? I mean the body of Ravi Bhoraskar would be in Boston, but would Ravi Bhoraskar be in Boston? This
     brings us to the most fundamental question of human existence – what is life? Doctors today say that a
     person is said to be dead when his heart stops beating. However, there are several body functions, like the
-    brain, which go dead <b>before </b>the heart stops beating. Have
+    brain, which go dead **before** the heart stops beating. Have
     you heard of brain dead people? Also, there are several body functions that continue hours after the heart
     has stopped beating. This is what makes organ transplant from dead people possible. I beleive there is no
     concete answer to this fundamental question yet. The doctors among you may beg to differ. Please do. Please
-    let me know.</p>
-<p>The flight to Zurich was a particularly pleasant
+    let me know.
+
+The flight to Zurich was a particularly pleasant
     one. Although I slept through most of it, the general impression was that I was welcome on the flight and
     the air hostesses/stewards were warm and pleasant. The meal was particularly delicious. Hot breadrolls,
-    sausages, an omlette, and mashed potatoes. </p>
-<p>I reached Zurich soon enough. Since I had plenty
-    of hours to go, I decided that I wanted to see the whole airport. Ghenghiz Khan wanted to <i>conquer</i> the whole
+    sausages, an omlette, and mashed potatoes.
+
+I reached Zurich soon enough. Since I had plenty
+    of hours to go, I decided that I wanted to see the whole airport. Ghenghiz Khan wanted to *conquer* the whole
     world, but my aim was
     decidedly more modest. So I roamed around
     for a bit in the terminal I was in, tried connecting to the wi-fi (which turned out to be not free. I
@@ -84,14 +93,17 @@ tags:
     you could see a green tree covered hill, sitting beneath a sky as blue as Paris Hilton's make-up. The
     airport was sitting in the midst of several such hills, and looked as pretty as pretty can be. I realize
     the futility of my trying to describe the scene in words, as I understand the wisdom of the sages who
-    once said that a picture speaks more than a thousand words. </p>
-<p>After a nap, I
+    once said that a picture speaks more than a thousand words.
+
+After a nap, I
     got on to the Delta Airlines flight to New York. The plane was much smaller than the swiss airlines
     plane, and was mostly empty too. Also, there were no personal TV screens. Just a big central screen.
     Like a video coach bus. Have you ever been on one? The food was not as good as that on Swiss Airlines,
     and me being on one of the last seats of the plane, the chicken was over by the time the steward reached
     me, and I had to make do with some vegetarian pasta. But like another great sage once said : such is
     life dearies. An advantage, though, of the plane being empty was that I got a seat meant for 3 all to
-    myself, and I could lie down and sleep. </p>
-<p>Soon the 8.5 hours journey was over, and I was at John F Kennedy airport, New York.</p>
-<p>More later. Bye</p>
+    myself, and I could lie down and sleep.
+
+Soon the 8.5 hours journey was over, and I was at John F Kennedy airport, New York.
+
+More later. Bye
