@@ -3,7 +3,7 @@ layout: default
 title: "Criteria for baby names (Dickensian)"
 ---
 
-**I asked [ChatGPT](https://chat.openai.com/chat) to make my [criteria for baby names]({% post_url 2022-08-25-criteria-for-baby-names %}). Here is what it came up with.**
+*I asked [ChatGPT](https://chat.openai.com/chat) to make my [criteria for baby names]({% post_url 2022-08-25-criteria-for-baby-names %}). Here is what it came up with.*
 
 Manasi and I have been deliberating over the names we should bestow upon our dear daughter. I thought that articulating the principles that guide our decision might help us arrive at a satisfactory choice. These are not meant to be a strict set of criteria, but rather a codification of my personal preferences. They are roughly ordered in terms of their importance (e.g. having a name that is easily pronounced is of greater concern to me than having a name with two syllables). We welcome feedback, comments, and name suggestions, which may be submitted using [this form](https://forms.gle/YT59sDZF2tQ4aDXg8). Thank you for your kind assistance.
 
