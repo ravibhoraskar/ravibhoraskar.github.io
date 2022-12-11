@@ -17,32 +17,33 @@ front_page_news: 8
 blog_post_count: 50
 
 # Base pathname for links.
-base: ''
+base: ""
 
 # Navigation bar links.
 navigation:
-    - title: Home
-      link: /
-    - title: CV
-      link: /CV.pdf
-    - title: Publications
-      link: /publications.html
-    - title: Random
-      link: /random
-    - title: Blog
-      link: /blog
+  - title: Home
+    link: /
+  - title: CV
+    link: /CV.pdf
+  - title: Publications
+    link: /publications.html
+  - title: Random
+    link: /random
+  - title: Blog
+    link: /blog
 # Rewriting of old path names.
 redirects:
-    People: people.html
-    Projects: research/
-    Publications: publications.html
-    Funding: ''
-    Main_Page: ''
+  People: people.html
+  Projects: research/
+  Publications: publications.html
+  Funding: ""
+  Main_Page: ""
 
 # Addons
 plugins:
   - jekyll-redirect-from
   - jekyll-feed
+  - jekyll-katex
 
 feed:
   path: /blog/blog.xml
