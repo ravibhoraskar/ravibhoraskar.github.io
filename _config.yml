@@ -47,3 +47,6 @@ plugins:
 
 feed:
   path: /blog/blog.xml
+
+kramdown:
+  math_engine: katex
