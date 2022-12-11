@@ -43,7 +43,6 @@ redirects:
 plugins:
   - jekyll-redirect-from
   - jekyll-feed
-  - jekyll-katex
 
 feed:
   path: /blog/blog.xml
