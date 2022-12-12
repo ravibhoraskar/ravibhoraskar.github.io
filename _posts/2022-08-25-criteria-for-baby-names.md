@@ -27,5 +27,3 @@ Manasi and I have been thinking through names to give our daughter. I thought th
   - e.g. prefer Kunal to Krunal; prefer Katie to Kassiani
   - This also helps somewhat with internet anonymity, which is a good thing in the modern world
 - Prefer names with some ethnic ambiguity - e.g. Tanya or Nina could be Indian or Russian
-
-$$ \mathcal{A} = \{U,D\} $$
