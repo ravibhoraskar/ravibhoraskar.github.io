@@ -2,7 +2,6 @@
 layout: post
 title: Should I put the toilet seat down?
 type: post
-published: false
 ---
 
 _co-written with [Aditya Deshmukh](https://scholar.google.com/citations?hl=en&user=pd3lkmUAAAAJ)_
