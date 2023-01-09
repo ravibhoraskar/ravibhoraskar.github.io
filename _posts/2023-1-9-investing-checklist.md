@@ -3,6 +3,7 @@ layout: post
 title: Beginning of year investing checklist
 type: post
 published: true
+date: 2023-1-9 13:00 -0800
 ---
 
 The beginning of a new year is a good time to contribute to tax-advantaged investment acounts, since these often have an annual contribution limit that you might have already exhausted for the prior year. Here's my checklist. Would love to hear more about other things that you do as well
