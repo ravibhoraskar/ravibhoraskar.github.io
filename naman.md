@@ -4,7 +4,7 @@ title: San Francisco Tourism for Naman and Aditi
 type: post
 ---
 
-# Touristy spots
+# Tourist spots
 
 ## Golden Gate Bridge
 The best way to experience the bridge is to cross it on bikes. Rent from Sports Basement in the Presidio, or from one of the many places near fisherman's wharf. Bike across the bridge, get a coffee or lunch in Sausolito, and take the Ferry back, bringing the bikes with you
