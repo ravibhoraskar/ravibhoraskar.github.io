@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SF Tourism for Naman and Aditi
+title: San Francisco Tourism for Naman and Aditi
 type: post
 ---
 
