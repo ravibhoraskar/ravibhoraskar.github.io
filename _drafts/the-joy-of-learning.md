@@ -29,7 +29,8 @@ effectively teach her junior doctors. Always a fan of listening
 to Hindustani classical music, she started learning to sing
 it in this last decade. With a scientific approach to cooking,
 she's never satisfied till she's tinkered with a recipe to
-perfection, and made it her own.
+perfection, and made it her own. These days she is training to
+be a Yoga teacher.
 
 Growing up, my brother and I were always enrolled in some
 class or the other: music, arts --- I often joke that I've
