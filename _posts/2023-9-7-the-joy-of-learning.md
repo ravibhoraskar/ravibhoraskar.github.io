@@ -15,14 +15,6 @@ eventually getting a private tutor all through his 70s and 80s.
 He was so proud to be able to send emails to brag about his
 grandkids' accomplishments!
 
-When he was about 50 years old, my father discovered fitness.
-He quit smoking, learned how to swim, developed a
-gym routine, and started a diet. Over the years, he also
-developed a love for climing mountains, and spends some time
-every summer in the Himalayas. More recently, long distance
-running has been his passion, and a couple marathons have been
-added to the annual calendar.
-
 My mother joined a class at the local university to learn how
 to use PowerPoint, so that she could make slides to more
 effectively teach her junior doctors. Always a fan of listening
@@ -31,6 +23,14 @@ it in this last decade. With a scientific approach to cooking,
 she's never satisfied till she's tinkered with a recipe to
 perfection, and made it her own. These days she is training to
 be a Yoga teacher.
+
+When he was about 50 years old, my father discovered fitness.
+He quit smoking, learned how to swim, developed a
+gym routine, and started a diet. Over the years, he also
+developed a love for climing mountains, and spends some time
+every summer in the Himalayas. More recently, long distance
+running has been his passion, and a couple marathons have been
+added to the annual calendar.
 
 Growing up, my brother and I were always enrolled in some
 class or the other: music, arts --- I often joke that I've
