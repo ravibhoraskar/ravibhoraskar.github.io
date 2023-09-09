@@ -2,6 +2,7 @@
 layout: post
 title: The Joy of Learning
 type: post
+date: 2023-9-8 15:00 -0800
 ---
 In today's parenting class our teacher Nancy asked us about values
 that our family had growing up. Thinking back to my childhood, one
