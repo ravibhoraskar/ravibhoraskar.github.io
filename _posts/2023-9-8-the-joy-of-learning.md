@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Joy of Learning
+title: The Love of Learning
 type: post
 date: 2023-9-8 15:00 -0800
 ---
