@@ -21,5 +21,8 @@ Cool things in Japan
 - When you go to a fare refill machine after attempting to tag out with insufficient fare, the machine remembers the exact amount to just exit
 - In neighbourhoods, narrow streets: no street parking, no bike lanes, no trees, no sidewalks. No cars, so actually pretty pleasant. Also leads to more compact city, great for walkability
 - No smoking outdoors, only indoors (in smoking rooms)
+- Nursing rooms
 - Train melody
 - Pedestrian scramble, no need to wait to cross twice
+- Eki stamp
+- Lost & Found experience
