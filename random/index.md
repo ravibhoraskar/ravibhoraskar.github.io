@@ -7,7 +7,7 @@ Just a collection of random objects under the sun, in the ocean, and within the 
 ### Music
 - [Khushboo ki tarah aaya](https://www.youtube.com/watch?v=fjgsUlP9vbE). Composed a tune for Dr. Bashir Badr's ghazal.
 
-- [Ridin' in San Francisco](https://www.youtube.com/watch?v=GaQjLvimDmA). Anand and I made a tune about a bike ride in the city.
+- [Ridin' in San Francisco](https://www.youtube.com/watch?v=GaQjLvimDmA). [Anand](https://anand.bhoraskar.com/) and I made a tune about a bike ride in the city.
 
 - [Bhairav Beatz](https://www.youtube.com/watch?v=D-IffeukZyA). Simple phrases in Raag Bhairav sung to hip-hop beats makes ambient music.
 
