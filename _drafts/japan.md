@@ -33,6 +33,11 @@ willingly agree to be exposed to cigarette smoke gets exposed to cigarette
 smoke, including people outdoors going about their day.
 
 ### Urban Streets
+<img
+    style="float:right; margin: 1em;"
+    src="{{ site.baseurl }}/assets/asakusa.jpg"
+    width="200"
+/>
 
 
 - Transit and walkability
