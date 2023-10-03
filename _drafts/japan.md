@@ -32,13 +32,21 @@ designated smoking areas with fans and vents to make sure nobody who didn't
 willingly agree to be exposed to cigarette smoke gets exposed to cigarette
 smoke, including people outdoors going about their day.
 
-### Urban Streets
+### Street Design
 <img
-    style="float:right; margin: 1em;"
+    style="float:left; margin: 1em;"
     src="{{ site.baseurl }}/assets/asakusa.jpg"
     width="200"
 />
-
+The typical neighborhood street in Tokyo was significantly more compact than the
+ones in San Francisco. No street parking, no sidewalks, no trees, no bike lanes.
+Pedestrians, bicyclists, and cars share the same space. Walking actually felt a
+lot more pleasant than you'd think, because cars were few and far between (more
+on arterials and highways), and going at a pretty slow speed thanks to the
+urban form. The main positive effect for walking is that with buildings being
+closer to each other, everything is more compact, and you normally need to walk
+less to get to your destination, even compared to a dense American city than San
+Francisco.
 
 - Transit and walkability
 - Public restrooms available everywhere and clean
