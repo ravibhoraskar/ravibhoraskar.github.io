@@ -10,15 +10,29 @@ amenities and focus on everyday convenience means that quality of life felt
 significantly better. Here are some cool things I saw there
 
 ### Baby infrastructure
+<img
+    style="float:right; margin: 1em;"
+    src="{{ site.baseurl }}/assets/baby-room.gif"
+    width="150"
+/>
 Traveling with a young baby meant frequent breaks to feed and change diapers. I
-was blown away by the abundance and quality of changing tables and nursing
-rooms. The nursing rooms had air conditioning, a bottle warmer, a set to put the
-baby in to bottle feed, and a comfy lounge chair to breastfeed. In Tokyo, we
-generally found one at no more than a 10 minute walk from wherever we were,
-![Baby Room]({{ site.baseurl }}/assets/baby-room.gif "Baby Room"){: width="300" }
+was blown away by the abundance of well stocked baby rooms. The nursing rooms had
+air conditioning, a bottle warmer, a seat to put the baby to bottle feed,
+changing tables, and a comfy lounge chair to breastfeed. In Tokyo, we generally
+found one at no more than a 10 minute walk from wherever we were, and the
+[Mamapapamap App](
+    https://apps.apple.com/us/app/mamapapamap-nursing-room-map/id1117756080)
+made them super easy to find too.
 
+### Smoking
+In America, smoking indoors is generally disallowed, but smoking outdoors is
+okay. In Japan, it is the opposite —-- I rarely came across people smoking
+outdoors, but routinely found them smoking inside. Weird? Not really. There are
+designated smoking areas with fans and vents to make sure nobody who didn't
+willingly agree to be exposed to cigarette smoke gets exposed to cigarette
+smoke, including people outdoors going about their day.
 
-
+### Urban Streets
 
 
 - Transit and walkability
