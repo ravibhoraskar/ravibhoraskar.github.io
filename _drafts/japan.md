@@ -41,12 +41,18 @@ smoke, including people outdoors going about their day.
 The typical neighborhood street in Tokyo was significantly more compact than the
 ones in San Francisco. No street parking, no sidewalks, no trees, no bike lanes.
 Pedestrians, bicyclists, and cars share the same space. Walking actually felt a
-lot more pleasant than you'd think, because cars were few and far between (more
-on arterials and highways), and going at a pretty slow speed thanks to the
+lot more pleasant than you'd think, because cars were few and far between (most
+are on arterials and highways), and going at a pretty slow speed thanks to the
 urban form. The main positive effect for walking is that with buildings being
-closer to each other, everything is more compact, and you normally need to walk
-less to get to your destination, even compared to a dense American city than San
+closer to each other, everything is more compact, and you typically need to walk
+less to get to your destination, even compared to a dense American city like San
 Francisco.
+
+### Trains
+Tokyo is known to have the best urban rail network in the world, and it was
+a pleasure to experience it in person. The trains were frequent and comfortable,
+the stations were clean and modern, the wayfinding was intuitive. Here are some
+
 
 - Transit and walkability
 - Public restrooms available everywhere and clean
