@@ -26,7 +26,7 @@ made them super easy to find too.
 
 ## Trains
 <img
-    style="float:right; padding: 1em;"
+    style="float:left; padding: 1em;"
     src="{{ site.baseurl }}/assets/tanya-train.jpg"
     width="270"
 />
@@ -40,7 +40,7 @@ little more delightful
 - I had a lot of fun collecting eki-stamps --- colllectible rubber stamps unique
 to each station. Another thing that added delight to train travel
 <img
-    style="float:left; padding: 1em;"
+    style="float:right; padding: 1em;"
     src="{{ site.baseurl }}/assets/minami-kurihashi.jpg"
     width="300"
 />
