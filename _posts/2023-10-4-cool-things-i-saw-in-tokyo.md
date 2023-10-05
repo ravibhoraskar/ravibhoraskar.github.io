@@ -2,7 +2,7 @@
 layout: post
 title: Cool things I saw in Tokyo
 type: post
-date: 2023-10-4 19:00 -0800
+date: 2023-10-4 15:00 -0800
 ---
 
 Visiting Japan from the US for the first time felt similar to visiting the US
