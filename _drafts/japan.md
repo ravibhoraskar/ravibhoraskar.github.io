@@ -24,6 +24,15 @@ the [Mamapapamap App](
     https://apps.apple.com/us/app/mamapapamap-nursing-room-map/id1117756080)
 made them super easy to find too.
 
+## Order and Calm
+Despite being constantly surrounded by people, Tokyo always felt calm and
+orderly. Tokyo station and the streets of Shibuya were some of the most crowded
+places I've been to, and yet they never felt overwhelming. People
+walked on the left side, car drivers respected pedestrian right of way,
+sidewalks were wide. The hike up Mount Takao felt peaceful despite being pretty
+busy. I give credit to great infrastructure, as well as a culture of being
+respectful of others
+
 ## Street Design
 <img
     style="float:left; padding: 1em;"
@@ -83,12 +92,3 @@ outdoors but routinely found them smoking inside. Weird? Not really. There are
 designated smoking areas with fans and vents to make sure nobody who didn't
 willingly agree to be exposed to cigarette smoke gets exposed to cigarette
 smoke, including people outdoors going about their day.
-
-## Order and Calm
-Despite being constantly surrounded by people, Tokyo always felt calm and
-orderly. Tokyo station and the streets of Shibuya were some of the most crowded
-places I've been to, and yet they never felt overwhelming. People
-walked on the left side, car drivers respected pedestrian right of way,
-sidewalks were wide. The hike up Mount Takao felt peaceful despite being pretty
-busy. I give credit to great infrastructure, as well as a culture of being
-respectful of others
