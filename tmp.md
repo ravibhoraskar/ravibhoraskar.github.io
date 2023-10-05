@@ -24,14 +24,6 @@ the [Mamapapamap App](
     https://apps.apple.com/us/app/mamapapamap-nursing-room-map/id1117756080)
 made them super easy to find too.
 
-## Smoking
-In America, smoking indoors is generally disallowed, but smoking outdoors is
-okay. In Japan, it is the opposite --- I rarely came across people smoking
-outdoors but routinely found them smoking inside. Weird? Not really. There are
-designated smoking areas with fans and vents to make sure nobody who didn't
-willingly agree to be exposed to cigarette smoke gets exposed to cigarette
-smoke, including people outdoors going about their day.
-
 ## Street Design
 <img
     style="float:left; padding: 1em;"
@@ -84,6 +76,13 @@ need to refill the balance, the machine remembers your tap and gives you an
 option to refill with just the right amount, leaving your balance zero after
 this trip
 
+## Smoking
+In America, smoking indoors is generally disallowed, but smoking outdoors is
+okay. In Japan, it is the opposite --- I rarely came across people smoking
+outdoors but routinely found them smoking inside. Weird? Not really. There are
+designated smoking areas with fans and vents to make sure nobody who didn't
+willingly agree to be exposed to cigarette smoke gets exposed to cigarette
+smoke, including people outdoors going about their day.
 
 ## Order and Calm
 Despite being constantly surrounded by people, Tokyo always felt calm and
