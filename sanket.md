@@ -4,7 +4,7 @@ title: San Francisco Guide for Sanket
 type: post
 ---
 
- # Choosing a Neighbourhood
+# Choosing a Neighbourhood
 San Francisco is a city of neighbourhoods, with a pretty different vibe and
 lifestyle despite being not too far apart. The neighbourhood you live in will
 have a profound impact on your experience living here. Manasi and I had the
