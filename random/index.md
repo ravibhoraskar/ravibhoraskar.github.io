@@ -13,7 +13,7 @@ Just a collection of random objects under the sun, in the ocean, and within the 
 
 ### Miscellany
 
-- [Onjal](https://onjal.github.io/): Connected stories. My wife Manasi and I write alternate stories. The last sentence of the preceding story becomes the first sentence of the next one.
+- [Onjal](https://onjal.github.io/): Connected stories. My wife [Manasi](https://manasiraje.github.io/) and I write alternate stories. The last sentence of the preceding story becomes the first sentence of the next one.
 
 - A [minesweeper](/Minesweeper) implementation that [Antariksh](http://www.antarikshbothale.com/) and I built together.
 
