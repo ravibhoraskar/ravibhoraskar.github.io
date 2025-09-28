@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Absence of fare gates makes great transit
+title: Fare Gates Are Overrated
 type: post
 date: 2025-9-28
 ---
