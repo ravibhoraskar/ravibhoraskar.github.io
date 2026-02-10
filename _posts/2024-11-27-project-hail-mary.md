@@ -17,7 +17,7 @@ well.
 
 Modern media generally takes a fairly cynical view of humanity. In
 [_Don't look up (2021)_](https://en.wikipedia.org/wiki/Don%27t_Look_Up), a comet
-threatens to destroy the planet. In an allegory for our collective in action on
+threatens to destroy the planet. In an allegory for our collective inaction on
 climate change, mankind does nothing and earth is destroyed.
 _Project Hail Mary_ is far more optimistic.  In the book,
 all the world powers come together to work on a megaproject to save
