@@ -1,0 +1,44 @@
+---
+layout: default
+title: Home
+notitle: true
+---
+
+<div class="span4 clearfix">
+  <img class="pull-right" src="img/ravi.png" width=28%/>
+  <div class="paragraph">
+    Ravi Bhoraskar is not a penguin. He is a software Engineer at Facebook, and a graduate
+    student on leave from the Computer Science
+    department at the University of Washington. <s>One day, he shall return &mdash; a prodigal son &mdash; and finish his PhD.</s>
+    Although he is interested in
+    everything that exists in the universe, he currently focuses on mobile
+    systems, and is driven by a strong desire to learn everything there is to learn about
+    Android, to help make mobile
+    apps suck less. He enjoys solving puzzles, playing racquet sports,
+    and <a href="http://www.jabberwocky.com/carroll/jabber/jabberwocky.html">gyring and gimbling</a> in the wabe with the slithy
+    toves and mimsy borogoves.
+  </div>
+
+
+<h3>Contact</h3>
+&lt;firstname&gt;&lt;lastname&gt;@gmail.com
+
+<h3>Blog Posts and Updates</h3>
+<ul class="news list-unstyled">
+{% for post in site.posts limit: site.front_page_news %}
+    {% if post.shortnews %}
+        <li class="shortnews">
+            <span class="date">{{ post.date | date_to_long_string }}</span>
+            {{ post.content }}
+        </li>
+    {% else %}
+        <li class="shortnews">
+            <span class="date">{{ post.date | date_to_long_string }}</span>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+        </li>
+    {% endif %}
+{% endfor %}
+</ul>
+{% assign numposts = site.posts | size %}
+<p><a href="{{ site.base }}/blog/all.html">See More&hellip;</a></p>
+</div>

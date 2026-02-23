@@ -1,5 +1,6 @@
-#!/usr/bin/env python3
 import sys
+reload(sys)  
+sys.setdefaultencoding('utf8')
 from pybtex.database.input import bibtex
 import jinja2
 import jinja2.sandbox
@@ -13,10 +14,9 @@ _months = {
 }
 
 papersdir='papers'
-staticpapersdir='static/papers'  # For checking file existence
 
 def _author_fmt(author):
-    return ' '.join(author.first() + author.middle() + author.last())
+    return u' '.join(author.first() + author.middle() + author.last())
 
 def _andlist(ss, sep=', ', seplast=', and ', septwo=' and '):
     if len(ss) <= 1:
@@ -27,7 +27,7 @@ def _andlist(ss, sep=', ', seplast=', and ', septwo=' and '):
         return sep.join(ss[:-1]) + seplast + ss[-1]
 
 def _author_list(authors):
-    return _andlist(list(map(_author_fmt, authors)))
+    return _andlist(map(_author_fmt, authors))
 
 def _venue_type(entry):
     venuetype = ''
@@ -73,22 +73,23 @@ def _title(entry):
         title = entry.fields['title']
 
     # remove curlies from titles -- useful in TeX, not here
-    title = title.translate(str.maketrans('', '', '{}'))
+    title = title.translate(None, '{}')
     return title
 
 def _main_url(entry):
     urlfields = ('url', 'ee')
-    # URL path to use in HTML (absolute from site root)
-    defaultpath = '/' + papersdir + '/' + entry.fields['key'] + '.pdf'
-    # Actual file path to check existence
-    staticpath = staticpapersdir + '/' + entry.fields['key'] + '.pdf'
+    defaultpath=papersdir+'/'+entry.fields['key']+'.pdf'
+    #print(os.getcwd())
+    #print(entry)
     for f in urlfields:
         if f in entry.fields:
             return entry.fields[f]
-    # Check if PDF file exists in static folder
-    if os.path.isfile(staticpath):
-        return defaultpath
-    return None
+        elif os.path.isfile(defaultpath):
+            #print("returning")
+            return defaultpath
+        else:
+            #print("nope "+defaultpath)
+            return None
 
 def _extra_urls(entry):
     """Returns a dict of URL types to URLs, e.g.
@@ -96,7 +97,7 @@ def _extra_urls(entry):
           ... }
     """
     urls = {}
-    for k, v in entry.fields.items():
+    for k, v in entry.fields.iteritems():
         if not k.endswith('_url'):
             continue
         k = k[:-4]
@@ -150,7 +151,7 @@ def main(bibfile, template):
     # Render the template.
     bib_sorted = sorted(db.entries.values(), key=_sortkey, reverse=True)
     out = tmpl.render(entries=bib_sorted)
-    print(out)
+    print out
 
 if __name__ == '__main__':
     main(*sys.argv[1:])

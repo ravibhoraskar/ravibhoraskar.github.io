@@ -1,70 +1,40 @@
-PYTHON=venv/bin/python
+PYTHON=python2.7
 
 # targets that aren't filenames
-.PHONY: all clean deploy serve
+.PHONY: all clean deploy
 
-all: static/bib/pubs.bib content/publications.md
+all: bib/pubs.bib _site/index.html
 
 BUILDARGS :=
+_site/index.html:
+	bundle exec jekyll build $(BUILDARGS)
 
-# Build the site
-public/index.html: content/publications.md
-	hugo $(BUILDARGS)
-
-# Build the publication files - generate into a temp directory, then assemble
-generated/cspubs.html: bib/cspubs.bib bib/publications.tmpl
-	mkdir -p generated
+#Build the publication files to include in publications.html
+_includes/cspubs.html: bib/cspubs.bib bib/publications.tmpl
+	mkdir -p _includes
 	$(PYTHON) bibble/bibble.py $+ > $@
 
-generated/patentpubs.html: bib/patentpubs.bib bib/publications.tmpl
-	mkdir -p generated
+_includes/patentpubs.html: bib/patentpubs.bib bib/publications.tmpl
+	mkdir -p _includes
 	$(PYTHON) bibble/bibble.py $+ > $@
 
-generated/posterpubs.html: bib/posterpubs.bib bib/publications.tmpl
-	mkdir -p generated
+_includes/posterpubs.html: bib/posterpubs.bib bib/publications.tmpl
+	mkdir -p _includes
 	$(PYTHON) bibble/bibble.py $+ > $@
 
-generated/otherpubs.html: bib/otherpubs.bib bib/publications.tmpl
-	mkdir -p generated
+_includes/otherpubs.html: bib/otherpubs.bib bib/publications.tmpl
+	mkdir -p _includes
 	$(PYTHON) bibble/bibble.py $+ > $@
 
 # Concatenate the bibtex files together to get a single bibtex file to download
-static/bib/pubs.bib: bib/cspubs.bib bib/patentpubs.bib bib/posterpubs.bib bib/otherpubs.bib
-	mkdir -p static/bib
+bib/pubs.bib: bib/cspubs.bib bib/patentpubs.bib bib/posterpubs.bib bib/otherpubs.bib
 	cat $+ > $@
 
-# Assemble the publications page from generated HTML snippets
-content/publications.md: generated/cspubs.html generated/patentpubs.html generated/posterpubs.html generated/otherpubs.html
-	@echo '---' > $@
-	@echo 'title: Publications' >> $@
-	@echo '---' >> $@
-	@echo '' >> $@
-	@echo '<p>' >> $@
-	@echo '<a href="/bib/pubs.bib">Download BibTeX.</a>' >> $@
-	@echo '</p>' >> $@
-	@echo '' >> $@
-	@echo '<h2> Peer-reviewed Conference and Workshop Publications</h2>' >> $@
-	@echo '' >> $@
-	@cat generated/cspubs.html >> $@
-	@echo '' >> $@
-	@echo '<h2> Patents </h2>' >> $@
-	@echo '' >> $@
-	@cat generated/patentpubs.html >> $@
-	@echo '' >> $@
-	@echo '<h2> Posters and Short Publications</h2>' >> $@
-	@echo '' >> $@
-	@cat generated/posterpubs.html >> $@
-	@echo '' >> $@
-	@echo '<h2> Other Publications</h2>' >> $@
-	@echo '' >> $@
-	@cat generated/otherpubs.html >> $@
+_site/index.html: $(wildcard *.html) _includes/cspubs.html _includes/patentpubs.html _includes/posterpubs.html _includes/otherpubs.html _config.yml \
+	_layouts/default.html
 
 clean:
-	$(RM) -r public generated content/publications.md
-
-serve: all
-	hugo serve
+	$(RM) -r _site _includes/*pubs.html
 
 deploy: clean all
-	hugo
 	git commit -m "Makefile auto commit: "`date`

@@ -1,86 +1,68 @@
 Ravi's website
 ===================
 
-This site uses [Hugo](https://gohugo.io/) and [bibble](https://github.com/sampsyo/bibble) to generate a static website
-complete with publications. It uses [Bootstrap](https://github.com/twbs/bootstrap) to make things pretty. Credits to the
-[SAMPA website](http://sampa.cs.washington.edu/) off which the original Jekyll version was cloned.
+This site uses [Jekyll](https://github.com/jekyll/jekyll) and [bibble](https://github.com/sampsyo/bibble) to generate a static website
+complete with publications. It uses [Bootstrap](https://github.com/twbs/bootstrap) to make things pretty. Credits to the 
+[SAMPA website](http://sampa.cs.washington.edu/) off which this was cloned. 
 
 
 Editing
 -------
 
 Most pages are just Markdown or HTML files that you can edit directly. News is
-generated from content/blog.
+generated from _posts.
+
+Try editing directly in GitHub! It's like magic.
 
 
 News Items and Blog Posts
 -------------------------
 
-For both long-form blog posts and short news updates, we use Hugo's content system. To post a new item of either type, you create a file in the `content/blog` directory using the naming convention `title-for-url.md`.
+For both long-form blog posts and short news updates, we use Jekyll's blogging system. To post a new item of either type, you create a file in the _posts directory using the naming convention `YYYY-MM-DD-title-for-url.md`. The date part of the filename always matters; the title part is currently only used for full blog posts (but is still required for news updates).
 
 The file must begin with [YAML front matter][yfm]. For news updates, use this:
 
     ---
-    title: "Short news title"
-    date: "YYYY-MM-DD"
+    layout: post
     shortnews: true
     ---
 
 For full blog posts, use this format:
 
     ---
-    title: "Some Great Title Here"
-    date: "YYYY-MM-DD"
+    layout: post
+    title:  "Some Great Title Here"
     ---
 
 And concoct a page title for your post. The body of the post goes after the `---` in either case.
 
-[yfm]: https://gohugo.io/content-management/front-matter/
+[yfm]: http://jekyllrb.com/docs/frontmatter/
 
 Bibliography
 ----------------------
-The publications page is generated using pybtex. It reads the .bib files in the `bib/` directory and generates HTML tables for each publication category. The URL to the paper is read from the bibtex if it exists, and the default location (`static/papers/{key}.pdf`) is scanned for a PDF otherwise. To change the default location, edit the `papersdir` and `staticpapersdir` variables in `bibble/bibble.py`.
+pubs.html is generated using pybtex. It reads pubs.bib and generates the list of
+publications in chronological order. The URL to the paper is read from the bibtex
+if it exists, and the default location is scanned for a PDF otherwise. To change
+the default location, change the 'papersdir' variable in bibble/bibble.py
 
 Building and Deploying
 ----------------------
 
 The requirements for building the site are:
 
-* [Hugo][]: Install via `brew install hugo` (macOS) or see [Hugo installation docs](https://gohugo.io/installation/)
-* [Pybtex][]: Included in the Python virtual environment
-* [bibble][]: included in the repo (`bibble/`), tweaked for Python 3
+* [Jekyll][]: run `gem install jekyll`
+* [Pybtex][]: run `pip install pybtex`
+* [bibble][]: included in the repo, and tweaked slightly
 
-### Initial Setup
+`make` compiles the bibliography and the website content to the `_site`
+directory. To preview the site, run `jekyll serve`` and head to
+http://0.0.0.0:4000.
 
-Create and activate the Python virtual environment (one-time setup):
+To upload a new version of the site via rsync over ssh, type `make deploy`. A web hook does this automatically when you push to GitHub.
 
-```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install pybtex jinja2
-```
+If you use an alternative Python when building the bibliography, use `make
+PYTHON=/path/to/python`.
 
-### Building
-
-`make all` generates the publications page from the bib files and creates the combined bibtex download file.
-
-`make serve` runs `make all` then starts the Hugo development server. Preview the site at http://localhost:1313.
-
-`hugo` compiles the website content to the `public` directory.
-
-### Deployment
-
-`make deploy` cleans, rebuilds everything, and commits.
-
-To build for production:
-
-```bash
-make all
-hugo
-```
-
-The generated site will be in the `public/` directory.
-
-[Hugo]: https://gohugo.io/
+[Jekyll]: http://jekyllrb.com/
 [bibble]: https://github.com/sampsyo/bibble/
-[pybtex]: https://pybtex.org/
+[pybtex]: http://pybtex.sourceforge.net
