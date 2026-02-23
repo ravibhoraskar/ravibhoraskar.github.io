@@ -1,0 +1,12 @@
+{{ define "main" }}
+{{ if not .Params.notitle }}
+<h2>{{ .Title }}</h2>
+{{ end }}
+{{ .Content }}
+
+{{ range .Pages }}
+<article>
+    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+</article>
+{{ end }}
+{{ end }}

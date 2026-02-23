@@ -1,0 +1,47 @@
+baseURL = 'https://ravibhoraskar.github.io/'
+languageCode = 'en-us'
+title = 'Ravi Bhoraskar'
+
+# Permalink structure to match Jekyll
+[permalinks]
+  [permalinks.page]
+    blog = '/blog/:year/:month/:day/:filename/'
+
+# Custom params
+[params]
+  frontPageNews = 13
+  blogPostCount = 50
+
+# Navigation menu
+[[menus.main]]
+  name = 'Home'
+  pageRef = '/'
+  weight = 10
+
+[[menus.main]]
+  name = 'CV'
+  url = '/CV.pdf'
+  weight = 20
+
+[[menus.main]]
+  name = 'Publications'
+  pageRef = '/publications'
+  weight = 30
+
+[[menus.main]]
+  name = 'Random'
+  pageRef = '/random'
+  weight = 40
+
+[[menus.main]]
+  name = 'Blog'
+  pageRef = '/blog'
+  weight = 50
+
+# Markdown settings
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = 'monokai'

@@ -1,0 +1,120 @@
+---
+title: "A week in Kaua'i"
+date: "2022-05-13"
+---
+<p>Manasi and I wanted to take a long vacation before she started her new job, and since I still hadn't taken my
+    one-month recharge break. Planning a one-month break is hard, though, and as Manasi's job start date loomed, we
+    ended up spending a week on the Hawaiian island of Kaua'i instead. Sharing some vignettes from the trip.</p>
+<p>Basic economy flight meant we didn't get to pick seats but were sat next to each other across the aisle anyway. Nice!
+    The Lihue airport reminded me of Long Beach — LGB is a secondary airport in LA, just like how LGA is in New York.
+    Ha! Rental car was a Kia Forte, I was hoping for a Kia Soul (so cute!) but oh well. Maybe I should've just asked.
+</p>
+<p>
+<figure class="wp-block-image alignleft size-large is-resized is-style-default"><img style="float:right; margin: 2em;"
+        src="/assets/2022/05/img_6576.jpeg?w=768" alt="" class="wp-image-226" width="239"
+        height="318" /></figure>
+Nicer hotel than expected. Manasi booked a condo on Airbnb, and we were expecting a flat, but this turned out to be a
+resort instead. It was a timeshare that was being sublet, which these days just means hotel apparently. How they're
+able to make money renting it out is a mystery, though. Shouldn't the resort company be able to undercut the
+timeshare “owner” and pocket whatever cut the owner and AirBnB are making? Guess this isn't an Economics 101 perfect
+market. 🤷‍♂️</p>
+<p>
+<figure class="wp-block-image alignright size-large is-resized"><img style="float:right; margin: 2em;"
+        src="/assets/2022/05/img_6597.jpeg?w=768" alt="" class="wp-image-228" width="184"
+        height="244" /></figure>
+<figure class="wp-block-image alignleft size-large is-resized"><img style="float:left; margin: 2em;"
+        src="/assets/2022/05/img_9333.jpeg?w=1024" alt="" class="wp-image-234" width="248"
+        height="185" /></figure>
+Waimea Canyon is called the Grand Canyon of the pacific, and was pretty! Red soil, deep gorges and valleys with a
+river running through them. It was striking how the leeward side of the island has visibly less dense greenery and
+trees than the rainy side. Pretty extreme difference. The highlight was probably the hike though. A light drizzle as
+we started the hike became a full downpour with no respite on the way back. It was a down-and-back hike, and
+climbing back out was easier, and less slippery despite, or maybe because of the rain. Walking through a tropical
+rainforest in the rain was quite a magical experience, and though we missed on the views at the bottom (too foggy)
+the hike itself remained truly memorable.</p>
+<p>
+<figure class="wp-block-image alignleft size-large is-resized"><img style="float:right; margin: 2em;"
+        src="/assets/2022/05/img_9281.jpeg?w=768" alt="" class="wp-image-230" width="186"
+        height="248" /></figure>
+As we stepped out of the hotel room one evening, we heard live music. Following it led us to the shopping center
+across from our hotel with a live Polynesian performance ongoing. Hawaiian songs, Samoan fire Poi (reminded me of
+Anand's fire rope dart), and Tahitian dancing with a lot of aggressive hip shaking. I tried shaking too, but just
+couldn't do it. Totally unexpected and a super fun event! They were making and selling Leis as donations. Manasi
+wanted a haku (headband) though, so she had them custom-make one for her. She smelled great all day wearing it.</p>
+<p>The island felt extremely American, and one of the striking Americanisms was the car-oriented-ness. One morning
+    Manasi went to get some Starbucks. The closest one was about a kilometer away&nbsp;—&nbsp;a very walkable
+    distance&nbsp;— but the road that goes there is a high-speed highway, with no sidewalks (not even crappy narrow
+    ones). Reminded me of walking in suburban New Jersey a couple years ago where I genuinely felt fearful for my life
+    as I walked next to cars and trucks zooming past at 70mph. The other day in Po'ipu, when I was waiting to cross the
+    road to get to a pie shop, I waited for a good two minutes, if not more, before the signal changed to let me walk.
+    It seems obvious that these places aren't designed to be walked in. For all my complaints about car-centrism in the
+    Bay Area, I'm thankful that even in suburbs like Sunnyvale, we can at least take sidewalks for granted.</p>
+<p>
+<figure class="wp-block-image alignright size-large is-resized"><img style="float:left; margin: 2em;"
+        src="/assets/2022/05/img_6741.jpeg?w=1024" alt="" class="wp-image-239" width="295"
+        height="220" /></figure>
+One morning, we had a family of chickens come visit us in our hotel room. Mommy and chicks came first, and eventually
+daddy showed up too. "Cheep! Cheep! Cheep!", they were pretty clearly asking for food, and seemed used to getting
+some from hotel guests — indeed I saw them do the same family act with a different hotel guest across the yard an
+hour later. The mommy would nibble at what Manasi tossed, but then drop it again for her chicks to eat. Maybe
+testing for its foodworthiness? Softening it? Sucking away the spice, if any?</p>
+<p>
+<figure class="wp-block-image alignleft size-large is-resized"><img style="float:right; margin: 2em;"
+        src="/assets/2022/05/img_9440.jpeg?w=768" alt="" class="wp-image-235" width="248"
+        height="330" /></figure>
+Of all Hawaiian islands I've been on, this is my absolute favorite yet. Fantastic beaches, small — so less driving to
+do, stunningly green, fantastic hikes, great food, cool snorkeling. Seems like it has it all! Big part of it, of
+course, is that I'm generally in a great mood and super relaxed on this trip. Great company, so excited about Bob
+(placeholder baby name), got my naturalization interview date and might be able to vote in June! Seems like when
+you're happy you notice the good things around you more and don't mind any inconveniences at all.</p>
+<p>
+<figure class="wp-block-image alignright size-large is-resized"><img style="float:right; margin: 2em;"
+        src="/assets/2022/05/img_9265.jpeg?w=768" alt="" class="wp-image-237" width="133"
+        height="177" /></figure>
+There are so many food trucks and food truck plazas here! Reminds me of Portland. This island feels significantly
+more developed (for tourists) than the big island. It is just as possible, though, that most things there were
+closed when we visited there smack in the middle of the pandemic.</p>
+<p>
+<figure class="wp-block-image alignright size-large is-resized"><img style="float:right; margin: 2em;"
+        src="/assets/2022/05/img_9514.jpeg?w=768" alt="" class="wp-image-241" width="231"
+        height="307" /></figure>
+After some so-so snorkeling on the north shore, we headed to Po'ipu on the south shore hoping for better luck the
+next day. First, saw a blowhole at Spouting Horn Peak. Waves put high pressure water into caverns that comes
+shooting out of a tiny orifice on the top. Fun! We'd see some blowholes from underneath the next day, when the
+heroic captain of our boat tour would navigate the 60ft yacht into a cavern on the Na Pali coast. Anyway, after the
+blowhole, headed back towards a beach where we saw a snorkel rental shop and people snorkeling. This time, the
+snorkeling did not disappoint! Plenty of fish, including the humuhumunukunukuāpuaʻa, puffer fish, and plenty more I
+don't know the names of. Large wide sheltered area to swim too. Just as I'm tired and thinking of heading back, I
+hear a squeal from Manasi and turn back to see a Honu (sea turtle) heading towards us. This guy was huge! At least a
+150 pounds if not more. He was swimming at a languid leisurely pace and didn't seem too bothered by people around. I
+free dived and chased after him, with Manasi following on the surface. Followed him for a good bit, till we got
+tired and turned back. Manasi tried freediving too but was far too buoyant and wouldn't sink. I guess a lot of
+adipose tissue to protect Bob!</p>
+<p>
+<figure class="wp-block-image alignright size-large is-resized"><img style="float:left; margin: 2em;"
+        src="/assets/2022/05/img_9568.jpeg?w=1024" alt="" class="wp-image-246" width="367"
+        height="275" /></figure>
+<figure class="wp-block-image alignleft size-large is-resized"><img style="float:right; margin: 2em;"
+        src="/assets/2022/05/img_6825.jpeg?w=768" alt="" class="wp-image-243" width="266"
+        height="353" /></figure>
+Boat tour of the Na Pali coast, including a voyage to Ni'ihau and snorkeling at Lehua rock. So much wildlife spotted!
+2 humpback whales in the distance with their splashy tails; spinner dolphins following in our boat's wake, jumping
+out of the water and doing backflips and spinny tricks; group of bottlenose dolphins jumping out of the water; one
+solitary monk seal just lounging in the water. <br />नाव से कई पंछी दिखे, तो मैंने उनसे कहा, "की गल है?". उनका भी
+जवाब आया, "Seagull है!"<br />Na Pali was incredibly beautiful. Unlike other Hawaiian islands, the roads don't
+encircle the entire island, and thus Na Pali on the northeastern part of the island is only accessible by hiking or
+boat. The pristine green valleys and the many cliffs of Na Pali were quite a sight to see, as were the enormous
+caverns created by sea erosion. <br />बोटीमध्ये समोर बसल्यामुळे चेहऱ्यावर खूप मिठाचे पाणी उडले. खूप शेंबूड होता, पण
+चवीने वाटतच न्हवतं <a rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Nakalele_Point"
+    target="_blank"><span style="text-decoration:underline;">नाक-आलेले</span></a>.<br />Snorkeling near Lehua rock —
+a tiny barren island next to Ni'ihau — super blue clear calm water, though a strong current pulling in one direction
+meant you had to constantly keep kicking. An underwater ledge with 20 ish feet depth on one side and couldn't see
+the bottom on the other. Different fish on both sides — they got bigger and more numerous on the deeper side.</p>
+<p>The island of Ni'ihua is privately owned, and still owned by the Scottish family who bought it in 1860 from the
+    Hawaiian Royal family. They don't live there, though they “allow” some Hawaiian speaking native Hawaiians to live
+    there, though not to have cell phones or much technology to "preserve" the old way of life. It felt like an oddly
+    colonial/feudal arrangement to me ad an anachronism in the 21st century. A different situation, but felt similarly
+    morally dubious as the tribes who live on the Northern Sentinel island in the Andamans.</p>
+<p>What a fun week, and how it flew by! Planned to go Kayaking up the river on the last day, but Manasi got sea sick
+    (but not so Sikh that you could see her beard and Turban) on the boat and we decided to an easy day instead. Riding
+    a bike in Kapa'a was also on the list, but couldn't get to it. I'll be back, Kaua'i!</p>

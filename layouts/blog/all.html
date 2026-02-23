@@ -1,0 +1,21 @@
+{{ define "main" }}
+<a href="#" onclick="showMailchimpPopup(); return false;">Subscribe to new posts</a>
+<h2>Blog Posts and Updates</h2>
+<ul class="news list-unstyled">
+    {{ range (where .Site.RegularPages "Section" "blog") }}
+    {{ if ne .File.LogicalName "all.md" }}
+    {{ if .Params.shortnews }}
+    <li class="shortnews">
+        <span class="date">{{ .Date.Format "02 January 2006" }}</span>
+        {{ .Content }}
+    </li>
+    {{ else }}
+    <li class="shortnews">
+        <span class="date">{{ .Date.Format "02 January 2006" }}</span>
+        <a href="{{ .Permalink }}"> {{ .Title }}</a>
+    </li>
+    {{ end }}
+    {{ end }}
+    {{ end }}
+</ul>
+{{ end }}

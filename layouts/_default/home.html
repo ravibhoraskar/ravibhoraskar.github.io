@@ -1,0 +1,30 @@
+{{ define "main" }}
+<div class="span4 clearfix">
+  <img class="pull-right" src="/img/ravi.png" width=28%/>
+  <div class="paragraph">
+    {{ .Content }}
+  </div>
+
+<h3>Contact</h3>
+&lt;firstname&gt;&lt;lastname&gt;@gmail.com
+
+<h3>Blog Posts and Updates</h3>
+<ul class="news list-unstyled">
+{{ $frontPageNews := .Site.Params.frontPageNews | default 13 }}
+{{ range first $frontPageNews (where .Site.RegularPages "Section" "blog") }}
+    {{ if .Params.shortnews }}
+        <li class="shortnews">
+            <span class="date">{{ .Date.Format "02 January 2006" }}</span>
+            {{ .Content }}
+        </li>
+    {{ else }}
+        <li class="shortnews">
+            <span class="date">{{ .Date.Format "02 January 2006" }}</span>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </li>
+    {{ end }}
+{{ end }}
+</ul>
+<p><a href="/blog/all.html">See More&hellip;</a></p>
+</div>
+{{ end }}
