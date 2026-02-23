@@ -1,6 +1,6 @@
 ---
 title: Aditya Omprakash Deshmukh
-layout: noheader
+noheader: true
 ---
 
 <div class="span4 clearfix">

@@ -56,6 +56,7 @@
 
 <body>
   <div class="container">
+    {{ if not .Params.noheader }}
     <div class="navbar">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -79,6 +80,7 @@
         </ul>
       </div>
     </div>
+    {{ end }}
 
     {{ block "main" . }}
     {{ if not .Params.notitle }}

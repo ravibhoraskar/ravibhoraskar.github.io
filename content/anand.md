@@ -1,6 +1,6 @@
 ---
 title: Anand Bhoraskar
-layout: noheader
+noheader: true
 ---
 
 <div class="span4 clearfix">
