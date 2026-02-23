@@ -3,3 +3,8 @@ _site/
 .git
 .vendor
 .DS_Store
+public/
+resources/_gen/
+resources/
+.hugo_build.lock
+node_modules/
