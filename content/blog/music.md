@@ -1,6 +1,7 @@
 ---
 title: Music Appreciation
 date: "2024-04-24"
+draft: true
 ---
 I went to Apoorvaa's concert, and she talked about her classical musical heritage.
 I have what I'd call a classical music appreciation heritage.
