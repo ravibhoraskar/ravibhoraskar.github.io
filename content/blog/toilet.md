@@ -56,24 +56,24 @@ Process**. The initial position of the seat, the person's gender, and whether
 the person wants to pee or poop is encoded in the state. The state space, then,
 looks like:
 
-$$ \mathcal{S} = \{(👨🏻,💦,U),(👨🏻,💦,D),(👨🏻,💩,U),(👨🏻,💩,D),\\(💃,💦,U),(💃,💦,D),(💃,💩,U),(💃,💩,D)\} $$
+\[ \mathcal{S} = \{(👨🏻,💦,U),(👨🏻,💦,D),(👨🏻,💩,U),(👨🏻,💩,D),\\(💃,💦,U),(💃,💦,D),(💃,💩,U),(💃,💩,D)\} \]
 
 The choice of which
 position to leave the seat in encoded as an action. The action space looks like:
 
-$$ \mathcal{A} = \{U,D\} $$
+\[ \mathcal{A} = \{U,D\} \]
 
 <!-- The frequencies of men
 and women going to pee or poop are encoded in the probability transition
 matrices (probability of going to next state given current state and the action
 chosen).
 
-$$
+\[
 \mathsf{P}(S_1=s_1|S_0=s_0,A=a) =
 \text{frequency of next gender going to use the}\\\text{ toilet for the purpose stated in }s_1
 \text{ if the postion of toilet seat in }\\s_1\text{ matches the action }a \text{ and }
 0 \text{ otherwise}.
-$$ -->
+\] -->
 
 We asssume random bathroom usage by gender, and assign the probabilities
 of the next bathroom usage to be independent of the current state, or the
@@ -82,25 +82,30 @@ previous usage.
 The cost of visiting a state and taking an action is set as the number
 times one has to flip the toilet seat.
 
-|     State     | Action | Cost  |     State     | Action | Cost  |
-| :-----------: | :----: | :---: | :-----------: | :----: | :---: |
-| $$(👨🏻,💦,U)$$ | $$U$$  | $$0$$ | $$(👨🏻,💦,U)$$ | $$D$$  | $$1$$ |
-| $$(👨🏻,💦,D)$$ | $$U$$  | $$1$$ | $$(👨🏻,💦,D)$$ | $$D$$  | $$2$$ |
-| $$(👨🏻,💩,U)$$ | $$U$$  | $$2$$ | $$(👨🏻,💩,U)$$ | $$D$$  | $$1$$ |
-| $$(👨🏻,💩,D)$$ | $$U$$  | $$1$$ | $$(👨🏻,💩,D)$$ | $$D$$  | $$0$$ |
-| $$(💃,💦,U)$$ | $$U$$  | $$2$$ | $$(💃,💦,U)$$ | $$D$$  | $$1$$ |
-| $$(💃,💦,D)$$ | $$U$$  | $$1$$ | $$(💃,💦,D)$$ | $$D$$  | $$0$$ |
-| $$(💃,💩,U)$$ | $$U$$  | $$2$$ | $$(💃,💩,U)$$ | $$D$$  | $$1$$ |
-| $$(💃,💩,D)$$ | $$U$$  | $$1$$ | $$(💃,💩,D)$$ | $$D$$  | $$0$$ |
+<table class="table">
+<thead>
+<tr><th>State</th><th>Action</th><th>Cost</th><th>State</th><th>Action</th><th>Cost</th></tr>
+</thead>
+<tbody>
+<tr><td>\((👨🏻,💦,U)\)</td><td>\(U\)</td><td>\(0\)</td><td>\((👨🏻,💦,U)\)</td><td>\(D\)</td><td>\(1\)</td></tr>
+<tr><td>\((👨🏻,💦,D)\)</td><td>\(U\)</td><td>\(1\)</td><td>\((👨🏻,💦,D)\)</td><td>\(D\)</td><td>\(2\)</td></tr>
+<tr><td>\((👨🏻,💩,U)\)</td><td>\(U\)</td><td>\(2\)</td><td>\((👨🏻,💩,U)\)</td><td>\(D\)</td><td>\(1\)</td></tr>
+<tr><td>\((👨🏻,💩,D)\)</td><td>\(U\)</td><td>\(1\)</td><td>\((👨🏻,💩,D)\)</td><td>\(D\)</td><td>\(0\)</td></tr>
+<tr><td>\((💃,💦,U)\)</td><td>\(U\)</td><td>\(2\)</td><td>\((💃,💦,U)\)</td><td>\(D\)</td><td>\(1\)</td></tr>
+<tr><td>\((💃,💦,D)\)</td><td>\(U\)</td><td>\(1\)</td><td>\((💃,💦,D)\)</td><td>\(D\)</td><td>\(0\)</td></tr>
+<tr><td>\((💃,💩,U)\)</td><td>\(U\)</td><td>\(2\)</td><td>\((💃,💩,U)\)</td><td>\(D\)</td><td>\(1\)</td></tr>
+<tr><td>\((💃,💩,D)\)</td><td>\(U\)</td><td>\(1\)</td><td>\((💃,💩,D)\)</td><td>\(D\)</td><td>\(0\)</td></tr>
+</tbody>
+</table>
 
 We consider an infinite-horizon MDP and
 solve for the optimal stationary policies which minimize the limiting
 average cost.
 
-$$
+\[
 % \pi_1^*=\min_{\pi}\mathsf{E}_{\pi}\left[\sum\limits_{t=0}^\infty \beta^t c(S_t,A_t)|S_0=s_0 \right]\\
 \pi^*=\min_{\pi}\mathsf{E}_{\pi}\left[ \lim_{T\to\infty}\frac{1}{T}\left[\sum\limits_{t=0}^Tc(S_t,A_t)|S_0=s_0 \right]\right]
-$$
+\]
 
 Solving this MDP problem, **the optimal strategy turns out to be the lazy
 strategy.** Another interesting finding is that the lazy strategy is optimal for
@@ -116,8 +121,8 @@ down and pees without putting it up, he has to deal with a dirty seat to clean.
 A woman in the opposite scenario, though, risks having her bum touch toilet
 water, or even worse falling into the toilet. We model this assymetry by
 adjusting the cost function in our MDP. If we model the cost to flip for a woman
-as twice the cost to flip for a man in our MDP above --- e.g. $$(💃,💦,U) = 2$$
-instead of $$1$$; we see the _gentleman_ strategy
+as twice the cost to flip for a man in our MDP above --- e.g. \((💃,💦,U) = 2\)
+instead of \(1\); we see the _gentleman_ strategy
 finally outperform _lazy_ provided that at least ⅔ of the people living in the
 house are women. For a higher cost-differential, the proportion of
 the household needing to be women for the gentleman strategy to be optimal
