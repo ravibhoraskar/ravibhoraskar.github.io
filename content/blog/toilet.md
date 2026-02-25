@@ -92,7 +92,6 @@ times one has to flip the toilet seat.
 | $$(💃,💦,D)$$ | $$U$$  | $$1$$ | $$(💃,💦,D)$$ | $$D$$  | $$0$$ |
 | $$(💃,💩,U)$$ | $$U$$  | $$2$$ | $$(💃,💩,U)$$ | $$D$$  | $$1$$ |
 | $$(💃,💩,D)$$ | $$U$$  | $$1$$ | $$(💃,💩,D)$$ | $$D$$  | $$0$$ |
-{: .table}
 
 We consider an infinite-horizon MDP and
 solve for the optimal stationary policies which minimize the limiting
