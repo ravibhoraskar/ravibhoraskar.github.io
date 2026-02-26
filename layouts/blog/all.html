@@ -1,21 +1,24 @@
 {{ define "main" }}
 <a href="#" onclick="showMailchimpPopup(); return false;">Subscribe to new posts</a>
 <h2>Blog Posts and Updates</h2>
+{{ $pages := where .Site.RegularPages "Section" "blog" }}
+{{ $pages = where $pages ".File.LogicalName" "!=" "all.md" }}
+{{ range $pages.GroupByDate "2006" }}
+<h3>{{ .Key }}</h3>
 <ul class="news list-unstyled">
-    {{ range (where .Site.RegularPages "Section" "blog") }}
-    {{ if ne .File.LogicalName "all.md" }}
+    {{ range .Pages }}
     {{ if .Params.shortnews }}
     <li class="shortnews">
-        <span class="date">{{ .Date.Format "02 January 2006" }}</span>
+        <span class="date">{{ .Date.Format "January 02" }}</span>
         {{ .Content }}
     </li>
     {{ else }}
     <li class="shortnews">
-        <span class="date">{{ .Date.Format "02 January 2006" }}</span>
+        <span class="date">{{ .Date.Format "January 02" }}</span>
         <a href="{{ .Permalink }}"> {{ .Title }}</a>
     </li>
     {{ end }}
     {{ end }}
-    {{ end }}
 </ul>
+{{ end }}
 {{ end }}

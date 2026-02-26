@@ -141,7 +141,8 @@ ul.news .date {
     display: block;
 }
 ul.news > li {
-    margin-top: 1em;
+    margin-top: 0.5em;
+    margin-left: 1em;
 }
 ul.news .shortnews .date {
     float: left;
