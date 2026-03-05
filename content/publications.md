@@ -306,7 +306,7 @@ September
 </td>
 <td class="publication">
 <span class="pubtitle">
-<a href="/papers/tempest-report.pdf">Nerînke Postkolonyal li ser The Tempest û Axriyên Wê. (Translated to Kurdish from A postcolonial view of The Tempest and its afterlives)</a>.
+<a href="https://blog.kovarazarema.com/nerineke-postkolonyal-li-ser-the-tempest-u-axriyen-we/">Nerînke Postkolonyal li ser The Tempest û Axriyên Wê. (Translated to Kurdish from A postcolonial view of The Tempest and its afterlives)</a>.
 </span><br />
 <span class="authors">
 Ravi Bhoraskar.
