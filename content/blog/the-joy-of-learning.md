@@ -7,7 +7,7 @@ that our family had growing up. Thinking back to my childhood, one
 that stood out was the love of learning.
 
 It must've been 1994 when we first got a computer in the house,
-relatively early for an Indian household wihout engineers or
+relatively early for an Indian household without engineers or
 tech-people in it. My grandfather Bhaiya was determined to learn
 how to use it. I remember him going to computer classes, and
 eventually getting a private tutor all through his 70s and 80s.
@@ -40,6 +40,6 @@ to know (the software worked. I can now type at 100wpm).
 Excelling was never expected, but trying new things was.
 
 The love of learning and constant self-improvement is something
-I must've taken granted growing up, but reflecting on it now
+I must've taken for  granted growing up, but reflecting on it now
 see how special of a family value it really is. I hope to
 be able to pass it on to Tanya as well.
