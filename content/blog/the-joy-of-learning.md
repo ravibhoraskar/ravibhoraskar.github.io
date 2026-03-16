@@ -40,6 +40,6 @@ to know (the software worked. I can now type at 100wpm).
 Excelling was never expected, but trying new things was.
 
 The love of learning and constant self-improvement is something
-I must've taken for  granted growing up, but reflecting on it now
+I must've taken for granted growing up, but reflecting on it now
 see how special of a family value it really is. I hope to
 be able to pass it on to Tanya as well.
