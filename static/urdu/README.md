@@ -7,8 +7,11 @@ A Duolingo-style mini web app to learn the Urdu script while building reading fl
 - Introduces Urdu characters lesson by lesson
 - Shows each new character with sound and example word
 - Uses multiple-choice drills and mixed review from previous lessons
+- Adds hearts (lives) inside sessions for game-like challenge
+- Tracks daily XP goal (60 XP) and learning streak
+- Includes a targeted review mode that prioritizes weak characters
 - Unlocks lessons progressively (70% required)
-- Saves your progress and XP in `localStorage`
+- Saves your progress, XP, streak, and per-character stats in `localStorage`
 
 ## Run locally
 

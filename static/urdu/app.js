@@ -1,3 +1,6 @@
+const DAILY_GOAL_XP = 60;
+const MAX_HEARTS = 3;
+
 const CHARACTERS = [
   { id: "alif", glyph: "ا", name: "Alif", sound: "aa / a", exampleWord: "آدمی", transliteration: "aadmi", meaning: "person" },
   { id: "bay", glyph: "ب", name: "Bay", sound: "b", exampleWord: "بادل", transliteration: "baadal", meaning: "cloud" },
@@ -75,7 +78,9 @@ const state = {
   score: 0,
   attempts: 0,
   selectedAnswer: null,
-  awaitingContinue: false
+  awaitingContinue: false,
+  hearts: MAX_HEARTS,
+  mode: "lesson"
 };
 
 const els = {
@@ -85,6 +90,8 @@ const els = {
   lessonPath: document.getElementById("lessonPath"),
   lessonCount: document.getElementById("lessonCount"),
   xpCount: document.getElementById("xpCount"),
+  streakCount: document.getElementById("streakCount"),
+  goalCount: document.getElementById("goalCount"),
   lessonTitle: document.getElementById("lessonTitle"),
   lessonCard: document.getElementById("lessonCard"),
   choices: document.getElementById("choices"),
@@ -96,14 +103,57 @@ const els = {
   resultBreakdown: document.getElementById("resultBreakdown"),
   retryBtn: document.getElementById("retryBtn"),
   pathBtn: document.getElementById("pathBtn"),
-  exitLessonBtn: document.getElementById("exitLessonBtn")
+  exitLessonBtn: document.getElementById("exitLessonBtn"),
+  heartMeter: document.getElementById("heartMeter"),
+  lessonModeTag: document.getElementById("lessonModeTag"),
+  answerFeedback: document.getElementById("answerFeedback"),
+  startReviewBtn: document.getElementById("startReviewBtn")
 };
+
+function todayKey() {
+  const now = new Date();
+  const y = now.getFullYear();
+  const m = String(now.getMonth() + 1).padStart(2, "0");
+  const d = String(now.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
+
+function yesterdayKey() {
+  const now = new Date();
+  now.setDate(now.getDate() - 1);
+  const y = now.getFullYear();
+  const m = String(now.getMonth() + 1).padStart(2, "0");
+  const d = String(now.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
+
+function normalizeCharStats(stats) {
+  const normalized = {};
+  if (!stats || typeof stats !== "object") {
+    return normalized;
+  }
+
+  Object.keys(stats).forEach((key) => {
+    const item = stats[key] || {};
+    normalized[key] = {
+      right: Number(item.right || 0),
+      wrong: Number(item.wrong || 0)
+    };
+  });
+
+  return normalized;
+}
 
 function loadProgress() {
   const empty = {
     completed: [],
     bestScores: {},
-    xp: 0
+    xp: 0,
+    streak: 0,
+    lastActiveDate: "",
+    dailyXp: 0,
+    dailyDate: todayKey(),
+    charStats: {}
   };
 
   try {
@@ -112,11 +162,23 @@ function loadProgress() {
       return empty;
     }
     const parsed = JSON.parse(raw);
-    return {
+    const progress = {
       completed: Array.isArray(parsed.completed) ? parsed.completed : [],
       bestScores: parsed.bestScores || {},
-      xp: Number(parsed.xp || 0)
+      xp: Number(parsed.xp || 0),
+      streak: Number(parsed.streak || 0),
+      lastActiveDate: String(parsed.lastActiveDate || ""),
+      dailyXp: Number(parsed.dailyXp || 0),
+      dailyDate: String(parsed.dailyDate || todayKey()),
+      charStats: normalizeCharStats(parsed.charStats)
     };
+
+    if (progress.dailyDate !== todayKey()) {
+      progress.dailyDate = todayKey();
+      progress.dailyXp = 0;
+    }
+
+    return progress;
   } catch {
     return empty;
   }
@@ -124,6 +186,21 @@ function loadProgress() {
 
 function saveProgress() {
   localStorage.setItem("urdu-script-quest-progress", JSON.stringify(state.progress));
+}
+
+function updateStreakOnActivity() {
+  const today = todayKey();
+  if (state.progress.lastActiveDate === today) {
+    return;
+  }
+
+  if (state.progress.lastActiveDate === yesterdayKey()) {
+    state.progress.streak += 1;
+  } else {
+    state.progress.streak = 1;
+  }
+
+  state.progress.lastActiveDate = today;
 }
 
 function shuffle(arr) {
@@ -148,6 +225,37 @@ function unlockStatus(index) {
 
 function isDone(id) {
   return state.progress.completed.includes(id);
+}
+
+function getCharsUpToLesson(lessonId) {
+  return LESSON_PLAN.slice(0, lessonId)
+    .flat()
+    .map((id) => CHAR_MAP[id])
+    .filter(Boolean);
+}
+
+function getUnlockedChars() {
+  if (state.progress.completed.length === 0) {
+    return LESSONS[0].newChars;
+  }
+
+  const latest = Math.max(...state.progress.completed);
+  const upto = Math.min(latest + 1, LESSONS.length);
+  return getCharsUpToLesson(upto);
+}
+
+function weaknessScore(charId) {
+  const stat = state.progress.charStats[charId] || { right: 0, wrong: 0 };
+  const attempts = stat.right + stat.wrong;
+  return (stat.wrong + 1) / (attempts + 2);
+}
+
+function renderTopStats() {
+  const completedCount = state.progress.completed.length;
+  els.lessonCount.textContent = `${completedCount}/${LESSONS.length}`;
+  els.xpCount.textContent = state.progress.xp;
+  els.streakCount.textContent = state.progress.streak;
+  els.goalCount.textContent = `${Math.min(state.progress.dailyXp, DAILY_GOAL_XP)}/${DAILY_GOAL_XP}`;
 }
 
 function renderPath() {
@@ -182,25 +290,13 @@ function renderPath() {
     els.lessonPath.appendChild(node);
   });
 
-  const completedCount = state.progress.completed.length;
-  els.lessonCount.textContent = `${completedCount}/${LESSONS.length}`;
-  els.xpCount.textContent = state.progress.xp;
+  renderTopStats();
 }
 
-function buildLessonSteps(lesson) {
-  const introducedIds = LESSON_PLAN.slice(0, lesson.id)
-    .flat()
-    .map((id) => CHAR_MAP[id]);
-  const introduced = introducedIds.filter(Boolean);
-
-  const introSteps = lesson.newChars.map((char) => ({
-    type: "intro",
-    char
-  }));
-
+function buildPracticeSteps(chars, introduced) {
   const practice = [];
 
-  lesson.newChars.forEach((char) => {
+  chars.forEach((char) => {
     const distractors = sample(introduced, 3, [char]).map((c) => c.glyph);
     const choices = shuffle([char.glyph, ...distractors]).slice(0, 4);
     practice.push({
@@ -222,7 +318,7 @@ function buildLessonSteps(lesson) {
 
     practice.push({
       type: "pickSound",
-      prompt: `What sound does this letter make?`,
+      prompt: "What sound does this letter make?",
       answer: char.sound,
       choices: soundChoices,
       char
@@ -236,14 +332,14 @@ function buildLessonSteps(lesson) {
 
     practice.push({
       type: "readWord",
-      prompt: `Read this Urdu word`,
+      prompt: "Read this Urdu word",
       answer: char.transliteration,
       choices: translitOptions,
       char
     });
   });
 
-  const reviewChars = shuffle(introduced.filter((char) => !lesson.newChars.includes(char))).slice(0, 4);
+  const reviewChars = shuffle(introduced.filter((char) => !chars.includes(char))).slice(0, 4);
   reviewChars.forEach((char) => {
     const distractors = sample(introduced, 3, [char]).map((c) => c.glyph);
     practice.push({
@@ -255,7 +351,25 @@ function buildLessonSteps(lesson) {
     });
   });
 
-  return [...introSteps, ...shuffle(practice)];
+  return shuffle(practice);
+}
+
+function buildLessonSteps(lesson) {
+  const introduced = getCharsUpToLesson(lesson.id);
+  const introSteps = lesson.newChars.map((char) => ({
+    type: "intro",
+    char
+  }));
+
+  const practice = buildPracticeSteps(lesson.newChars, introduced);
+  return [...introSteps, ...practice];
+}
+
+function buildReviewSteps() {
+  const unlocked = getUnlockedChars();
+  const sortedWeak = [...unlocked].sort((a, b) => weaknessScore(b.id) - weaknessScore(a.id));
+  const targetChars = sortedWeak.slice(0, Math.min(6, sortedWeak.length));
+  return buildPracticeSteps(targetChars, unlocked);
 }
 
 function showScreen(name) {
@@ -265,23 +379,53 @@ function showScreen(name) {
   name.classList.add("active");
 }
 
-function startLesson(lessonId) {
-  const lesson = LESSONS.find((l) => l.id === lessonId);
-  if (!lesson) {
-    return;
-  }
+function updateHeartMeter() {
+  els.heartMeter.textContent = `Hearts: ${state.hearts}/${MAX_HEARTS}`;
+  els.heartMeter.classList.toggle("low", state.hearts <= 1);
+}
 
-  state.currentLesson = lesson;
-  state.lessonSteps = buildLessonSteps(lesson);
+function startSession(mode, lessonId = null) {
+  state.mode = mode;
   state.currentStep = 0;
   state.score = 0;
   state.attempts = 0;
   state.selectedAnswer = null;
   state.awaitingContinue = false;
+  state.hearts = MAX_HEARTS;
+  els.answerFeedback.textContent = "";
+  els.answerFeedback.className = "answer-feedback";
 
-  els.lessonTitle.textContent = `${lesson.title}: ${lesson.newChars.map((c) => c.name).join(", ")}`;
+  if (mode === "review") {
+    state.currentLesson = {
+      id: "review",
+      title: "Targeted Review",
+      newChars: []
+    };
+    state.lessonSteps = buildReviewSteps();
+    els.lessonTitle.textContent = "Targeted Review: your weakest letters";
+    els.lessonModeTag.textContent = "Review";
+  } else {
+    const lesson = LESSONS.find((l) => l.id === lessonId);
+    if (!lesson) {
+      return;
+    }
+    state.currentLesson = lesson;
+    state.lessonSteps = buildLessonSteps(lesson);
+    els.lessonTitle.textContent = `${lesson.title}: ${lesson.newChars.map((c) => c.name).join(", ")}`;
+    els.lessonModeTag.textContent = "Lesson";
+  }
+
+  updateHeartMeter();
   showScreen(els.screenLesson);
   renderStep();
+}
+
+function startLesson(lessonId) {
+  startSession("lesson", lessonId);
+}
+
+function startReview() {
+  startSession("review");
 }
 
 function renderStep() {
@@ -294,6 +438,8 @@ function renderStep() {
   els.nextBtn.disabled = true;
   state.selectedAnswer = null;
   state.awaitingContinue = false;
+  els.answerFeedback.textContent = "";
+  els.answerFeedback.className = "answer-feedback";
 
   if (step.type === "intro") {
     els.lessonCard.innerHTML = `
@@ -319,18 +465,11 @@ function renderStep() {
       <div class="big-glyph" dir="rtl">${step.char.exampleWord}</div>
       <p class="reading">Meaning: ${step.char.meaning}</p>
     `;
-  } else {
+  } else if (step.type === "pickGlyph" || step.type === "reviewGlyph") {
     els.lessonCard.innerHTML = `
       <p class="prompt">${step.prompt}</p>
-      <div class="big-glyph" dir="rtl">${step.char.glyph}</div>
+      <p class="reading">Tip: focus on dots and tail shape.</p>
     `;
-
-    if (step.type === "pickGlyph" || step.type === "reviewGlyph") {
-      els.lessonCard.innerHTML = `
-        <p class="prompt">${step.prompt}</p>
-        <p class="reading">Tip: focus on dots and tail shape.</p>
-      `;
-    }
   }
 
   step.choices.forEach((choice) => {
@@ -346,12 +485,23 @@ function renderStep() {
       btn.textContent = choice;
     }
 
-    btn.addEventListener("click", () => evaluateAnswer(btn, choice, step.answer));
+    btn.addEventListener("click", () => evaluateAnswer(btn, choice, step.answer, step.char.id));
     els.choices.appendChild(btn);
   });
 }
 
-function evaluateAnswer(button, selected, answer) {
+function updateCharStat(charId, wasCorrect) {
+  if (!state.progress.charStats[charId]) {
+    state.progress.charStats[charId] = { right: 0, wrong: 0 };
+  }
+  if (wasCorrect) {
+    state.progress.charStats[charId].right += 1;
+  } else {
+    state.progress.charStats[charId].wrong += 1;
+  }
+}
+
+function evaluateAnswer(button, selected, answer, charId) {
   if (state.awaitingContinue) {
     return;
   }
@@ -366,45 +516,91 @@ function evaluateAnswer(button, selected, answer) {
     }
   });
 
-  if (selected === answer) {
+  const isCorrect = selected === answer;
+  updateCharStat(charId, isCorrect);
+
+  if (isCorrect) {
     state.score += 1;
     button.classList.add("selected");
+    els.answerFeedback.textContent = "Correct. Keep going.";
+    els.answerFeedback.classList.add("good");
   } else {
     button.classList.add("wrong");
+    state.hearts -= 1;
+    updateHeartMeter();
+    els.answerFeedback.textContent = `Not quite. Correct answer: ${answer}`;
+    els.answerFeedback.classList.add("bad");
+
+    if (state.hearts <= 0) {
+      finishSession("outOfHearts");
+      return;
+    }
   }
 
   els.nextBtn.disabled = false;
 }
 
-function finishLesson() {
+function finishSession(reason = "completed") {
   const ratio = state.attempts ? Math.round((state.score / state.attempts) * 100) : 100;
-  const xpEarned = ratio >= 85 ? 30 : ratio >= 70 ? 20 : 8;
+  const passed = reason !== "outOfHearts" && ratio >= 70;
 
-  const firstCompletion = !state.progress.completed.includes(state.currentLesson.id);
-  if (ratio >= 70 && firstCompletion) {
-    state.progress.completed.push(state.currentLesson.id);
+  let xpEarned = 0;
+  if (reason === "outOfHearts") {
+    xpEarned = 4;
+  } else if (ratio >= 85) {
+    xpEarned = 35;
+  } else if (ratio >= 70) {
+    xpEarned = 25;
+  } else {
+    xpEarned = 12;
   }
 
-  const prevBest = state.progress.bestScores[state.currentLesson.id] || 0;
-  if (ratio > prevBest) {
-    state.progress.bestScores[state.currentLesson.id] = ratio;
+  if (state.mode === "lesson" && passed) {
+    const firstCompletion = !state.progress.completed.includes(state.currentLesson.id);
+    if (firstCompletion) {
+      state.progress.completed.push(state.currentLesson.id);
+    }
+  }
+
+  if (state.mode === "lesson") {
+    const prevBest = state.progress.bestScores[state.currentLesson.id] || 0;
+    if (ratio > prevBest) {
+      state.progress.bestScores[state.currentLesson.id] = ratio;
+    }
   }
 
   state.progress.xp += xpEarned;
+  state.progress.dailyXp += xpEarned;
+  updateStreakOnActivity();
   saveProgress();
 
-  els.resultTitle.textContent = ratio >= 70 ? "Lesson complete" : "Keep practicing";
-  els.resultSummary.textContent = `You scored ${ratio}% and earned ${xpEarned} XP.`;
+  if (reason === "outOfHearts") {
+    els.resultTitle.textContent = "Out of hearts";
+    els.resultSummary.textContent = `You scored ${ratio}% and earned ${xpEarned} XP. Try again with careful letter matching.`;
+  } else if (passed) {
+    els.resultTitle.textContent = state.mode === "review" ? "Review complete" : "Lesson complete";
+    els.resultSummary.textContent = `You scored ${ratio}% and earned ${xpEarned} XP.`;
+  } else {
+    els.resultTitle.textContent = "Keep practicing";
+    els.resultSummary.textContent = `You scored ${ratio}% and earned ${xpEarned} XP.`;
+  }
 
-  const unlockedNext = ratio >= 70 && state.currentLesson.id < LESSONS.length;
+  const unlockedNext = state.mode === "lesson" && passed && Number(state.currentLesson.id) < LESSONS.length;
+  const nextText =
+    state.mode === "review"
+      ? "Review mode always stays available from the path screen."
+      : passed
+      ? "Next lesson unlocked."
+      : "Score 70% or above to unlock the next lesson.";
+
   els.resultBreakdown.innerHTML = `
     <div>Correct answers: ${state.score}/${state.attempts}</div>
-    <div>${ratio >= 70 ? "Next lesson unlocked." : "Score 70% or above to unlock the next lesson."}</div>
-    <div>${unlockedNext ? "Great momentum. Continue while the character shapes are fresh." : "Review this lesson again for stronger recall."}</div>
+    <div>${nextText}</div>
+    <div>${unlockedNext ? "Great momentum. Continue while the character shapes are fresh." : "Use targeted review to strengthen weak letters."}</div>
   `;
 
-  showScreen(els.screenResult);
   renderPath();
+  showScreen(els.screenResult);
 }
 
 function nextStep() {
@@ -415,7 +611,7 @@ function nextStep() {
   state.currentStep += 1;
 
   if (state.currentStep >= state.lessonSteps.length) {
-    finishLesson();
+    finishSession("completed");
     return;
   }
 
@@ -423,13 +619,24 @@ function nextStep() {
 }
 
 els.nextBtn.addEventListener("click", nextStep);
-els.pathBtn.addEventListener("click", () => showScreen(els.screenPath));
+els.pathBtn.addEventListener("click", () => {
+  renderPath();
+  showScreen(els.screenPath);
+});
 els.retryBtn.addEventListener("click", () => {
-  if (state.currentLesson) {
+  if (state.mode === "review") {
+    startReview();
+    return;
+  }
+  if (state.currentLesson && state.currentLesson.id !== "review") {
     startLesson(state.currentLesson.id);
   }
 });
-els.exitLessonBtn.addEventListener("click", () => showScreen(els.screenPath));
+els.exitLessonBtn.addEventListener("click", () => {
+  renderPath();
+  showScreen(els.screenPath);
+});
+els.startReviewBtn.addEventListener("click", startReview);
 
 renderPath();
 showScreen(els.screenPath);

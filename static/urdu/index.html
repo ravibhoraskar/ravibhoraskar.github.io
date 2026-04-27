@@ -31,6 +31,14 @@
             <span>XP</span>
             <strong id="xpCount">0</strong>
           </div>
+          <div class="pill">
+            <span>Streak</span>
+            <strong id="streakCount">0</strong>
+          </div>
+          <div class="pill">
+            <span>Daily Goal</span>
+            <strong id="goalCount">0/60</strong>
+          </div>
         </div>
       </header>
 
@@ -41,6 +49,9 @@
             Each lesson introduces new Urdu characters with guided drills. Later lessons
             mix in earlier characters so reading becomes automatic.
           </p>
+          <div class="path-tools">
+            <button id="startReviewBtn" class="secondary-btn">Targeted Review</button>
+          </div>
         </div>
         <div id="lessonPath" class="lesson-path"></div>
       </section>
@@ -57,8 +68,13 @@
             </div>
             <span id="progressLabel">0%</span>
           </div>
+          <div class="lesson-meta-row">
+            <div id="heartMeter" class="heart-meter">Hearts: 3/3</div>
+            <div id="lessonModeTag" class="mode-tag">Lesson</div>
+          </div>
           <div id="lessonCard" class="lesson-card"></div>
           <div id="choices" class="choices"></div>
+          <p id="answerFeedback" class="answer-feedback"></p>
           <div class="actions">
             <button id="nextBtn" class="primary-btn" disabled>Continue</button>
           </div>
