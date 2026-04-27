@@ -81,7 +81,7 @@ body {
 h1,
 h2,
 h3 {
-  font-family: "Baloo Bhaijaan 2", system-ui, sans-serif;
+  font-family: "Manrope", system-ui, sans-serif;
   margin: 0;
   line-height: 1.2;
 }
@@ -189,7 +189,7 @@ h1 {
 }
 
 .lesson-node .letters {
-  font-family: "Baloo Bhaijaan 2", sans-serif;
+  font-family: "Noto Nastaliq Urdu", sans-serif;
   font-size: 1.35rem;
   letter-spacing: 0.05em;
   margin-bottom: 6px;
@@ -298,10 +298,14 @@ h1 {
 }
 
 .big-glyph {
-  font-family: "Baloo Bhaijaan 2", sans-serif;
+  font-family: "Noto Nastaliq Urdu", sans-serif;
   font-size: clamp(2.4rem, 10vw, 4.2rem);
   line-height: 1;
   margin: 12px 0;
+}
+
+[dir="rtl"] {
+  font-family: "Noto Nastaliq Urdu", sans-serif;
 }
 
 .reading {

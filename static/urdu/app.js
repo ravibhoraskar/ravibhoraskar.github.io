@@ -524,7 +524,7 @@ function renderStep() {
 
     if (/^[\u0600-\u06FF]+$/u.test(choice)) {
       btn.setAttribute("dir", "rtl");
-      btn.style.fontFamily = '"Baloo Bhaijaan 2", sans-serif';
+      btn.style.fontFamily = '"Noto Nastaliq Urdu", sans-serif';
       btn.style.fontSize = "1.4rem";
       btn.textContent = choice;
     } else {
