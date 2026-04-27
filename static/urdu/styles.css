@@ -1,0 +1,391 @@
+:root {
+  --bg-deep: #0a1e2b;
+  --bg-mid: #12384b;
+  --bg-soft: #f4efe6;
+  --ink: #11212d;
+  --ink-soft: #335063;
+  --accent: #ef7d32;
+  --accent-2: #2ca58d;
+  --ok: #2a9d8f;
+  --warn: #e76f51;
+  --card: rgba(255, 255, 255, 0.9);
+  --line: rgba(17, 33, 45, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Manrope", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at 10% 15%, #18465f 0%, transparent 30%),
+    radial-gradient(circle at 85% 20%, #2a6f97 0%, transparent 28%),
+    linear-gradient(130deg, var(--bg-deep), var(--bg-mid) 40%, #1f6f8b 100%);
+  overflow-x: hidden;
+}
+
+.bg-shape {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.shape-1 {
+  width: 380px;
+  height: 380px;
+  background: #f4a261;
+  top: -120px;
+  right: -90px;
+  animation: float 9s ease-in-out infinite;
+}
+
+.shape-2 {
+  width: 260px;
+  height: 260px;
+  background: #2ca58d;
+  bottom: -80px;
+  left: -70px;
+  animation: float 11s ease-in-out infinite reverse;
+}
+
+.app-shell {
+  width: min(960px, 92vw);
+  margin: 28px auto;
+  position: relative;
+  z-index: 1;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-end;
+  color: #f8f4ec;
+  margin-bottom: 20px;
+  animation: slideIn 0.8s ease;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  opacity: 0.75;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Baloo Bhaijaan 2", system-ui, sans-serif;
+  margin: 0;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(1.4rem, 3.8vw, 2.2rem);
+}
+
+.stats {
+  display: flex;
+  gap: 10px;
+}
+
+.pill {
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+  padding: 8px 12px;
+  min-width: 86px;
+}
+
+.pill span {
+  display: block;
+  font-size: 0.74rem;
+  opacity: 0.8;
+}
+
+.pill strong {
+  font-size: 1rem;
+}
+
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+  animation: popIn 0.35s ease;
+}
+
+.panel {
+  background: var(--card);
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 14px 35px rgba(8, 23, 36, 0.28);
+  backdrop-filter: blur(4px);
+}
+
+.intro-panel {
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+.intro-panel p {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  max-width: 65ch;
+}
+
+.lesson-path {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 12px;
+}
+
+.lesson-node {
+  text-align: left;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  padding: 14px;
+  background: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lesson-node strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.lesson-node .letters {
+  font-family: "Baloo Bhaijaan 2", sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.lesson-node .meta {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.lesson-node.unlocked {
+  cursor: pointer;
+}
+
+.lesson-node.unlocked:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 18px rgba(11, 35, 45, 0.14);
+}
+
+.lesson-node.locked {
+  opacity: 0.55;
+  background: #f3f4f7;
+}
+
+.lesson-node.done {
+  border-color: rgba(42, 157, 143, 0.5);
+  background: #edfaf7;
+}
+
+.lesson-panel,
+.result-panel {
+  padding: 20px;
+}
+
+.lesson-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.progress-wrap {
+  margin: 16px 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress-track {
+  flex: 1;
+  height: 11px;
+  background: #e6ecef;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transition: width 0.25s ease;
+}
+
+#progressLabel {
+  font-weight: 700;
+  min-width: 42px;
+}
+
+.lesson-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  min-height: 160px;
+}
+
+.prompt {
+  margin: 0;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+.big-glyph {
+  font-family: "Baloo Bhaijaan 2", sans-serif;
+  font-size: clamp(2.4rem, 10vw, 4.2rem);
+  line-height: 1;
+  margin: 12px 0;
+}
+
+.reading {
+  font-size: 1rem;
+  background: #f4f8fa;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 6px 10px;
+  margin-top: 8px;
+}
+
+.choices {
+  margin-top: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.choice {
+  text-align: left;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.98rem;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.choice:hover {
+  background: #f9f7f2;
+}
+
+.choice.selected {
+  border-color: var(--accent);
+  background: #fff2ea;
+}
+
+.choice.correct {
+  border-color: var(--ok);
+  background: #e8f8f4;
+}
+
+.choice.wrong {
+  border-color: var(--warn);
+  background: #fdeeea;
+}
+
+.actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  font-family: inherit;
+  font-weight: 700;
+  padding: 10px 14px;
+}
+
+.primary-btn {
+  background: var(--accent);
+  color: #fff;
+}
+
+.secondary-btn {
+  background: var(--accent-2);
+  color: #fff;
+}
+
+.ghost-btn {
+  background: #eef2f4;
+  color: var(--ink);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.result-breakdown {
+  margin-top: 12px;
+  font-size: 0.96rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(14px) translateX(8px);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 700px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stats {
+    width: 100%;
+  }
+
+  .pill {
+    flex: 1;
+  }
+
+  .lesson-path {
+    grid-template-columns: 1fr;
+  }
+}
