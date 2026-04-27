@@ -73,6 +73,7 @@ const LESSONS = LESSON_PLAN.map((ids, idx) => ({
 const state = {
   progress: loadProgress(),
   currentLesson: null,
+  placementTarget: null,
   lessonSteps: [],
   currentStep: 0,
   score: 0,
@@ -107,7 +108,9 @@ const els = {
   heartMeter: document.getElementById("heartMeter"),
   lessonModeTag: document.getElementById("lessonModeTag"),
   answerFeedback: document.getElementById("answerFeedback"),
-  startReviewBtn: document.getElementById("startReviewBtn")
+  startReviewBtn: document.getElementById("startReviewBtn"),
+  placementLessonSelect: document.getElementById("placementLessonSelect"),
+  startPlacementBtn: document.getElementById("startPlacementBtn")
 };
 
 function todayKey() {
@@ -258,6 +261,21 @@ function renderTopStats() {
   els.goalCount.textContent = `${Math.min(state.progress.dailyXp, DAILY_GOAL_XP)}/${DAILY_GOAL_XP}`;
 }
 
+function populatePlacementSelector() {
+  els.placementLessonSelect.innerHTML = "";
+
+  LESSONS.slice(1).forEach((lesson) => {
+    const option = document.createElement("option");
+    option.value = String(lesson.id);
+    option.textContent = `Lesson ${lesson.id}`;
+    els.placementLessonSelect.appendChild(option);
+  });
+
+  const unlockedMax = state.progress.completed.length > 0 ? Math.max(...state.progress.completed) + 1 : 1;
+  const suggested = Math.min(Math.max(unlockedMax + 1, 2), LESSONS.length);
+  els.placementLessonSelect.value = String(suggested);
+}
+
 function renderPath() {
   els.lessonPath.innerHTML = "";
 
@@ -291,6 +309,7 @@ function renderPath() {
   });
 
   renderTopStats();
+  populatePlacementSelector();
 }
 
 function buildPracticeSteps(chars, introduced) {
@@ -372,6 +391,14 @@ function buildReviewSteps() {
   return buildPracticeSteps(targetChars, unlocked);
 }
 
+function buildPlacementSteps(targetLessonId) {
+  const testedChars = getCharsUpToLesson(targetLessonId - 1);
+  const sortedWeak = [...testedChars].sort((a, b) => weaknessScore(b.id) - weaknessScore(a.id));
+  const focusChars = sortedWeak.slice(0, Math.min(8, sortedWeak.length));
+  const practice = buildPracticeSteps(focusChars, testedChars);
+  return practice.slice(0, Math.min(16, practice.length));
+}
+
 function showScreen(name) {
   [els.screenPath, els.screenLesson, els.screenResult].forEach((screen) => {
     screen.classList.remove("active");
@@ -386,6 +413,7 @@ function updateHeartMeter() {
 
 function startSession(mode, lessonId = null) {
   state.mode = mode;
+  state.placementTarget = null;
   state.currentStep = 0;
   state.score = 0;
   state.attempts = 0;
@@ -404,6 +432,16 @@ function startSession(mode, lessonId = null) {
     state.lessonSteps = buildReviewSteps();
     els.lessonTitle.textContent = "Targeted Review: your weakest letters";
     els.lessonModeTag.textContent = "Review";
+  } else if (mode === "placement") {
+    state.placementTarget = lessonId;
+    state.currentLesson = {
+      id: "placement",
+      title: `Placement to Lesson ${lessonId}`,
+      newChars: []
+    };
+    state.lessonSteps = buildPlacementSteps(lessonId);
+    els.lessonTitle.textContent = `Placement Test: unlock Lesson ${lessonId}`;
+    els.lessonModeTag.textContent = "Placement";
   } else {
     const lesson = LESSONS.find((l) => l.id === lessonId);
     if (!lesson) {
@@ -426,6 +464,14 @@ function startLesson(lessonId) {
 
 function startReview() {
   startSession("review");
+}
+
+function startPlacement() {
+  const targetLessonId = Number(els.placementLessonSelect.value);
+  if (!targetLessonId || targetLessonId <= 1) {
+    return;
+  }
+  startSession("placement", targetLessonId);
 }
 
 function renderStep() {
@@ -542,7 +588,8 @@ function evaluateAnswer(button, selected, answer, charId) {
 
 function finishSession(reason = "completed") {
   const ratio = state.attempts ? Math.round((state.score / state.attempts) * 100) : 100;
-  const passed = reason !== "outOfHearts" && ratio >= 70;
+  const passThreshold = state.mode === "placement" ? 80 : 70;
+  const passed = reason !== "outOfHearts" && ratio >= passThreshold;
 
   let xpEarned = 0;
   if (reason === "outOfHearts") {
@@ -562,6 +609,13 @@ function finishSession(reason = "completed") {
     }
   }
 
+  if (state.mode === "placement" && passed) {
+    const unlockedLessons = Array.from({ length: state.placementTarget - 1 }, (_, index) => index + 1);
+    const completed = new Set(state.progress.completed);
+    unlockedLessons.forEach((lessonId) => completed.add(lessonId));
+    state.progress.completed = [...completed].sort((a, b) => a - b);
+  }
+
   if (state.mode === "lesson") {
     const prevBest = state.progress.bestScores[state.currentLesson.id] || 0;
     if (ratio > prevBest) {
@@ -578,7 +632,7 @@ function finishSession(reason = "completed") {
     els.resultTitle.textContent = "Out of hearts";
     els.resultSummary.textContent = `You scored ${ratio}% and earned ${xpEarned} XP. Try again with careful letter matching.`;
   } else if (passed) {
-    els.resultTitle.textContent = state.mode === "review" ? "Review complete" : "Lesson complete";
+    els.resultTitle.textContent = state.mode === "review" ? "Review complete" : state.mode === "placement" ? "Placement passed" : "Lesson complete";
     els.resultSummary.textContent = `You scored ${ratio}% and earned ${xpEarned} XP.`;
   } else {
     els.resultTitle.textContent = "Keep practicing";
@@ -589,6 +643,10 @@ function finishSession(reason = "completed") {
   const nextText =
     state.mode === "review"
       ? "Review mode always stays available from the path screen."
+      : state.mode === "placement"
+      ? passed
+        ? `Lessons 1-${state.placementTarget - 1} marked complete. Lesson ${state.placementTarget} is now unlocked.`
+        : `Score ${passThreshold}% or above to unlock Lesson ${state.placementTarget}.`
       : passed
       ? "Next lesson unlocked."
       : "Score 70% or above to unlock the next lesson.";
@@ -637,6 +695,7 @@ els.exitLessonBtn.addEventListener("click", () => {
   showScreen(els.screenPath);
 });
 els.startReviewBtn.addEventListener("click", startReview);
+els.startPlacementBtn.addEventListener("click", startPlacement);
 
 renderPath();
 showScreen(els.screenPath);

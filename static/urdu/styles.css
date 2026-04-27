@@ -143,6 +143,29 @@ h1 {
 
 .path-tools {
   margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: end;
+}
+
+.placement-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.placement-picker select {
+  min-width: 145px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #fff;
+  font: inherit;
+  color: var(--ink);
 }
 
 .lesson-path {
@@ -430,5 +453,9 @@ button:disabled {
 
   .lesson-path {
     grid-template-columns: 1fr;
+  }
+
+  .path-tools > * {
+    width: 100%;
   }
 }

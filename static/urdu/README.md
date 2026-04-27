@@ -10,6 +10,7 @@ A Duolingo-style mini web app to learn the Urdu script while building reading fl
 - Adds hearts (lives) inside sessions for game-like challenge
 - Tracks daily XP goal (60 XP) and learning streak
 - Includes a targeted review mode that prioritizes weak characters
+- Includes a placement test that can unlock access up to a chosen lesson
 - Unlocks lessons progressively (70% required)
 - Saves your progress, XP, streak, and per-character stats in `localStorage`
 
