@@ -580,6 +580,12 @@ function showScreen(name) {
   name.classList.add("active");
 }
 
+function setHistoryScreen(screen, { replace = false } = {}) {
+  const url = screen === "path" ? window.location.pathname : `${window.location.pathname}#${screen}`;
+  const method = replace ? "replaceState" : "pushState";
+  window.history[method]({ screen }, "", url);
+}
+
 function updateHeartMeter() {
   els.heartMeter.textContent = `Hearts: ${state.hearts}/${MAX_HEARTS}`;
   els.heartMeter.classList.toggle("low", state.hearts <= 1);
@@ -629,6 +635,7 @@ function startSession(mode, lessonId = null) {
 
   updateHeartMeter();
   showScreen(els.screenLesson);
+  setHistoryScreen("lesson");
   renderStep();
 }
 
@@ -832,6 +839,7 @@ function finishSession(reason = "completed") {
 
   renderPath();
   showScreen(els.screenResult);
+  setHistoryScreen("result");
 }
 
 function nextStep() {
@@ -853,6 +861,7 @@ els.nextBtn.addEventListener("click", nextStep);
 els.pathBtn.addEventListener("click", () => {
   renderPath();
   showScreen(els.screenPath);
+  setHistoryScreen("path", { replace: true });
 });
 els.retryBtn.addEventListener("click", () => {
   if (state.mode === "review") {
@@ -866,9 +875,28 @@ els.retryBtn.addEventListener("click", () => {
 els.exitLessonBtn.addEventListener("click", () => {
   renderPath();
   showScreen(els.screenPath);
+  setHistoryScreen("path", { replace: true });
 });
 els.startReviewBtn.addEventListener("click", startReview);
 els.startPlacementBtn.addEventListener("click", startPlacement);
 
+window.addEventListener("popstate", (event) => {
+  const screen = event.state?.screen || "path";
+
+  if (screen === "lesson" && state.currentLesson) {
+    showScreen(els.screenLesson);
+    return;
+  }
+
+  if (screen === "result" && state.currentLesson) {
+    showScreen(els.screenResult);
+    return;
+  }
+
+  renderPath();
+  showScreen(els.screenPath);
+});
+
 renderPath();
 showScreen(els.screenPath);
+setHistoryScreen("path", { replace: true });
