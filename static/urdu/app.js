@@ -509,7 +509,6 @@ function renderStep() {
     els.lessonCard.innerHTML = `
       <p class="prompt">${step.prompt}</p>
       <div class="big-glyph" dir="rtl">${step.char.exampleWord}</div>
-      <p class="reading">Meaning: ${step.char.meaning}</p>
     `;
   } else if (step.type === "pickGlyph" || step.type === "reviewGlyph") {
     els.lessonCard.innerHTML = `
