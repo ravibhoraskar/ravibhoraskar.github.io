@@ -2,46 +2,205 @@ const DAILY_GOAL_XP = 60;
 const MAX_HEARTS = 3;
 
 const CHARACTERS = [
-  { id: "alif", glyph: "ا", name: "Alif", sound: "aa / a", exampleWord: "آدمی", transliteration: "aadmi", meaning: "person" },
-  { id: "bay", glyph: "ب", name: "Bay", sound: "b", exampleWord: "بادل", transliteration: "baadal", meaning: "cloud" },
-  { id: "pay", glyph: "پ", name: "Pay", sound: "p", exampleWord: "پانی", transliteration: "paani", meaning: "water" },
-  { id: "tay", glyph: "ت", name: "Tay", sound: "t", exampleWord: "تار", transliteration: "taar", meaning: "wire" },
-  { id: "ttay", glyph: "ٹ", name: "Ttay", sound: "retroflex t", exampleWord: "ٹوکری", transliteration: "tokri", meaning: "basket" },
-  { id: "say", glyph: "ث", name: "Say", sound: "s (Arabic loan)", exampleWord: "ثابت", transliteration: "saabit", meaning: "fixed" },
-  { id: "jeem", glyph: "ج", name: "Jeem", sound: "j", exampleWord: "جہاز", transliteration: "jahaaz", meaning: "ship" },
-  { id: "chay", glyph: "چ", name: "Chay", sound: "ch", exampleWord: "چاند", transliteration: "chaand", meaning: "moon" },
-  { id: "hay", glyph: "ح", name: "Hay", sound: "h (Arabic loan)", exampleWord: "حکمت", transliteration: "hikmat", meaning: "wisdom" },
-  { id: "khay", glyph: "خ", name: "Khay", sound: "kh", exampleWord: "خبر", transliteration: "khabar", meaning: "news" },
-  { id: "daal", glyph: "د", name: "Daal", sound: "d", exampleWord: "دن", transliteration: "din", meaning: "day" },
-  { id: "ddaal", glyph: "ڈ", name: "Ddaal", sound: "retroflex d", exampleWord: "ڈبہ", transliteration: "dabba", meaning: "box" },
-  { id: "zaal", glyph: "ذ", name: "Zaal", sound: "z (Arabic loan)", exampleWord: "ذکر", transliteration: "zikr", meaning: "mention" },
-  { id: "ray", glyph: "ر", name: "Ray", sound: "r", exampleWord: "راستہ", transliteration: "raasta", meaning: "path" },
-  { id: "rray", glyph: "ڑ", name: "Rray", sound: "retroflex r", exampleWord: "گاڑی", transliteration: "gaari", meaning: "vehicle" },
-  { id: "zay", glyph: "ز", name: "Zay", sound: "z", exampleWord: "زمین", transliteration: "zameen", meaning: "earth" },
-  { id: "zhay", glyph: "ژ", name: "Zhay", sound: "zh", exampleWord: "ژالہ", transliteration: "zhaala", meaning: "hail" },
-  { id: "seen", glyph: "س", name: "Seen", sound: "s", exampleWord: "سورج", transliteration: "sooraj", meaning: "sun" },
-  { id: "sheen", glyph: "ش", name: "Sheen", sound: "sh", exampleWord: "شام", transliteration: "shaam", meaning: "evening" },
-  { id: "suad", glyph: "ص", name: "Suaad", sound: "s (Arabic loan)", exampleWord: "صبر", transliteration: "sabr", meaning: "patience" },
-  { id: "zuad", glyph: "ض", name: "Zuaad", sound: "z (Arabic loan)", exampleWord: "ضروری", transliteration: "zaroori", meaning: "important" },
-  { id: "toay", glyph: "ط", name: "Toay", sound: "t (Arabic loan)", exampleWord: "طالب", transliteration: "taalib", meaning: "student" },
-  { id: "zoay", glyph: "ظ", name: "Zoay", sound: "z (Arabic loan)", exampleWord: "ظاہر", transliteration: "zaahir", meaning: "visible" },
-  { id: "ain", glyph: "ع", name: "Ain", sound: "deep a", exampleWord: "علم", transliteration: "ilm", meaning: "knowledge" },
-  { id: "ghain", glyph: "غ", name: "Ghain", sound: "gh", exampleWord: "غلط", transliteration: "ghalat", meaning: "wrong" },
-  { id: "fay", glyph: "ف", name: "Fay", sound: "f", exampleWord: "فکر", transliteration: "fikr", meaning: "thought" },
-  { id: "qaaf", glyph: "ق", name: "Qaaf", sound: "q", exampleWord: "قلم", transliteration: "qalam", meaning: "pen" },
-  { id: "kaaf", glyph: "ک", name: "Kaaf", sound: "k", exampleWord: "کتاب", transliteration: "kitaab", meaning: "book" },
-  { id: "gaaf", glyph: "گ", name: "Gaaf", sound: "g", exampleWord: "گھر", transliteration: "ghar", meaning: "house" },
-  { id: "laam", glyph: "ل", name: "Laam", sound: "l", exampleWord: "لباس", transliteration: "libaas", meaning: "clothes" },
-  { id: "meem", glyph: "م", name: "Meem", sound: "m", exampleWord: "میز", transliteration: "mez", meaning: "table" },
-  { id: "noon", glyph: "ن", name: "Noon", sound: "n", exampleWord: "نام", transliteration: "naam", meaning: "name" },
-  { id: "nng", glyph: "ں", name: "Noon Ghunna", sound: "nasal n", exampleWord: "ہاں", transliteration: "haan", meaning: "yes" },
-  { id: "wao", glyph: "و", name: "Wao", sound: "w / oo", exampleWord: "وقت", transliteration: "waqt", meaning: "time" },
-  { id: "dochashmi", glyph: "ھ", name: "Do Chashmi He", sound: "aspiration marker", exampleWord: "پھول", transliteration: "phool", meaning: "flower" },
-  { id: "hey", glyph: "ہ", name: "Hey", sound: "h", exampleWord: "ہوا", transliteration: "hawa", meaning: "air" },
-  { id: "hamza", glyph: "ء", name: "Hamza", sound: "glottal stop", exampleWord: "مسئلہ", transliteration: "masla", meaning: "issue" },
-  { id: "chotiye", glyph: "ی", name: "Choti Ye", sound: "y / ee", exampleWord: "یاد", transliteration: "yaad", meaning: "memory" },
-  { id: "barriye", glyph: "ے", name: "Barri Ye", sound: "ay", exampleWord: "میرے", transliteration: "mere", meaning: "my" }
+  { id: "alif", glyph: "ا", name: "Alif", sound: "aa / a" },
+  { id: "bay", glyph: "ب", name: "Bay", sound: "b" },
+  { id: "pay", glyph: "پ", name: "Pay", sound: "p" },
+  { id: "tay", glyph: "ت", name: "Tay", sound: "t" },
+  { id: "ttay", glyph: "ٹ", name: "Ttay", sound: "retroflex t" },
+  { id: "say", glyph: "ث", name: "Say", sound: "s (Arabic loan)" },
+  { id: "jeem", glyph: "ج", name: "Jeem", sound: "j" },
+  { id: "chay", glyph: "چ", name: "Chay", sound: "ch" },
+  { id: "hay", glyph: "ح", name: "Hay", sound: "h (Arabic loan)" },
+  { id: "khay", glyph: "خ", name: "Khay", sound: "kh" },
+  { id: "daal", glyph: "د", name: "Daal", sound: "d" },
+  { id: "ddaal", glyph: "ڈ", name: "Ddaal", sound: "retroflex d" },
+  { id: "zaal", glyph: "ذ", name: "Zaal", sound: "z (Arabic loan)" },
+  { id: "ray", glyph: "ر", name: "Ray", sound: "r" },
+  { id: "rray", glyph: "ڑ", name: "Rray", sound: "retroflex r" },
+  { id: "zay", glyph: "ز", name: "Zay", sound: "z" },
+  { id: "zhay", glyph: "ژ", name: "Zhay", sound: "zh" },
+  { id: "seen", glyph: "س", name: "Seen", sound: "s" },
+  { id: "sheen", glyph: "ش", name: "Sheen", sound: "sh" },
+  { id: "suad", glyph: "ص", name: "Suaad", sound: "s (Arabic loan)" },
+  { id: "zuad", glyph: "ض", name: "Zuaad", sound: "z (Arabic loan)" },
+  { id: "toay", glyph: "ط", name: "Toay", sound: "t (Arabic loan)" },
+  { id: "zoay", glyph: "ظ", name: "Zoay", sound: "z (Arabic loan)" },
+  { id: "ain", glyph: "ع", name: "Ain", sound: "deep a" },
+  { id: "ghain", glyph: "غ", name: "Ghain", sound: "gh" },
+  { id: "fay", glyph: "ف", name: "Fay", sound: "f" },
+  { id: "qaaf", glyph: "ق", name: "Qaaf", sound: "q" },
+  { id: "kaaf", glyph: "ک", name: "Kaaf", sound: "k" },
+  { id: "gaaf", glyph: "گ", name: "Gaaf", sound: "g" },
+  { id: "laam", glyph: "ل", name: "Laam", sound: "l" },
+  { id: "meem", glyph: "م", name: "Meem", sound: "m" },
+  { id: "noon", glyph: "ن", name: "Noon", sound: "n" },
+  { id: "nng", glyph: "ں", name: "Noon Ghunna", sound: "nasal n" },
+  { id: "wao", glyph: "و", name: "Wao", sound: "w / oo" },
+  { id: "dochashmi", glyph: "ھ", name: "Do Chashmi He", sound: "aspiration marker" },
+  { id: "hey", glyph: "ہ", name: "Hey", sound: "h" },
+  { id: "hamza", glyph: "ء", name: "Hamza", sound: "glottal stop" },
+  { id: "chotiye", glyph: "ی", name: "Choti Ye", sound: "y / ee" },
+  { id: "barriye", glyph: "ے", name: "Barri Ye", sound: "ay" }
 ];
+
+const EXAMPLES = {
+  alif: [
+    { word: "آدمی", transliteration: "aadmi", meaning: "person" },
+    { word: "آج", transliteration: "aaj", meaning: "today" }
+  ],
+  bay: [
+    { word: "بادل", transliteration: "baadal", meaning: "cloud" },
+    { word: "بات", transliteration: "baat", meaning: "conversation" }
+  ],
+  pay: [
+    { word: "پانی", transliteration: "paani", meaning: "water" },
+    { word: "پرندہ", transliteration: "parinda", meaning: "bird" }
+  ],
+  tay: [
+    { word: "تار", transliteration: "taar", meaning: "wire" },
+    { word: "تین", transliteration: "teen", meaning: "three" }
+  ],
+  ttay: [
+    { word: "ٹوکری", transliteration: "tokri", meaning: "basket" },
+    { word: "ٹماٹر", transliteration: "tamaatar", meaning: "tomato" }
+  ],
+  say: [
+    { word: "ثابت", transliteration: "saabit", meaning: "fixed" },
+    { word: "ثانی", transliteration: "saani", meaning: "second" }
+  ],
+  jeem: [
+    { word: "جہاز", transliteration: "jahaaz", meaning: "ship" },
+    { word: "جگہ", transliteration: "jagah", meaning: "place" }
+  ],
+  chay: [
+    { word: "چاند", transliteration: "chaand", meaning: "moon" },
+    { word: "چاول", transliteration: "chaawal", meaning: "rice" }
+  ],
+  hay: [
+    { word: "حکمت", transliteration: "hikmat", meaning: "wisdom" },
+    { word: "حیات", transliteration: "hayaat", meaning: "life" }
+  ],
+  khay: [
+    { word: "خبر", transliteration: "khabar", meaning: "news" },
+    { word: "خوشی", transliteration: "khushi", meaning: "happiness" }
+  ],
+  daal: [
+    { word: "دن", transliteration: "din", meaning: "day" },
+    { word: "دل", transliteration: "dil", meaning: "heart" }
+  ],
+  ddaal: [
+    { word: "ڈبہ", transliteration: "dabba", meaning: "box" },
+    { word: "ڈاک", transliteration: "daak", meaning: "mail" }
+  ],
+  zaal: [
+    { word: "ذکر", transliteration: "zikr", meaning: "mention" },
+    { word: "ذہن", transliteration: "zehn", meaning: "mind" }
+  ],
+  ray: [
+    { word: "راستہ", transliteration: "raasta", meaning: "path" },
+    { word: "رنگ", transliteration: "rang", meaning: "color" }
+  ],
+  rray: [
+    { word: "گاڑی", transliteration: "gaari", meaning: "vehicle" },
+    { word: "پہاڑ", transliteration: "pahaar", meaning: "mountain" }
+  ],
+  zay: [
+    { word: "زمین", transliteration: "zameen", meaning: "earth" },
+    { word: "زبان", transliteration: "zubaan", meaning: "language" }
+  ],
+  zhay: [
+    { word: "ژالہ", transliteration: "zhaala", meaning: "hail" },
+    { word: "ژرف", transliteration: "zharf", meaning: "deep" }
+  ],
+  seen: [
+    { word: "سورج", transliteration: "sooraj", meaning: "sun" },
+    { word: "سفر", transliteration: "safar", meaning: "journey" }
+  ],
+  sheen: [
+    { word: "شام", transliteration: "shaam", meaning: "evening" },
+    { word: "شہر", transliteration: "shehar", meaning: "city" }
+  ],
+  suad: [
+    { word: "صبر", transliteration: "sabr", meaning: "patience" },
+    { word: "صحت", transliteration: "sehat", meaning: "health" }
+  ],
+  zuad: [
+    { word: "ضروری", transliteration: "zaroori", meaning: "important" },
+    { word: "ضلع", transliteration: "zilla", meaning: "district" }
+  ],
+  toay: [
+    { word: "طالب", transliteration: "taalib", meaning: "student" },
+    { word: "طریقہ", transliteration: "tareeqa", meaning: "method" }
+  ],
+  zoay: [
+    { word: "ظاہر", transliteration: "zaahir", meaning: "visible" },
+    { word: "ظلم", transliteration: "zulm", meaning: "oppression" }
+  ],
+  ain: [
+    { word: "علم", transliteration: "ilm", meaning: "knowledge" },
+    { word: "عادت", transliteration: "aadat", meaning: "habit" }
+  ],
+  ghain: [
+    { word: "غلط", transliteration: "ghalat", meaning: "wrong" },
+    { word: "غروب", transliteration: "ghuroob", meaning: "sunset" }
+  ],
+  fay: [
+    { word: "فکر", transliteration: "fikr", meaning: "thought" },
+    { word: "فتح", transliteration: "fatah", meaning: "victory" }
+  ],
+  qaaf: [
+    { word: "قلم", transliteration: "qalam", meaning: "pen" },
+    { word: "قدم", transliteration: "qadam", meaning: "step" }
+  ],
+  kaaf: [
+    { word: "کتاب", transliteration: "kitaab", meaning: "book" },
+    { word: "کمرہ", transliteration: "kamra", meaning: "room" }
+  ],
+  gaaf: [
+    { word: "گھر", transliteration: "ghar", meaning: "house" },
+    { word: "گلاب", transliteration: "gulaab", meaning: "rose" }
+  ],
+  laam: [
+    { word: "لباس", transliteration: "libaas", meaning: "clothes" },
+    { word: "لکھنا", transliteration: "likhna", meaning: "to write" }
+  ],
+  meem: [
+    { word: "میز", transliteration: "mez", meaning: "table" },
+    { word: "محبت", transliteration: "mohabbat", meaning: "love" }
+  ],
+  noon: [
+    { word: "نام", transliteration: "naam", meaning: "name" },
+    { word: "نیا", transliteration: "naya", meaning: "new" }
+  ],
+  nng: [
+    { word: "ہاں", transliteration: "haan", meaning: "yes" },
+    { word: "کہاں", transliteration: "kahaan", meaning: "where" }
+  ],
+  wao: [
+    { word: "وقت", transliteration: "waqt", meaning: "time" },
+    { word: "وعدہ", transliteration: "waada", meaning: "promise" }
+  ],
+  dochashmi: [
+    { word: "پھول", transliteration: "phool", meaning: "flower" },
+    { word: "بھائی", transliteration: "bhai", meaning: "brother" }
+  ],
+  hey: [
+    { word: "ہوا", transliteration: "hawa", meaning: "air" },
+    { word: "ہاتھ", transliteration: "haath", meaning: "hand" }
+  ],
+  hamza: [
+    { word: "مسئلہ", transliteration: "masla", meaning: "issue" },
+    { word: "شیء", transliteration: "shay", meaning: "thing" }
+  ],
+  chotiye: [
+    { word: "یاد", transliteration: "yaad", meaning: "memory" },
+    { word: "یہ", transliteration: "yeh", meaning: "this" }
+  ],
+  barriye: [
+    { word: "میرے", transliteration: "mere", meaning: "my" },
+    { word: "کیے", transliteration: "kiye", meaning: "did" }
+  ]
+};
 
 const LESSON_PLAN = [
   ["alif", "bay"],
@@ -219,6 +378,18 @@ function sample(arr, count, exclude = []) {
   return shuffle(clean).slice(0, count);
 }
 
+function randomChoice(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function examplePoolForChar(char) {
+  return EXAMPLES[char.id] || [];
+}
+
+function randomExampleForChar(char) {
+  return randomChoice(examplePoolForChar(char));
+}
+
 function unlockStatus(index) {
   if (index === 0) {
     return "unlocked";
@@ -343,18 +514,20 @@ function buildPracticeSteps(chars, introduced) {
       char
     });
 
+    const targetExample = randomExampleForChar(char);
     const wordPool = sample(introduced, 3, [char]);
     const translitOptions = shuffle([
-      char.transliteration,
-      ...wordPool.map((w) => w.transliteration)
+      targetExample.transliteration,
+      ...wordPool.map((w) => randomExampleForChar(w).transliteration)
     ]).slice(0, 4);
 
     practice.push({
       type: "readWord",
       prompt: "Read this Urdu word",
-      answer: char.transliteration,
+      answer: targetExample.transliteration,
       choices: translitOptions,
-      char
+      char,
+      example: targetExample
     });
   });
 
@@ -377,7 +550,8 @@ function buildLessonSteps(lesson) {
   const introduced = getCharsUpToLesson(lesson.id);
   const introSteps = lesson.newChars.map((char) => ({
     type: "intro",
-    char
+    char,
+    example: randomExampleForChar(char)
   }));
 
   const practice = buildPracticeSteps(lesson.newChars, introduced);
@@ -493,7 +667,7 @@ function renderStep() {
       <div class="big-glyph" dir="rtl">${step.char.glyph}</div>
       <h3>${step.char.name}</h3>
       <p class="reading">Sound: ${step.char.sound}</p>
-      <p>Example: <span dir="rtl">${step.char.exampleWord}</span> (${step.char.transliteration}) - ${step.char.meaning}</p>
+      <p>Example: <span dir="rtl">${step.example.word}</span> (${step.example.transliteration}) - ${step.example.meaning}</p>
     `;
     els.nextBtn.disabled = false;
     state.awaitingContinue = true;
@@ -508,7 +682,7 @@ function renderStep() {
   } else if (step.type === "readWord") {
     els.lessonCard.innerHTML = `
       <p class="prompt">${step.prompt}</p>
-      <div class="big-glyph" dir="rtl">${step.char.exampleWord}</div>
+      <div class="big-glyph" dir="rtl">${step.example.word}</div>
     `;
   } else if (step.type === "pickGlyph" || step.type === "reviewGlyph") {
     els.lessonCard.innerHTML = `
