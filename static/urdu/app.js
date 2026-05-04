@@ -202,6 +202,88 @@ const EXAMPLES = {
   ]
 };
 
+const FORM_FOCUSED_EXAMPLES = {
+  bay: [
+    { word: "خواب", transliteration: "khwaab", meaning: "dream" },
+    { word: "کبھی", transliteration: "kabhi", meaning: "sometimes" }
+  ],
+  pay: [
+    { word: "سپاہی", transliteration: "sipaahi", meaning: "soldier" },
+    { word: "آپ", transliteration: "aap", meaning: "you" }
+  ],
+  tay: [
+    { word: "متاع", transliteration: "mataa", meaning: "goods" },
+    { word: "رات", transliteration: "raat", meaning: "night" }
+  ],
+  ttay: [
+    { word: "لڑکا", transliteration: "larka", meaning: "boy" }
+  ],
+  jeem: [
+    { word: "اجازت", transliteration: "ijaazat", meaning: "permission" },
+    { word: "موج", transliteration: "mauj", meaning: "wave" }
+  ],
+  chay: [
+    { word: "بچپن", transliteration: "bachpan", meaning: "childhood" },
+    { word: "سچ", transliteration: "sach", meaning: "truth" }
+  ],
+  khay: [
+    { word: "بخار", transliteration: "bukhaar", meaning: "fever" },
+    { word: "شیخ", transliteration: "shaikh", meaning: "elder" }
+  ],
+  seen: [
+    { word: "اسکول", transliteration: "school", meaning: "school" },
+    { word: "لباس", transliteration: "libaas", meaning: "clothes" }
+  ],
+  sheen: [
+    { word: "کشش", transliteration: "kashish", meaning: "attraction" },
+    { word: "خوش", transliteration: "khush", meaning: "happy" }
+  ],
+  ain: [
+    { word: "سعادت", transliteration: "saadat", meaning: "blessing" },
+    { word: "بدیع", transliteration: "badee", meaning: "unique" }
+  ],
+  ghain: [
+    { word: "دھوغا", transliteration: "dhogha", meaning: "deception" },
+    { word: "بلاغ", transliteration: "balaagh", meaning: "delivery" }
+  ],
+  fay: [
+    { word: "سفر", transliteration: "safar", meaning: "journey" },
+    { word: "صاف", transliteration: "saaf", meaning: "clean" }
+  ],
+  qaaf: [
+    { word: "بقلم", transliteration: "baqalam", meaning: "by pen" },
+    { word: "حق", transliteration: "haq", meaning: "right" }
+  ],
+  kaaf: [
+    { word: "مکان", transliteration: "makaan", meaning: "house" },
+    { word: "نمک", transliteration: "namak", meaning: "salt" }
+  ],
+  gaaf: [
+    { word: "نگار", transliteration: "nigaar", meaning: "portrait" },
+    { word: "رنگ", transliteration: "rang", meaning: "color" }
+  ],
+  laam: [
+    { word: "قلم", transliteration: "qalam", meaning: "pen" },
+    { word: "دل", transliteration: "dil", meaning: "heart" }
+  ],
+  meem: [
+    { word: "امید", transliteration: "umeed", meaning: "hope" },
+    { word: "نام", transliteration: "naam", meaning: "name" }
+  ],
+  noon: [
+    { word: "انسان", transliteration: "insaan", meaning: "human" },
+    { word: "چمن", transliteration: "chaman", meaning: "garden" }
+  ],
+  hey: [
+    { word: "چہرہ", transliteration: "chehra", meaning: "face" },
+    { word: "راہ", transliteration: "raah", meaning: "path" }
+  ],
+  chotiye: [
+    { word: "بیان", transliteration: "bayaan", meaning: "statement" },
+    { word: "بندی", transliteration: "bandi", meaning: "bondage" }
+  ]
+};
+
 const LESSON_PLAN = [
   ["alif", "bay"],
   ["pay", "tay"],
@@ -383,11 +465,52 @@ function randomChoice(arr) {
 }
 
 function examplePoolForChar(char) {
-  return EXAMPLES[char.id] || [];
+  return [...(EXAMPLES[char.id] || []), ...(FORM_FOCUSED_EXAMPLES[char.id] || [])];
 }
 
 function randomExampleForChar(char) {
   return randomChoice(examplePoolForChar(char));
+}
+
+function inferForm(exampleWord, glyph) {
+  const idx = exampleWord.indexOf(glyph);
+  if (idx === -1 || exampleWord.length === 1) {
+    return "standalone";
+  }
+  if (idx === 0) {
+    return "initial";
+  }
+  if (idx === exampleWord.length - 1) {
+    return "final";
+  }
+  return "medial";
+}
+
+function formExamplesForIntro(char) {
+  const pool = shuffle(examplePoolForChar(char));
+  const grouped = { initial: [], medial: [], final: [], standalone: [] };
+
+  pool.forEach((example) => {
+    const form = inferForm(example.word, char.glyph);
+    grouped[form].push({ ...example, form });
+  });
+
+  const chosen = [];
+  ["initial", "medial", "final", "standalone"].forEach((form) => {
+    if (grouped[form][0]) {
+      chosen.push(grouped[form][0]);
+    }
+  });
+
+  if (chosen.length < 3) {
+    pool.forEach((example) => {
+      if (!chosen.find((item) => item.word === example.word)) {
+        chosen.push({ ...example, form: inferForm(example.word, char.glyph) });
+      }
+    });
+  }
+
+  return chosen.slice(0, 4);
 }
 
 function unlockStatus(index) {
@@ -551,7 +674,8 @@ function buildLessonSteps(lesson) {
   const introSteps = lesson.newChars.map((char) => ({
     type: "intro",
     char,
-    example: randomExampleForChar(char)
+    example: randomExampleForChar(char),
+    formExamples: formExamplesForIntro(char)
   }));
 
   const practice = buildPracticeSteps(lesson.newChars, introduced);
@@ -578,12 +702,6 @@ function showScreen(name) {
     screen.classList.remove("active");
   });
   name.classList.add("active");
-}
-
-function setHistoryScreen(screen, { replace = false } = {}) {
-  const url = screen === "path" ? window.location.pathname : `${window.location.pathname}#${screen}`;
-  const method = replace ? "replaceState" : "pushState";
-  window.history[method]({ screen }, "", url);
 }
 
 function updateHeartMeter() {
@@ -635,7 +753,6 @@ function startSession(mode, lessonId = null) {
 
   updateHeartMeter();
   showScreen(els.screenLesson);
-  setHistoryScreen("lesson");
   renderStep();
 }
 
@@ -675,6 +792,15 @@ function renderStep() {
       <h3>${step.char.name}</h3>
       <p class="reading">Sound: ${step.char.sound}</p>
       <p>Example: <span dir="rtl">${step.example.word}</span> (${step.example.transliteration}) - ${step.example.meaning}</p>
+      <p class="prompt">Shape practice in words</p>
+      <div>
+        ${step.formExamples
+          .map(
+            (item) =>
+              `<div><strong>${item.form}</strong>: <span dir="rtl">${item.word}</span> (${item.transliteration}) - ${item.meaning}</div>`
+          )
+          .join("")}
+      </div>
     `;
     els.nextBtn.disabled = false;
     state.awaitingContinue = true;
@@ -839,7 +965,6 @@ function finishSession(reason = "completed") {
 
   renderPath();
   showScreen(els.screenResult);
-  setHistoryScreen("result");
 }
 
 function nextStep() {
@@ -861,7 +986,6 @@ els.nextBtn.addEventListener("click", nextStep);
 els.pathBtn.addEventListener("click", () => {
   renderPath();
   showScreen(els.screenPath);
-  setHistoryScreen("path", { replace: true });
 });
 els.retryBtn.addEventListener("click", () => {
   if (state.mode === "review") {
@@ -875,28 +999,9 @@ els.retryBtn.addEventListener("click", () => {
 els.exitLessonBtn.addEventListener("click", () => {
   renderPath();
   showScreen(els.screenPath);
-  setHistoryScreen("path", { replace: true });
 });
 els.startReviewBtn.addEventListener("click", startReview);
 els.startPlacementBtn.addEventListener("click", startPlacement);
 
-window.addEventListener("popstate", (event) => {
-  const screen = event.state?.screen || "path";
-
-  if (screen === "lesson" && state.currentLesson) {
-    showScreen(els.screenLesson);
-    return;
-  }
-
-  if (screen === "result" && state.currentLesson) {
-    showScreen(els.screenResult);
-    return;
-  }
-
-  renderPath();
-  showScreen(els.screenPath);
-});
-
 renderPath();
 showScreen(els.screenPath);
-setHistoryScreen("path", { replace: true });
