@@ -46,159 +46,276 @@ const CHARACTERS = [
 const EXAMPLES = {
   alif: [
     { word: "آدمی", transliteration: "aadmi", meaning: "person" },
-    { word: "آج", transliteration: "aaj", meaning: "today" }
+    { word: "آج", transliteration: "aaj", meaning: "today" },
+    { word: "آسمان", transliteration: "aasmaan", meaning: "sky" },
+    { word: "آپ", transliteration: "aap", meaning: "you" },
+    { word: "ایمان", transliteration: "imaan", meaning: "faith" }
   ],
   bay: [
     { word: "بادل", transliteration: "baadal", meaning: "cloud" },
-    { word: "بات", transliteration: "baat", meaning: "conversation" }
+    { word: "بات", transliteration: "baat", meaning: "conversation" },
+    { word: "باغ", transliteration: "baagh", meaning: "garden" },
+    { word: "لب", transliteration: "lab", meaning: "lip" },
+    { word: "سبب", transliteration: "sabab", meaning: "reason" }
   ],
   pay: [
     { word: "پانی", transliteration: "paani", meaning: "water" },
-    { word: "پرندہ", transliteration: "parinda", meaning: "bird" }
+    { word: "پرندہ", transliteration: "parinda", meaning: "bird" },
+    { word: "پتہ", transliteration: "pata", meaning: "address" },
+    { word: "اپنا", transliteration: "apna", meaning: "own" },
+    { word: "ٹوپی", transliteration: "topi", meaning: "cap" }
   ],
   tay: [
     { word: "تار", transliteration: "taar", meaning: "wire" },
-    { word: "تین", transliteration: "teen", meaning: "three" }
+    { word: "تین", transliteration: "teen", meaning: "three" },
+    { word: "تلاش", transliteration: "talaash", meaning: "search" },
+    { word: "متاع", transliteration: "mataa", meaning: "goods" },
+    { word: "رات", transliteration: "raat", meaning: "night" }
   ],
   ttay: [
     { word: "ٹوکری", transliteration: "tokri", meaning: "basket" },
-    { word: "ٹماٹر", transliteration: "tamaatar", meaning: "tomato" }
+    { word: "ٹماٹر", transliteration: "tamaatar", meaning: "tomato" },
+    { word: "ٹکٹ", transliteration: "ticket", meaning: "ticket" },
+    { word: "لڑکا", transliteration: "larka", meaning: "boy" },
+    { word: "پٹاخہ", transliteration: "pataakha", meaning: "firecracker" }
   ],
   say: [
     { word: "ثابت", transliteration: "saabit", meaning: "fixed" },
-    { word: "ثانی", transliteration: "saani", meaning: "second" }
+    { word: "ثانی", transliteration: "saani", meaning: "second" },
+    { word: "ثواب", transliteration: "sawaab", meaning: "reward" },
+    { word: "اثاثہ", transliteration: "asaasa", meaning: "asset" },
+    { word: "وارث", transliteration: "waaris", meaning: "heir" }
   ],
   jeem: [
     { word: "جہاز", transliteration: "jahaaz", meaning: "ship" },
-    { word: "جگہ", transliteration: "jagah", meaning: "place" }
+    { word: "جگہ", transliteration: "jagah", meaning: "place" },
+    { word: "جواب", transliteration: "javaab", meaning: "answer" },
+    { word: "مسجد", transliteration: "masjid", meaning: "mosque" },
+    { word: "تاج", transliteration: "taaj", meaning: "crown" }
   ],
   chay: [
     { word: "چاند", transliteration: "chaand", meaning: "moon" },
-    { word: "چاول", transliteration: "chaawal", meaning: "rice" }
+    { word: "چاول", transliteration: "chaawal", meaning: "rice" },
+    { word: "چشمہ", transliteration: "chashma", meaning: "spring" },
+    { word: "بچہ", transliteration: "bacha", meaning: "child" },
+    { word: "اچھا", transliteration: "achha", meaning: "good" }
   ],
   hay: [
     { word: "حکمت", transliteration: "hikmat", meaning: "wisdom" },
-    { word: "حیات", transliteration: "hayaat", meaning: "life" }
+    { word: "حیات", transliteration: "hayaat", meaning: "life" },
+    { word: "حقیقت", transliteration: "haqeeqat", meaning: "reality" },
+    { word: "حلال", transliteration: "halaal", meaning: "permissible" },
+    { word: "حروف", transliteration: "huroof", meaning: "letters" }
   ],
   khay: [
     { word: "خبر", transliteration: "khabar", meaning: "news" },
-    { word: "خوشی", transliteration: "khushi", meaning: "happiness" }
+    { word: "خوشی", transliteration: "khushi", meaning: "happiness" },
+    { word: "خواب", transliteration: "khwaab", meaning: "dream" },
+    { word: "آخر", transliteration: "aakhir", meaning: "end" },
+    { word: "خطرہ", transliteration: "khatra", meaning: "danger" }
   ],
   daal: [
     { word: "دن", transliteration: "din", meaning: "day" },
-    { word: "دل", transliteration: "dil", meaning: "heart" }
+    { word: "دل", transliteration: "dil", meaning: "heart" },
+    { word: "دروازہ", transliteration: "darwaaza", meaning: "door" },
+    { word: "امید", transliteration: "umeed", meaning: "hope" },
+    { word: "دلبر", transliteration: "dilbar", meaning: "beloved" }
   ],
   ddaal: [
     { word: "ڈبہ", transliteration: "dabba", meaning: "box" },
-    { word: "ڈاک", transliteration: "daak", meaning: "mail" }
+    { word: "ڈاک", transliteration: "daak", meaning: "mail" },
+    { word: "ڈگر", transliteration: "dagar", meaning: "path" },
+    { word: "لڈو", transliteration: "laddu", meaning: "sweet" },
+    { word: "ڈھال", transliteration: "dhaal", meaning: "shield" }
   ],
   zaal: [
     { word: "ذکر", transliteration: "zikr", meaning: "mention" },
-    { word: "ذہن", transliteration: "zehn", meaning: "mind" }
+    { word: "ذہن", transliteration: "zehn", meaning: "mind" },
+    { word: "ذوق", transliteration: "zauq", meaning: "taste" },
+    { word: "اذان", transliteration: "azaan", meaning: "call to prayer" },
+    { word: "ذہانت", transliteration: "zehaanat", meaning: "intelligence" }
   ],
   ray: [
     { word: "راستہ", transliteration: "raasta", meaning: "path" },
-    { word: "رنگ", transliteration: "rang", meaning: "color" }
+    { word: "رنگ", transliteration: "rang", meaning: "color" },
+    { word: "روز", transliteration: "roz", meaning: "day" },
+    { word: "گھر", transliteration: "ghar", meaning: "house" },
+    { word: "سردار", transliteration: "sardaar", meaning: "leader" }
   ],
   rray: [
     { word: "گاڑی", transliteration: "gaari", meaning: "vehicle" },
-    { word: "پہاڑ", transliteration: "pahaar", meaning: "mountain" }
+    { word: "پہاڑ", transliteration: "pahaar", meaning: "mountain" },
+    { word: "لڑکی", transliteration: "larki", meaning: "girl" },
+    { word: "مڑنا", transliteration: "murna", meaning: "to turn" },
+    { word: "بڑھا", transliteration: "barha", meaning: "elderly" }
   ],
   zay: [
     { word: "زمین", transliteration: "zameen", meaning: "earth" },
-    { word: "زبان", transliteration: "zubaan", meaning: "language" }
+    { word: "زبان", transliteration: "zubaan", meaning: "language" },
+    { word: "زمانہ", transliteration: "zamaana", meaning: "era" },
+    { word: "انداز", transliteration: "andaaz", meaning: "style" },
+    { word: "نماز", transliteration: "namaaz", meaning: "prayer" }
   ],
   zhay: [
     { word: "ژالہ", transliteration: "zhaala", meaning: "hail" },
-    { word: "ژرف", transliteration: "zharf", meaning: "deep" }
+    { word: "ژرف", transliteration: "zharf", meaning: "deep" },
+    { word: "ٹیلیویژن", transliteration: "television", meaning: "television" },
+    { word: "ویژن", transliteration: "vision", meaning: "vision" },
+    { word: "ژوب", transliteration: "zhob", meaning: "zhob" }
   ],
   seen: [
     { word: "سورج", transliteration: "sooraj", meaning: "sun" },
-    { word: "سفر", transliteration: "safar", meaning: "journey" }
+    { word: "سفر", transliteration: "safar", meaning: "journey" },
+    { word: "سبق", transliteration: "sabaq", meaning: "lesson" },
+    { word: "انسان", transliteration: "insaan", meaning: "human" },
+    { word: "مسافر", transliteration: "musaafir", meaning: "traveler" }
   ],
   sheen: [
     { word: "شام", transliteration: "shaam", meaning: "evening" },
-    { word: "شہر", transliteration: "shehar", meaning: "city" }
+    { word: "شہر", transliteration: "shehar", meaning: "city" },
+    { word: "شور", transliteration: "shor", meaning: "noise" },
+    { word: "روشن", transliteration: "roshan", meaning: "bright" },
+    { word: "بارش", transliteration: "baarish", meaning: "rain" }
   ],
   suad: [
     { word: "صبر", transliteration: "sabr", meaning: "patience" },
-    { word: "صحت", transliteration: "sehat", meaning: "health" }
+    { word: "صحت", transliteration: "sehat", meaning: "health" },
+    { word: "صدا", transliteration: "sadaa", meaning: "voice" },
+    { word: "اقتصاد", transliteration: "iqtisaad", meaning: "economy" },
+    { word: "قصہ", transliteration: "qissa", meaning: "story" }
   ],
   zuad: [
     { word: "ضروری", transliteration: "zaroori", meaning: "important" },
-    { word: "ضلع", transliteration: "zilla", meaning: "district" }
+    { word: "ضلع", transliteration: "zilla", meaning: "district" },
+    { word: "ضمانت", transliteration: "zamaanat", meaning: "guarantee" },
+    { word: "مرض", transliteration: "marz", meaning: "disease" },
+    { word: "ضبط", transliteration: "zabt", meaning: "control" }
   ],
   toay: [
     { word: "طالب", transliteration: "taalib", meaning: "student" },
-    { word: "طریقہ", transliteration: "tareeqa", meaning: "method" }
+    { word: "طریقہ", transliteration: "tareeqa", meaning: "method" },
+    { word: "طیارہ", transliteration: "tayyaara", meaning: "airplane" },
+    { word: "طوفان", transliteration: "toofaan", meaning: "storm" },
+    { word: "خطاط", transliteration: "khattaat", meaning: "calligrapher" }
   ],
   zoay: [
     { word: "ظاہر", transliteration: "zaahir", meaning: "visible" },
-    { word: "ظلم", transliteration: "zulm", meaning: "oppression" }
+    { word: "ظلم", transliteration: "zulm", meaning: "oppression" },
+    { word: "مظلوم", transliteration: "mazloom", meaning: "oppressed" },
+    { word: "ظرف", transliteration: "zarf", meaning: "capacity" },
+    { word: "تنظیم", transliteration: "tanzeem", meaning: "organization" }
   ],
   ain: [
     { word: "علم", transliteration: "ilm", meaning: "knowledge" },
-    { word: "عادت", transliteration: "aadat", meaning: "habit" }
+    { word: "عادت", transliteration: "aadat", meaning: "habit" },
+    { word: "علاج", transliteration: "ilaaj", meaning: "treatment" },
+    { word: "موقع", transliteration: "mauqa", meaning: "opportunity" },
+    { word: "عمر", transliteration: "umar", meaning: "age" }
   ],
   ghain: [
     { word: "غلط", transliteration: "ghalat", meaning: "wrong" },
-    { word: "غروب", transliteration: "ghuroob", meaning: "sunset" }
+    { word: "غروب", transliteration: "ghuroob", meaning: "sunset" },
+    { word: "غم", transliteration: "gham", meaning: "sorrow" },
+    { word: "چراغ", transliteration: "chiraagh", meaning: "lamp" },
+    { word: "باغ", transliteration: "baagh", meaning: "garden" }
   ],
   fay: [
     { word: "فکر", transliteration: "fikr", meaning: "thought" },
-    { word: "فتح", transliteration: "fatah", meaning: "victory" }
+    { word: "فتح", transliteration: "fatah", meaning: "victory" },
+    { word: "فائدہ", transliteration: "faida", meaning: "benefit" },
+    { word: "فاصلہ", transliteration: "faasla", meaning: "distance" },
+    { word: "سفر", transliteration: "safar", meaning: "journey" }
   ],
   qaaf: [
     { word: "قلم", transliteration: "qalam", meaning: "pen" },
-    { word: "قدم", transliteration: "qadam", meaning: "step" }
+    { word: "قدم", transliteration: "qadam", meaning: "step" },
+    { word: "قانون", transliteration: "qanoon", meaning: "law" },
+    { word: "قوت", transliteration: "quwwat", meaning: "strength" },
+    { word: "حق", transliteration: "haq", meaning: "right" }
   ],
   kaaf: [
     { word: "کتاب", transliteration: "kitaab", meaning: "book" },
-    { word: "کمرہ", transliteration: "kamra", meaning: "room" }
+    { word: "کمرہ", transliteration: "kamra", meaning: "room" },
+    { word: "کل", transliteration: "kal", meaning: "tomorrow" },
+    { word: "نمک", transliteration: "namak", meaning: "salt" },
+    { word: "سکون", transliteration: "sukoon", meaning: "peace" }
   ],
   gaaf: [
     { word: "گھر", transliteration: "ghar", meaning: "house" },
-    { word: "گلاب", transliteration: "gulaab", meaning: "rose" }
+    { word: "گلاب", transliteration: "gulaab", meaning: "rose" },
+    { word: "گانا", transliteration: "gaana", meaning: "song" },
+    { word: "رنگ", transliteration: "rang", meaning: "color" },
+    { word: "جگہ", transliteration: "jagah", meaning: "place" }
   ],
   laam: [
     { word: "لباس", transliteration: "libaas", meaning: "clothes" },
-    { word: "لکھنا", transliteration: "likhna", meaning: "to write" }
+    { word: "لکھنا", transliteration: "likhna", meaning: "to write" },
+    { word: "لوگ", transliteration: "log", meaning: "people" },
+    { word: "دل", transliteration: "dil", meaning: "heart" },
+    { word: "سوال", transliteration: "sawaal", meaning: "question" }
   ],
   meem: [
     { word: "میز", transliteration: "mez", meaning: "table" },
-    { word: "محبت", transliteration: "mohabbat", meaning: "love" }
+    { word: "محبت", transliteration: "mohabbat", meaning: "love" },
+    { word: "مکان", transliteration: "makaan", meaning: "house" },
+    { word: "موسم", transliteration: "mausam", meaning: "weather" },
+    { word: "علم", transliteration: "ilm", meaning: "knowledge" }
   ],
   noon: [
     { word: "نام", transliteration: "naam", meaning: "name" },
-    { word: "نیا", transliteration: "naya", meaning: "new" }
+    { word: "نیا", transliteration: "naya", meaning: "new" },
+    { word: "ندی", transliteration: "nadi", meaning: "river" },
+    { word: "انسان", transliteration: "insaan", meaning: "human" },
+    { word: "چمن", transliteration: "chaman", meaning: "garden" }
   ],
   nng: [
     { word: "ہاں", transliteration: "haan", meaning: "yes" },
-    { word: "کہاں", transliteration: "kahaan", meaning: "where" }
+    { word: "کہاں", transliteration: "kahaan", meaning: "where" },
+    { word: "میں", transliteration: "main", meaning: "I" },
+    { word: "نہیں", transliteration: "nahin", meaning: "no/not" },
+    { word: "کہیں", transliteration: "kahin", meaning: "somewhere" }
   ],
   wao: [
     { word: "وقت", transliteration: "waqt", meaning: "time" },
-    { word: "وعدہ", transliteration: "waada", meaning: "promise" }
+    { word: "وعدہ", transliteration: "waada", meaning: "promise" },
+    { word: "وہ", transliteration: "woh", meaning: "he/she" },
+    { word: "نور", transliteration: "noor", meaning: "light" },
+    { word: "دوست", transliteration: "dost", meaning: "friend" }
   ],
   dochashmi: [
     { word: "پھول", transliteration: "phool", meaning: "flower" },
-    { word: "بھائی", transliteration: "bhai", meaning: "brother" }
+    { word: "بھائی", transliteration: "bhai", meaning: "brother" },
+    { word: "بھاگ", transliteration: "bhaag", meaning: "run" },
+    { word: "تھک", transliteration: "thak", meaning: "tired" },
+    { word: "کھانا", transliteration: "khaana", meaning: "food" }
   ],
   hey: [
     { word: "ہوا", transliteration: "hawa", meaning: "air" },
-    { word: "ہاتھ", transliteration: "haath", meaning: "hand" }
+    { word: "ہاتھ", transliteration: "haath", meaning: "hand" },
+    { word: "ہنر", transliteration: "hunar", meaning: "skill" },
+    { word: "چہرہ", transliteration: "chehra", meaning: "face" },
+    { word: "راہ", transliteration: "raah", meaning: "path" }
   ],
   hamza: [
     { word: "مسئلہ", transliteration: "masla", meaning: "issue" },
-    { word: "شیء", transliteration: "shay", meaning: "thing" }
+    { word: "شیء", transliteration: "shay", meaning: "thing" },
+    { word: "جزء", transliteration: "juz", meaning: "part" },
+    { word: "متاثر", transliteration: "mutaasir", meaning: "affected" },
+    { word: "مسئول", transliteration: "masool", meaning: "responsible" }
   ],
   chotiye: [
     { word: "یاد", transliteration: "yaad", meaning: "memory" },
-    { word: "یہ", transliteration: "yeh", meaning: "this" }
+    { word: "یہ", transliteration: "yeh", meaning: "this" },
+    { word: "یقین", transliteration: "yaqeen", meaning: "belief" },
+    { word: "پیار", transliteration: "pyaar", meaning: "love" },
+    { word: "نیکی", transliteration: "neki", meaning: "goodness" }
   ],
   barriye: [
     { word: "میرے", transliteration: "mere", meaning: "my" },
-    { word: "کیے", transliteration: "kiye", meaning: "did" }
+    { word: "کیے", transliteration: "kiye", meaning: "did" },
+    { word: "تیرے", transliteration: "tere", meaning: "your" },
+    { word: "جیسے", transliteration: "jaise", meaning: "like/as" },
+    { word: "کیسے", transliteration: "kaise", meaning: "how" }
   ]
 };
 
