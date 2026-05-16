@@ -1129,7 +1129,7 @@ function renderStep() {
     const btn = document.createElement("button");
     btn.className = "choice";
 
-    if (/^[\u0600-\u06FF]+$/u.test(choice)) {
+    if (choice && choice.match(/[\u0600-\u06FF]/u)) {
       btn.setAttribute("dir", "rtl");
       btn.style.fontFamily = '"Noto Nastaliq Urdu", sans-serif';
       btn.style.fontSize = "1.4rem";
