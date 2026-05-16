@@ -401,6 +401,131 @@ const FORM_FOCUSED_EXAMPLES = {
   ]
 };
 
+const COMPREHENSION_PASSAGES = [
+  {
+    id: "c1",
+    level: 1,
+    text: "آج علی اسکول دیر سے پہنچا۔ راستے میں بارش ہو رہی تھی، اس لئے وہ بس کا انتظار کرتا رہا۔ کلاس میں پہنچ کر اس نے استاد سے معذرت کی۔",
+    questions: [
+      {
+        prompt: "علی دیر سے کیوں پہنچا؟",
+        choices: ["بارش ہو رہی تھی", "وہ بیمار تھا", "اسکول بند تھا", "اسے راستہ نہیں ملا"],
+        answer: "بارش ہو رہی تھی"
+      },
+      {
+        prompt: "علی نے کلاس میں جا کر کیا کیا؟",
+        choices: ["گھر واپس چلا گیا", "دوست سے لڑا", "استاد سے معذرت کی", "فوراً کھیلنے لگا"],
+        answer: "استاد سے معذرت کی"
+      }
+    ]
+  },
+  {
+    id: "c2",
+    level: 1,
+    text: "فاطمہ نے بازار سے پھل خریدے۔ گھر آ کر اس نے سیب اور کیلے دھوئے اور سب کو پلیٹ میں رکھ دیا۔ شام کو مہمان آئے تو سب نے خوشی سے پھل کھائے۔",
+    questions: [
+      {
+        prompt: "فاطمہ نے بازار سے کیا خریدا؟",
+        choices: ["کتابیں", "پھل", "کپڑے", "کھلونے"],
+        answer: "پھل"
+      },
+      {
+        prompt: "مہمان کب آئے؟",
+        choices: ["صبح", "دوپہر", "شام", "رات گئے"],
+        answer: "شام"
+      }
+    ]
+  },
+  {
+    id: "c3",
+    level: 2,
+    text: "محلے کی لائبریری میں اس ہفتے مطالعے کی نشست ہوئی۔ بچوں کو مختلف کہانیاں دی گئیں اور ہر بچے نے اپنی پسند کی کہانی پر مختصر گفتگو کی۔ آخر میں منتظم نے کہا کہ روزانہ بیس منٹ مطالعہ عادت بنانی چاہیے۔",
+    questions: [
+      {
+        prompt: "نشست کہاں ہوئی؟",
+        choices: ["پارک میں", "لائبریری میں", "اسکول کے میدان میں", "کسی دکان پر"],
+        answer: "لائبریری میں"
+      },
+      {
+        prompt: "بچوں نے کس چیز پر گفتگو کی؟",
+        choices: ["اپنی پسند کی کہانی", "صرف ہوم ورک", "کھیلوں کے قوانین", "موسم کی تبدیلی"],
+        answer: "اپنی پسند کی کہانی"
+      },
+      {
+        prompt: "منتظم نے کیا مشورہ دیا؟",
+        choices: ["روزانہ بیس منٹ مطالعہ", "روزانہ ایک فلم", "ہفتے میں ایک دن چھٹی", "صرف امتحان کے وقت پڑھائی"],
+        answer: "روزانہ بیس منٹ مطالعہ"
+      }
+    ]
+  },
+  {
+    id: "c4",
+    level: 2,
+    text: "شہر میں صفائی مہم کے دوران طلبہ نے سڑکوں کے کنارے کچرا جمع کیا۔ کچھ لوگوں نے انہیں دستانے اور تھیلے فراہم کیے، جبکہ مقامی دکانداروں نے پانی اور جوس کا انتظام کیا۔ اس سرگرمی کے بعد علاقے کی فضا واضح طور پر بہتر محسوس ہوئی۔",
+    questions: [
+      {
+        prompt: "صفائی مہم میں طلبہ نے کیا کیا؟",
+        choices: ["درخت کاٹے", "کچرا جمع کیا", "دکانیں بند کیں", "ٹریفک روکی"],
+        answer: "کچرا جمع کیا"
+      },
+      {
+        prompt: "دکانداروں نے کیا انتظام کیا؟",
+        choices: ["کتابیں", "پانی اور جوس", "کھیل کا سامان", "بس سروس"],
+        answer: "پانی اور جوس"
+      },
+      {
+        prompt: "سرگرمی کے بعد کیا تبدیلی آئی؟",
+        choices: ["فضا بہتر محسوس ہوئی", "بارش شروع ہوگئی", "اسکول بند ہوگئے", "لوگ گھروں میں رہے"],
+        answer: "فضا بہتر محسوس ہوئی"
+      }
+    ]
+  },
+  {
+    id: "c5",
+    level: 3,
+    text: "کالج کے طلبہ نے ایک سائنسی نمائش منعقد کی جس میں توانائی کے متبادل ذرائع پر ماڈل پیش کیے گئے۔ ایک گروپ نے شمسی توانائی سے چلنے والا چھوٹا آبپاشی نظام دکھایا، جبکہ دوسرے گروپ نے بارش کے پانی کو محفوظ کرنے کا طریقہ سمجھایا۔ اساتذہ نے زور دیا کہ مقامی مسائل کے حل کے لئے سادہ مگر پائیدار ٹیکنالوجی اہم کردار ادا کر سکتی ہے۔",
+    questions: [
+      {
+        prompt: "نمائش میں مرکزی موضوع کیا تھا؟",
+        choices: ["متبادل توانائی", "قدیم تاریخ", "اردو شاعری", "بینکنگ نظام"],
+        answer: "متبادل توانائی"
+      },
+      {
+        prompt: "ایک گروپ نے کون سا نظام دکھایا؟",
+        choices: ["شمسی آبپاشی نظام", "ریلوے سگنل نظام", "ہوائی جہاز کا ڈیزائن", "موبائل گیم"],
+        answer: "شمسی آبپاشی نظام"
+      },
+      {
+        prompt: "اساتذہ کے مطابق کون سی ٹیکنالوجی ضروری ہے؟",
+        choices: ["سادہ اور پائیدار", "مہنگی اور پیچیدہ", "صرف درآمد شدہ", "صرف تجرباتی"],
+        answer: "سادہ اور پائیدار"
+      }
+    ]
+  },
+  {
+    id: "c6",
+    level: 4,
+    text: "ایک مقامی تنظیم نے دیہی اسکولوں میں ڈیجیٹل تعلیم متعارف کرانے کے لئے مرحلہ وار منصوبہ شروع کیا۔ پہلے مرحلے میں اساتذہ کی تربیت کی گئی تاکہ وہ آن لائن مواد کو نصاب سے جوڑ سکیں۔ دوسرے مرحلے میں طلبہ کو محدود انٹرنیٹ کے باوجود آف لائن مواد تک رسائی دینے کے لئے کم لاگت حل فراہم کیے گئے۔ ابتدائی رپورٹ کے مطابق حاضری میں اضافہ ہوا اور طلبہ کی تجزیاتی صلاحیت میں واضح بہتری دیکھی گئی۔",
+    questions: [
+      {
+        prompt: "پہلے مرحلے میں کس چیز پر توجہ دی گئی؟",
+        choices: ["اساتذہ کی تربیت", "نئی عمارت", "امتحان کی منسوخی", "کتب خانے کی بندش"],
+        answer: "اساتذہ کی تربیت"
+      },
+      {
+        prompt: "دوسرے مرحلے کا اہم مقصد کیا تھا؟",
+        choices: ["آف لائن مواد تک رسائی", "فیس میں اضافہ", "کھیل کے میدان کی مرمت", "صرف شہری علاقوں میں کلاس"],
+        answer: "آف لائن مواد تک رسائی"
+      },
+      {
+        prompt: "ابتدائی رپورٹ میں کیا مثبت نتیجہ آیا؟",
+        choices: ["حاضری اور تجزیاتی صلاحیت میں بہتری", "اساتذہ کی کمی", "امتحانات میں تاخیر", "طلبہ کی دلچسپی میں کمی"],
+        answer: "حاضری اور تجزیاتی صلاحیت میں بہتری"
+      }
+    ]
+  }
+];
+
 const LESSON_PLAN = [
   ["alif", "bay"],
   ["pay", "tay"],
@@ -418,7 +543,11 @@ const LESSON_PLAN = [
   ["laam", "meem", "noon"],
   ["nng", "wao"],
   ["dochashmi", "hey"],
-  ["hamza", "chotiye", "barriye"]
+  ["hamza", "chotiye", "barriye"],
+  [],
+  [],
+  [],
+  []
 ];
 
 const CHAR_MAP = Object.fromEntries(CHARACTERS.map((item) => [item.id, item]));
@@ -589,6 +718,30 @@ function randomExampleForChar(char) {
   return randomChoice(examplePoolForChar(char));
 }
 
+function getComprehensionLevelForLesson(lessonId) {
+  if (lessonId <= 17) {
+    return 0;
+  }
+  return Math.min(4, lessonId - 17);
+}
+
+function buildComprehensionSteps(level) {
+  const pool = COMPREHENSION_PASSAGES.filter((item) => item.level <= level);
+  if (pool.length === 0) {
+    return [];
+  }
+
+  const selectedPassage = randomChoice(pool);
+  return selectedPassage.questions.map((question) => ({
+    type: "comprehension",
+    prompt: question.prompt,
+    passage: selectedPassage.text,
+    choices: shuffle([...question.choices]),
+    answer: question.answer,
+    char: { id: "comprehension" }
+  }));
+}
+
 function inferForm(exampleWord, glyph) {
   const idx = exampleWord.indexOf(glyph);
   if (idx === -1 || exampleWord.length === 1) {
@@ -700,11 +853,12 @@ function renderPath() {
       node.classList.add("done");
     }
 
+    const isComprehensionLesson = lesson.newChars.length === 0;
     node.innerHTML = `
       <strong>${lesson.title}</strong>
-      <div class="letters">${lesson.newChars.map((c) => c.glyph).join(" ")}</div>
+      <div class="letters">${isComprehensionLesson ? "مطالعہ" : lesson.newChars.map((c) => c.glyph).join(" ")}</div>
       <div class="meta">
-        ${lesson.newChars.length} new letter${lesson.newChars.length > 1 ? "s" : ""}
+        ${isComprehensionLesson ? "Reading comprehension" : `${lesson.newChars.length} new letter${lesson.newChars.length > 1 ? "s" : ""}`}
         ${state.progress.bestScores[lesson.id] ? ` • Best ${state.progress.bestScores[lesson.id]}%` : ""}
       </div>
     `;
@@ -787,6 +941,11 @@ function buildPracticeSteps(chars, introduced) {
 }
 
 function buildLessonSteps(lesson) {
+  const comprehensionLevel = getComprehensionLevelForLesson(lesson.id);
+  if (comprehensionLevel > 0) {
+    return buildComprehensionSteps(comprehensionLevel);
+  }
+
   const introduced = getCharsUpToLesson(lesson.id);
   const introSteps = lesson.newChars.map((char) => ({
     type: "intro",
@@ -803,15 +962,33 @@ function buildReviewSteps() {
   const unlocked = getUnlockedChars();
   const sortedWeak = [...unlocked].sort((a, b) => weaknessScore(b.id) - weaknessScore(a.id));
   const targetChars = sortedWeak.slice(0, Math.min(6, sortedWeak.length));
-  return buildPracticeSteps(targetChars, unlocked);
+  const base = buildPracticeSteps(targetChars, unlocked);
+
+  const highestCompleted = state.progress.completed.length ? Math.max(...state.progress.completed) : 0;
+  if (highestCompleted >= 18) {
+    const reviewLevel = Math.min(4, highestCompleted - 17);
+    return [...base, ...buildComprehensionSteps(reviewLevel)];
+  }
+
+  return base;
 }
 
 function buildPlacementSteps(targetLessonId) {
   const testedChars = getCharsUpToLesson(targetLessonId - 1);
   const sortedWeak = [...testedChars].sort((a, b) => weaknessScore(b.id) - weaknessScore(a.id));
   const focusChars = sortedWeak.slice(0, Math.min(8, sortedWeak.length));
-  const practice = buildPracticeSteps(focusChars, testedChars);
-  return practice.slice(0, Math.min(16, practice.length));
+  const isComprehensionPlacement = targetLessonId >= 18;
+  const letterQuestionCap = isComprehensionPlacement ? 10 : 16;
+  const practice = buildPracticeSteps(focusChars, testedChars).slice(0, letterQuestionCap);
+
+  // Placement for post-script lessons should also test reading comprehension.
+  if (isComprehensionPlacement) {
+    const comprehensionLevel = Math.min(4, targetLessonId - 17);
+    const comprehensionSteps = buildComprehensionSteps(comprehensionLevel).slice(0, 2);
+    return [...practice, ...comprehensionSteps];
+  }
+
+  return practice;
 }
 
 function showScreen(name) {
@@ -864,7 +1041,8 @@ function startSession(mode, lessonId = null) {
     }
     state.currentLesson = lesson;
     state.lessonSteps = buildLessonSteps(lesson);
-    els.lessonTitle.textContent = `${lesson.title}: ${lesson.newChars.map((c) => c.name).join(", ")}`;
+    const label = lesson.newChars.length > 0 ? lesson.newChars.map((c) => c.name).join(", ") : "Reading Comprehension";
+    els.lessonTitle.textContent = `${lesson.title}: ${label}`;
     els.lessonModeTag.textContent = "Lesson";
   }
 
@@ -928,6 +1106,12 @@ function renderStep() {
     els.lessonCard.innerHTML = `
       <p class="prompt">${step.prompt}</p>
       <div class="big-glyph" dir="rtl">${step.char.glyph}</div>
+    `;
+  } else if (step.type === "comprehension") {
+    els.lessonCard.innerHTML = `
+      <p class="prompt">مطالعہ</p>
+      <div class="reading" dir="rtl">${step.passage}</div>
+      <p class="prompt">${step.prompt}</p>
     `;
   } else if (step.type === "readWord") {
     els.lessonCard.innerHTML = `
