@@ -1088,6 +1088,28 @@ function renderStep() {
     return text;
   }
 
+  if (step.type === "intro") {
+    els.lessonCard.innerHTML = `
+      <p class="prompt">New letter</p>
+      <div class="big-glyph" dir="rtl">${step.char.glyph}</div>
+      <h3>${step.char.name}</h3>
+      <p class="reading">Sound: ${step.char.sound}</p>
+      <p>Example: <span dir="rtl">${step.example.word}</span> (${step.example.transliteration}) - ${step.example.meaning}</p>
+      <p class="prompt">Shape practice in words</p>
+      <div>
+        ${step.formExamples
+          .map(
+            (item) =>
+              `<div><strong>${item.form}</strong>: <span dir="rtl">${item.word}</span> (${item.transliteration}) - ${item.meaning}</div>`
+          )
+          .join("")}
+      </div>
+    `;
+    els.nextBtn.disabled = false;
+    state.awaitingContinue = true;
+    return;
+  }
+
   if (step.type === "pickSound") {
     els.lessonCard.innerHTML = `
       <p class="prompt">${renderPrompt(step.prompt)}</p>
@@ -1095,7 +1117,7 @@ function renderStep() {
     `;
   } else if (step.type === "comprehension") {
     els.lessonCard.innerHTML = `
-      <p class="prompt">مطالعہ</p>
+      <p class="prompt">${renderPrompt("مطالعہ")}</p>
       <div class="reading" dir="rtl">${step.passage}</div>
       <p class="prompt">${renderPrompt(step.prompt)}</p>
     `;
@@ -1108,27 +1130,6 @@ function renderStep() {
     els.lessonCard.innerHTML = `
       <p class="prompt">${renderPrompt(step.prompt)}</p>
       <p class="reading">Tip: focus on dots and tail shape.</p>
-    `;
-  }
-  if (step.type === "pickSound") {
-    els.lessonCard.innerHTML = `
-      <p class="prompt">${step.prompt}</p>
-      <div class="big-glyph" dir="rtl">${step.char.glyph}</div>
-    `;
-  } else if (step.type === "comprehension") {
-    els.lessonCard.innerHTML = `
-      <p class="prompt">مطالعہ</p>
-      <div class="reading" dir="rtl">${step.passage}</div>
-      <p class="prompt">${step.prompt}</p>
-    `;
-  } else if (step.type === "readWord") {
-    els.lessonCard.innerHTML = `
-      <p class="prompt">${step.prompt}</p>
-      <div class="big-glyph" dir="rtl">${step.example.word}</div>
-    `;
-  } else if (step.type === "pickGlyph" || step.type === "reviewGlyph") {
-    els.lessonCard.innerHTML = `
-      <p class="prompt">${step.prompt}</p>
     `;
   }
 
