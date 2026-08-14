@@ -12,7 +12,7 @@ and even invited me over when they were on-site, to climb the
 wall. 
 
 The podcast and blog post are out now! 
-[Check it out on KQED's website](https://www.kqed.org/news/12094577/the-san-francisco-rock-climbing-spot-known-for-its-shiny-surface)
+[Check it out on KQED's website](https://www.kqed.org/news/12094577/the-san-francisco-rock-climbing-spot-known-for-its-shiny-surface).
 
 <img     
   src="/assets/beaverstreet.jpg" 
