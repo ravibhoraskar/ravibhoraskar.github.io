@@ -801,6 +801,78 @@ function randomExampleForChar(char) {
   return randomChoice(examplePoolForChar(char));
 }
 
+function pickSpeechVoice() {
+  if (!("speechSynthesis" in window)) {
+    return null;
+  }
+
+  const synth = window.speechSynthesis;
+  const voices = synth.getVoices ? synth.getVoices() : [];
+  const preferred = ["hi-IN", "hi", "ur-IN", "ur-PK"];
+
+  const preferredVoice = voices.find(
+    (voice) => voice && voice.lang && preferred.some((lang) => voice.lang.toLowerCase().startsWith(lang.toLowerCase()))
+  );
+
+  if (preferredVoice) {
+    return preferredVoice;
+  }
+
+  return voices.find((voice) => voice && voice.default) || voices[0] || null;
+}
+
+function speakWord(word, pronunciation = "") {
+  if (!("speechSynthesis" in window)) {
+    return;
+  }
+
+  const synth = window.speechSynthesis;
+  const text = pronunciation && pronunciation.trim() ? pronunciation : word;
+  const utterance = new SpeechSynthesisUtterance(text);
+  const voice = pickSpeechVoice();
+
+  if (voice) {
+    utterance.voice = voice;
+    utterance.lang = voice.lang;
+  } else {
+    utterance.lang = "hi-IN";
+  }
+
+  utterance.rate = 0.9;
+  utterance.pitch = 1;
+  utterance.volume = 1;
+
+  if (synth.speaking || synth.pending) {
+    synth.cancel();
+  }
+
+  try {
+    synth.resume();
+  } catch (error) {
+    // Ignore browser resume quirks.
+  }
+
+  synth.speak(utterance);
+}
+
+function bindIntroWordAudio(container) {
+  const buttons = container.querySelectorAll(".intro-word");
+
+  buttons.forEach((button) => {
+    if (button.dataset.ttsBound === "true") {
+      return;
+    }
+
+    button.dataset.ttsBound = "true";
+    button.onclick = (event) => {
+      event.preventDefault();
+      const word = button.dataset.word || button.textContent.trim();
+      const pronunciation = button.dataset.pronunciation || "";
+      speakWord(word, pronunciation);
+    };
+  });
+}
+
 function getComprehensionLevelForLesson(lessonId) {
   if (lessonId <= 17) {
     return 0;
@@ -1177,17 +1249,22 @@ function renderStep() {
       <div class="big-glyph" dir="rtl">${step.char.glyph}</div>
       <h3>${step.char.name}</h3>
       <p class="reading">Sound: ${step.char.sound}</p>
-      <p>Example: <span dir="rtl">${step.example.word}</span> (${step.example.pronunciation}) - ${step.example.meaning}</p>
+      <p>
+        Example:
+        <button type="button" class="intro-word" data-word="${step.example.word}" data-pronunciation="${step.example.pronunciation}" dir="rtl">${step.example.word}</button>
+        (${step.example.pronunciation}) - ${step.example.meaning}
+      </p>
       <p class="prompt">Shape practice in words</p>
       <div>
         ${step.formExamples
           .map(
             (item) =>
-              `<div><strong>${item.form}</strong>: <span dir="rtl">${item.word}</span> (${item.pronunciation}) - ${item.meaning}</div>`
+              `<div><strong>${item.form}</strong>: <button type="button" class="intro-word" data-word="${item.word}" data-pronunciation="${item.pronunciation}" dir="rtl">${item.word}</button> (${item.pronunciation}) - ${item.meaning}</div>`
           )
           .join("")}
       </div>
     `;
+    bindIntroWordAudio(els.lessonCard);
     els.nextBtn.disabled = false;
     state.awaitingContinue = true;
     return;

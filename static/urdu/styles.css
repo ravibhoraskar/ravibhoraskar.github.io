@@ -200,6 +200,29 @@ h1 {
   color: var(--ink-soft);
 }
 
+.intro-word {
+  appearance: none;
+  border: 1px solid rgba(44, 165, 141, 0.4);
+  background: #edfaf7;
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 0.12rem 0.6rem;
+  margin: 0 0.15rem;
+  cursor: pointer;
+  font-family: "Noto Nastaliq Urdu", sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.intro-word:hover,
+.intro-word:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(44, 165, 141, 0.8);
+  box-shadow: 0 6px 14px rgba(44, 165, 141, 0.15);
+  outline: none;
+}
+
 .lesson-node.unlocked {
   cursor: pointer;
 }
