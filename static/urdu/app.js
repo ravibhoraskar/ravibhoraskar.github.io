@@ -61,7 +61,7 @@ const EXAMPLES = {
   pay: [
     { word: "پانی", pronunciation: "पानी", meaning: "water" },
     { word: "پرندہ", pronunciation: "परिंदा", meaning: "bird" },
-    { word: "پتہ", pronunciation: "पत", meaning: "address" },
+    { word: "پتہ", pronunciation: "पता", meaning: "address" },
     { word: "اپنا", pronunciation: "अपना", meaning: "own" },
     { word: "ٹوپی", pronunciation: "टोपी", meaning: "cap" }
   ],
@@ -108,11 +108,11 @@ const EXAMPLES = {
     { word: "حروف", pronunciation: "हुरूफ", meaning: "letters" }
   ],
   khay: [
-    { word: "خبر", pronunciation: "खबर", meaning: "news" },
+    { word: "خبر", pronunciation: "ख़बर", meaning: "news" },
     { word: "خوشی", pronunciation: "ख़ुशी", meaning: "happiness" },
-    { word: "خواب", pronunciation: "ख्वाब", meaning: "dream" },
+    { word: "خواب", pronunciation: "ख़्वाब", meaning: "dream" },
     { word: "آخر", pronunciation: "आख़िर", meaning: "end" },
-    { word: "خطرہ", pronunciation: "खतरा", meaning: "danger" }
+    { word: "خطرہ", pronunciation: "ख़तरा", meaning: "danger" }
   ],
   daal: [
     { word: "دن", pronunciation: "दिन", meaning: "day" },
