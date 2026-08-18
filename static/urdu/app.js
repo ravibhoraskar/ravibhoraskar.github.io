@@ -994,14 +994,14 @@ function buildPracticeSteps(chars, introduced) {
     const targetExample = randomExampleForChar(char);
     const wordPool = sample(introduced, 3, [char]);
     const translitOptions = shuffle([
-      targetExample.transliteration,
-      ...wordPool.map((w) => randomExampleForChar(w).transliteration)
+      targetExample.pronunciation,
+      ...wordPool.map((w) => randomExampleForChar(w).pronunciation)
     ]).slice(0, 4);
 
     practice.push({
       type: "readWord",
       prompt: "Read this Urdu word",
-      answer: targetExample.transliteration,
+      answer: targetExample.pronunciation,
       choices: translitOptions,
       char,
       example: targetExample
@@ -1177,13 +1177,13 @@ function renderStep() {
       <div class="big-glyph" dir="rtl">${step.char.glyph}</div>
       <h3>${step.char.name}</h3>
       <p class="reading">Sound: ${step.char.sound}</p>
-      <p>Example: <span dir="rtl">${step.example.word}</span> (${step.example.transliteration}) - ${step.example.meaning}</p>
+      <p>Example: <span dir="rtl">${step.example.word}</span> (${step.example.pronunciation}) - ${step.example.meaning}</p>
       <p class="prompt">Shape practice in words</p>
       <div>
         ${step.formExamples
           .map(
             (item) =>
-              `<div><strong>${item.form}</strong>: <span dir="rtl">${item.word}</span> (${item.transliteration}) - ${item.meaning}</div>`
+              `<div><strong>${item.form}</strong>: <span dir="rtl">${item.word}</span> (${item.pronunciation}) - ${item.meaning}</div>`
           )
           .join("")}
       </div>
