@@ -1,0 +1,3 @@
+[submodule "static/urdu"]
+	path = static/urdu
+	url = git@github.com:ravibhoraskar/urdu.git
