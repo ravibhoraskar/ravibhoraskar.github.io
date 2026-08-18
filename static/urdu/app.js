@@ -45,7 +45,7 @@ const CHARACTERS = [
 
 const EXAMPLES = {
   alif: [
-    { word: "آدمی", pronunciation: "आदमि", meaning: "person" },
+    { word: "آدمی", pronunciation: "आदमी", meaning: "person" },
     { word: "آج", pronunciation: "आज", meaning: "today" },
     { word: "آسمان", pronunciation: "आसमान", meaning: "sky" },
     { word: "آپ", pronunciation: "आप", meaning: "you" },
@@ -54,16 +54,16 @@ const EXAMPLES = {
   bay: [
     { word: "بادل", pronunciation: "बादल", meaning: "cloud" },
     { word: "بات", pronunciation: "बात", meaning: "conversation" },
-    { word: "باغ", pronunciation: "बाघ", meaning: "garden" },
+    { word: "باغ", pronunciation: "बाग़", meaning: "garden" },
     { word: "لب", pronunciation: "लब", meaning: "lip" },
     { word: "سبب", pronunciation: "सबब", meaning: "reason" }
   ],
   pay: [
-    { word: "پانی", pronunciation: "पानि", meaning: "water" },
-    { word: "پرندہ", pronunciation: "परिनद", meaning: "bird" },
+    { word: "پانی", pronunciation: "पानी", meaning: "water" },
+    { word: "پرندہ", pronunciation: "परिंदा", meaning: "bird" },
     { word: "پتہ", pronunciation: "पत", meaning: "address" },
-    { word: "اپنا", pronunciation: "अपन", meaning: "own" },
-    { word: "ٹوپی", pronunciation: "तोपि", meaning: "cap" }
+    { word: "اپنا", pronunciation: "अपना", meaning: "own" },
+    { word: "ٹوپی", pronunciation: "टोपी", meaning: "cap" }
   ],
   tay: [
     { word: "تار", pronunciation: "तार", meaning: "wire" },
@@ -73,15 +73,15 @@ const EXAMPLES = {
     { word: "رات", pronunciation: "रात", meaning: "night" }
   ],
   ttay: [
-    { word: "ٹوکری", pronunciation: "तोकरि", meaning: "basket" },
-    { word: "ٹماٹر", pronunciation: "तमातर", meaning: "tomato" },
-    { word: "ٹکٹ", pronunciation: "तिcकेत", meaning: "ticket" },
-    { word: "لڑکا", pronunciation: "लरक", meaning: "boy" },
-    { word: "پٹاخہ", pronunciation: "पताख", meaning: "firecracker" }
+    { word: "ٹوکری", pronunciation: "टोकरी", meaning: "basket" },
+    { word: "ٹماٹر", pronunciation: "टमाटर", meaning: "tomato" },
+    { word: "ٹکٹ", pronunciation: "टिकट", meaning: "ticket" },
+    { word: "لڑکا", pronunciation: "लड़का", meaning: "boy" },
+    { word: "پٹاخہ", pronunciation: "पटाखा", meaning: "firecracker" }
   ],
   say: [
     { word: "ثابت", pronunciation: "साबित", meaning: "fixed" },
-    { word: "ثانی", pronunciation: "सानि", meaning: "second" },
+    { word: "ثانی", pronunciation: "सानी", meaning: "second" },
     { word: "ثواب", pronunciation: "सवाब", meaning: "reward" },
     { word: "اثاثہ", pronunciation: "असास", meaning: "asset" },
     { word: "وارث", pronunciation: "वारिस", meaning: "heir" }
@@ -90,89 +90,89 @@ const EXAMPLES = {
     { word: "جہاز", pronunciation: "जहाज़", meaning: "ship" },
     { word: "جگہ", pronunciation: "जगह", meaning: "place" },
     { word: "جواب", pronunciation: "जवाब", meaning: "answer" },
-    { word: "مسجد", pronunciation: "मसजिद", meaning: "mosque" },
+    { word: "مسجد", pronunciation: "मस्जिद", meaning: "mosque" },
     { word: "تاج", pronunciation: "ताज", meaning: "crown" }
   ],
   chay: [
-    { word: "چاند", pronunciation: "चानद", meaning: "moon" },
+    { word: "چاند", pronunciation: "चाँद", meaning: "moon" },
     { word: "چاول", pronunciation: "चावल", meaning: "rice" },
-    { word: "چشمہ", pronunciation: "चशम", meaning: "spring" },
-    { word: "بچہ", pronunciation: "बच", meaning: "child" },
-    { word: "اچھا", pronunciation: "अचह", meaning: "good" }
+    { word: "چشمہ", pronunciation: "चश्मा", meaning: "spring" },
+    { word: "بچہ", pronunciation: "बच्चा", meaning: "child" },
+    { word: "اچھا", pronunciation: "अच्छा", meaning: "good" }
   ],
   hay: [
     { word: "حکمت", pronunciation: "हिकमत", meaning: "wisdom" },
     { word: "حیات", pronunciation: "हयात", meaning: "life" },
-    { word: "حقیقت", pronunciation: "हक़ईक़अत", meaning: "reality" },
+    { word: "حقیقت", pronunciation: "हकीकत", meaning: "reality" },
     { word: "حلال", pronunciation: "हलाल", meaning: "permissible" },
     { word: "حروف", pronunciation: "हुरूफ", meaning: "letters" }
   ],
   khay: [
     { word: "خبر", pronunciation: "खबर", meaning: "news" },
-    { word: "خوشی", pronunciation: "खुशि", meaning: "happiness" },
-    { word: "خواب", pronunciation: "खवाब", meaning: "dream" },
-    { word: "آخر", pronunciation: "आखिर", meaning: "end" },
-    { word: "خطرہ", pronunciation: "खतर", meaning: "danger" }
+    { word: "خوشی", pronunciation: "ख़ुशी", meaning: "happiness" },
+    { word: "خواب", pronunciation: "ख्वाब", meaning: "dream" },
+    { word: "آخر", pronunciation: "आख़िर", meaning: "end" },
+    { word: "خطرہ", pronunciation: "खतरा", meaning: "danger" }
   ],
   daal: [
     { word: "دن", pronunciation: "दिन", meaning: "day" },
     { word: "دل", pronunciation: "दिल", meaning: "heart" },
-    { word: "دروازہ", pronunciation: "दरवाज़अ", meaning: "door" },
-    { word: "امید", pronunciation: "उमीद", meaning: "hope" },
+    { word: "دروازہ", pronunciation: "दरवाज़ा", meaning: "door" },
+    { word: "امید", pronunciation: "उम्मीद", meaning: "hope" },
     { word: "دلبر", pronunciation: "दिलबर", meaning: "beloved" }
   ],
   ddaal: [
-    { word: "ڈبہ", pronunciation: "दबब", meaning: "box" },
-    { word: "ڈاک", pronunciation: "दाक", meaning: "mail" },
-    { word: "ڈگر", pronunciation: "दगर", meaning: "path" },
-    { word: "لڈو", pronunciation: "लडु", meaning: "sweet" },
-    { word: "ڈھال", pronunciation: "धाल", meaning: "shield" }
+    { word: "ڈبہ", pronunciation: "डब्बा", meaning: "box" },
+    { word: "ڈاک", pronunciation: "डाक", meaning: "mail" },
+    { word: "ڈگر", pronunciation: "डगर", meaning: "path" },
+    { word: "لڈو", pronunciation: "लड़ू", meaning: "sweet" },
+    { word: "ڈھال", pronunciation: "ढाल", meaning: "shield" }
   ],
   zaal: [
-    { word: "ذکر", pronunciation: "ज़इकर", meaning: "mention" },
-    { word: "ذہن", pronunciation: "ज़एहन", meaning: "mind" },
-    { word: "ذوق", pronunciation: "ज़अउक़", meaning: "taste" },
-    { word: "اذان", pronunciation: "अज़आन", meaning: "call to prayer" },
-    { word: "ذہانت", pronunciation: "ज़एहानत", meaning: "intelligence" }
+    { word: "ذکر", pronunciation: "ज़िक्र", meaning: "mention" },
+    { word: "ذہن", pronunciation: "ज़हन", meaning: "mind" },
+    { word: "ذوق", pronunciation: "ज़ौक़", meaning: "taste" },
+    { word: "اذان", pronunciation: "अज़ान", meaning: "call to prayer" },
+    { word: "ذہانت", pronunciation: "ज़हनत", meaning: "intelligence" }
   ],
   ray: [
-    { word: "راستہ", pronunciation: "रासत", meaning: "path" },
-    { word: "رنگ", pronunciation: "रङ", meaning: "color" },
+    { word: "راستہ", pronunciation: "रास्ता", meaning: "path" },
+    { word: "رنگ", pronunciation: "रंग", meaning: "color" },
     { word: "روز", pronunciation: "रोज़", meaning: "day" },
     { word: "گھر", pronunciation: "घर", meaning: "house" },
     { word: "سردار", pronunciation: "सरदार", meaning: "leader" }
   ],
   rray: [
-    { word: "گاڑی", pronunciation: "गारि", meaning: "vehicle" },
-    { word: "پہاڑ", pronunciation: "पहार", meaning: "mountain" },
-    { word: "لڑکی", pronunciation: "लरकि", meaning: "girl" },
-    { word: "مڑنا", pronunciation: "मुरन", meaning: "to turn" },
-    { word: "بڑھا", pronunciation: "बरह", meaning: "elderly" }
+    { word: "گاڑی", pronunciation: "गाड़ी", meaning: "vehicle" },
+    { word: "پہاڑ", pronunciation: "पहाड़", meaning: "mountain" },
+    { word: "لڑکی", pronunciation: "लड़काि", meaning: "girl" },
+    { word: "مڑنا", pronunciation: "मुड़ना", meaning: "to turn" },
+    { word: "بڑھا", pronunciation: "बढ़ा", meaning: "elderly" }
   ],
   zay: [
-    { word: "زمین", pronunciation: "ज़अमीन", meaning: "earth" },
-    { word: "زبان", pronunciation: "ज़उबान", meaning: "language" },
-    { word: "زمانہ", pronunciation: "ज़अमान", meaning: "era" },
-    { word: "انداز", pronunciation: "अनदाज़", meaning: "style" },
+    { word: "زمین", pronunciation: "ज़मीन", meaning: "earth" },
+    { word: "زبان", pronunciation: "ज़बान", meaning: "language" },
+    { word: "زمانہ", pronunciation: "ज़माना", meaning: "era" },
+    { word: "انداز", pronunciation: "अंदाज़", meaning: "style" },
     { word: "نماز", pronunciation: "नमाज़", meaning: "prayer" }
   ],
   zhay: [
-    { word: "ژالہ", pronunciation: "ज़हाल", meaning: "hail" },
-    { word: "ژرف", pronunciation: "ज़हरफ", meaning: "deep" },
-    { word: "ٹیلیویژن", pronunciation: "तेलेविसिओन", meaning: "television" },
-    { word: "ویژن", pronunciation: "विसिओन", meaning: "vision" },
-    { word: "ژوب", pronunciation: "ज़होब", meaning: "zhob" }
+    { word: "ژالہ", pronunciation: "जाल", meaning: "hail" },
+    { word: "ژرف", pronunciation: "ज़रफ़", meaning: "deep" },
+    { word: "ٹیلیویژن", pronunciation: "टेलीविज़न", meaning: "television" },
+    { word: "ویژن", pronunciation: "विज़न", meaning: "vision" },
+    { word: "ژوب", pronunciation: "ज़हब", meaning: "zhob" }
   ],
   seen: [
     { word: "سورج", pronunciation: "सूरज", meaning: "sun" },
     { word: "سفر", pronunciation: "सफर", meaning: "journey" },
     { word: "سبق", pronunciation: "सबक़", meaning: "lesson" },
-    { word: "انسان", pronunciation: "इनसान", meaning: "human" },
-    { word: "مسافر", pronunciation: "मुसाफिर", meaning: "traveler" }
+    { word: "انسان", pronunciation: "इंसान", meaning: "human" },
+    { word: "مسافر", pronunciation: "मुसाफ़िर", meaning: "traveler" }
   ],
   sheen: [
     { word: "شام", pronunciation: "शाम", meaning: "evening" },
-    { word: "شہر", pronunciation: "शेहर", meaning: "city" },
+    { word: "شہر", pronunciation: "शहर", meaning: "city" },
     { word: "شور", pronunciation: "शोर", meaning: "noise" },
     { word: "روشن", pronunciation: "रोशन", meaning: "bright" },
     { word: "بارش", pronunciation: "बारिश", meaning: "rain" }
@@ -182,60 +182,60 @@ const EXAMPLES = {
     { word: "صحت", pronunciation: "सेहत", meaning: "health" },
     { word: "صدا", pronunciation: "सदा", meaning: "voice" },
     { word: "اقتصاد", pronunciation: "इक़तिसाद", meaning: "economy" },
-    { word: "قصہ", pronunciation: "क़इसस", meaning: "story" }
+    { word: "قصہ", pronunciation: "क़िस्सा", meaning: "story" }
   ],
   zuad: [
-    { word: "ضروری", pronunciation: "ज़अरूरि", meaning: "important" },
-    { word: "ضلع", pronunciation: "ज़इळअ", meaning: "district" },
-    { word: "ضمانت", pronunciation: "ज़अमानत", meaning: "guarantee" },
-    { word: "مرض", pronunciation: "मरज़", meaning: "disease" },
-    { word: "ضبط", pronunciation: "ज़अबत", meaning: "control" }
+    { word: "ضروری", pronunciation: "ज़रूरी", meaning: "important" },
+    { word: "ضلع", pronunciation: "ज़िला", meaning: "district" },
+    { word: "ضمانت", pronunciation: "ज़मानात", meaning: "guarantee" },
+    { word: "مرض", pronunciation: "मर्ज़", meaning: "disease" },
+    { word: "ضبط", pronunciation: "ज़ब्त", meaning: "control" }
   ],
   toay: [
-    { word: "طالب", pronunciation: "तालिब", meaning: "student" },
-    { word: "طریقہ", pronunciation: "तरीक़अ", meaning: "method" },
-    { word: "طیارہ", pronunciation: "तययार", meaning: "airplane" },
-    { word: "طوفان", pronunciation: "तूफान", meaning: "storm" },
-    { word: "خطاط", pronunciation: "खटात", meaning: "calligrapher" }
+    { word: "طالب", pronunciation: "तलब", meaning: "student" },
+    { word: "طریقہ", pronunciation: "तरीक़ा", meaning: "method" },
+    { word: "طیارہ", pronunciation: "तैयार", meaning: "airplane" },
+    { word: "طوفان", pronunciation: "तूफ़ान", meaning: "storm" },
+    { word: "خطاط", pronunciation: "ख़ताती", meaning: "calligrapher" }
   ],
   zoay: [
-    { word: "ظاہر", pronunciation: "ज़आहिर", meaning: "visible" },
-    { word: "ظلم", pronunciation: "ज़उलम", meaning: "oppression" },
+    { word: "ظاہر", pronunciation: "ज़ाहिर", meaning: "visible" },
+    { word: "ظلم", pronunciation: "ज़ुल्म", meaning: "oppression" },
     { word: "مظلوم", pronunciation: "मज़लूम", meaning: "oppressed" },
-    { word: "ظرف", pronunciation: "ज़अरफ", meaning: "capacity" },
-    { word: "تنظیم", pronunciation: "तनज़ईम", meaning: "organization" }
+    { word: "ظرف", pronunciation: "ज़रफ़", meaning: "capacity" },
+    { word: "تنظیم", pronunciation: "तंज़ीम", meaning: "organization" }
   ],
   ain: [
-    { word: "علم", pronunciation: "इलम", meaning: "knowledge" },
+    { word: "علم", pronunciation: "इल्म", meaning: "knowledge" },
     { word: "عادت", pronunciation: "आदत", meaning: "habit" },
     { word: "علاج", pronunciation: "इलाज", meaning: "treatment" },
-    { word: "موقع", pronunciation: "मुक़अ", meaning: "opportunity" },
+    { word: "موقع", pronunciation: "मौक़ा", meaning: "opportunity" },
     { word: "عمر", pronunciation: "उमर", meaning: "age" }
   ],
   ghain: [
-    { word: "غلط", pronunciation: "घलत", meaning: "wrong" },
-    { word: "غروب", pronunciation: "घुरूब", meaning: "sunset" },
-    { word: "غم", pronunciation: "घम", meaning: "sorrow" },
-    { word: "چراغ", pronunciation: "चिराघ", meaning: "lamp" },
-    { word: "باغ", pronunciation: "बाघ", meaning: "garden" }
+    { word: "غلط", pronunciation: "गलत", meaning: "wrong" },
+    { word: "غروب", pronunciation: "ग़रूब", meaning: "sunset" },
+    { word: "غم", pronunciation: "ग़म", meaning: "sorrow" },
+    { word: "چراغ", pronunciation: "चिराग़", meaning: "lamp" },
+    { word: "باغ", pronunciation: "बाग़", meaning: "garden" }
   ],
   fay: [
-    { word: "فکر", pronunciation: "फिकर", meaning: "thought" },
+    { word: "فکر", pronunciation: "फिक्र", meaning: "thought" },
     { word: "فتح", pronunciation: "फतह", meaning: "victory" },
-    { word: "فائدہ", pronunciation: "फिद", meaning: "benefit" },
-    { word: "فاصلہ", pronunciation: "फासल", meaning: "distance" },
+    { word: "فائدہ", pronunciation: "फायदा", meaning: "benefit" },
+    { word: "فاصلہ", pronunciation: "फासला", meaning: "distance" },
     { word: "سفر", pronunciation: "सफर", meaning: "journey" }
   ],
   qaaf: [
-    { word: "قلم", pronunciation: "क़अलम", meaning: "pen" },
-    { word: "قدم", pronunciation: "क़अदम", meaning: "step" },
-    { word: "قانون", pronunciation: "क़अनून", meaning: "law" },
-    { word: "قوت", pronunciation: "क़उववत", meaning: "strength" },
+    { word: "قلم", pronunciation: "क़लम", meaning: "pen" },
+    { word: "قدم", pronunciation: "क़दम", meaning: "step" },
+    { word: "قانون", pronunciation: "क़ानून", meaning: "law" },
+    { word: "قوت", pronunciation: "क़ुव्वत", meaning: "strength" },
     { word: "حق", pronunciation: "हक़", meaning: "right" }
   ],
   kaaf: [
     { word: "کتاب", pronunciation: "किताब", meaning: "book" },
-    { word: "کمرہ", pronunciation: "कमर", meaning: "room" },
+    { word: "کمرہ", pronunciation: "कमरा", meaning: "room" },
     { word: "کل", pronunciation: "कल", meaning: "tomorrow" },
     { word: "نمک", pronunciation: "नमक", meaning: "salt" },
     { word: "سکون", pronunciation: "सुकून", meaning: "peace" }
@@ -243,89 +243,89 @@ const EXAMPLES = {
   gaaf: [
     { word: "گھر", pronunciation: "घर", meaning: "house" },
     { word: "گلاب", pronunciation: "गुलाब", meaning: "rose" },
-    { word: "گانا", pronunciation: "गान", meaning: "song" },
-    { word: "رنگ", pronunciation: "रङ", meaning: "color" },
+    { word: "گانا", pronunciation: "गाना", meaning: "song" },
+    { word: "رنگ", pronunciation: "रंग", meaning: "color" },
     { word: "جگہ", pronunciation: "जगह", meaning: "place" }
   ],
   laam: [
     { word: "لباس", pronunciation: "लिबास", meaning: "clothes" },
-    { word: "لکھنا", pronunciation: "लिखन", meaning: "to write" },
+    { word: "لکھنا", pronunciation: "लिखना", meaning: "to write" },
     { word: "لوگ", pronunciation: "लोग", meaning: "people" },
     { word: "دل", pronunciation: "दिल", meaning: "heart" },
     { word: "سوال", pronunciation: "सवाल", meaning: "question" }
   ],
   meem: [
     { word: "میز", pronunciation: "मेज़", meaning: "table" },
-    { word: "محبت", pronunciation: "मोहबबत", meaning: "love" },
+    { word: "محبت", pronunciation: "मोहब्बत", meaning: "love" },
     { word: "مکان", pronunciation: "मकान", meaning: "house" },
-    { word: "موسم", pronunciation: "मुसम", meaning: "weather" },
-    { word: "علم", pronunciation: "इलम", meaning: "knowledge" }
+    { word: "موسم", pronunciation: "मौसम", meaning: "weather" },
+    { word: "علم", pronunciation: "इल्म", meaning: "knowledge" }
   ],
   noon: [
     { word: "نام", pronunciation: "नाम", meaning: "name" },
-    { word: "نیا", pronunciation: "नय", meaning: "new" },
-    { word: "ندی", pronunciation: "नदि", meaning: "river" },
-    { word: "انسان", pronunciation: "इनसान", meaning: "human" },
+    { word: "نیا", pronunciation: "नया", meaning: "new" },
+    { word: "ندی", pronunciation: "नदी", meaning: "river" },
+    { word: "انسان", pronunciation: "इंसान", meaning: "human" },
     { word: "چمن", pronunciation: "चमन", meaning: "garden" }
   ],
   nng: [
-    { word: "ہاں", pronunciation: "हान", meaning: "yes" },
-    { word: "کہاں", pronunciation: "कहान", meaning: "where" },
-    { word: "میں", pronunciation: "मिन", meaning: "I" },
-    { word: "نہیں", pronunciation: "नहिन", meaning: "no/not" },
-    { word: "کہیں", pronunciation: "कहिन", meaning: "somewhere" }
+    { word: "ہاں", pronunciation: "हाँ", meaning: "yes" },
+    { word: "کہاں", pronunciation: "कहाँ", meaning: "where" },
+    { word: "میں", pronunciation: "मैं", meaning: "I" },
+    { word: "نہیں", pronunciation: "नहीं", meaning: "no/not" },
+    { word: "کہیں", pronunciation: "कहीं", meaning: "somewhere" }
   ],
   wao: [
-    { word: "وقت", pronunciation: "वक़त", meaning: "time" },
-    { word: "وعدہ", pronunciation: "वाद", meaning: "promise" },
-    { word: "وہ", pronunciation: "वोह", meaning: "he/she" },
+    { word: "وقت", pronunciation: "वक़्त", meaning: "time" },
+    { word: "وعدہ", pronunciation: "वादा", meaning: "promise" },
+    { word: "وہ", pronunciation: "वो", meaning: "he/she" },
     { word: "نور", pronunciation: "नूर", meaning: "light" },
-    { word: "دوست", pronunciation: "दोसत", meaning: "friend" }
+    { word: "دوست", pronunciation: "दोस्त", meaning: "friend" }
   ],
   dochashmi: [
     { word: "پھول", pronunciation: "फूल", meaning: "flower" },
-    { word: "بھائی", pronunciation: "भि", meaning: "brother" },
+    { word: "بھائی", pronunciation: "भाई", meaning: "brother" },
     { word: "بھاگ", pronunciation: "भाग", meaning: "run" },
     { word: "تھک", pronunciation: "थक", meaning: "tired" },
-    { word: "کھانا", pronunciation: "खान", meaning: "food" }
+    { word: "کھانا", pronunciation: "खाना", meaning: "food" }
   ],
   hey: [
-    { word: "ہوا", pronunciation: "हव", meaning: "air" },
+    { word: "ہوا", pronunciation: "हवा", meaning: "air" },
     { word: "ہاتھ", pronunciation: "हाथ", meaning: "hand" },
     { word: "ہنر", pronunciation: "हुनर", meaning: "skill" },
-    { word: "چہرہ", pronunciation: "चेहर", meaning: "face" },
+    { word: "چہرہ", pronunciation: "चेहरा", meaning: "face" },
     { word: "راہ", pronunciation: "राह", meaning: "path" }
   ],
   hamza: [
-    { word: "مسئلہ", pronunciation: "मसल", meaning: "issue" },
+    { word: "مسئلہ", pronunciation: "मसला", meaning: "issue" },
     { word: "شیء", pronunciation: "शय", meaning: "thing" },
-    { word: "جزء", pronunciation: "जुज़", meaning: "part" },
-    { word: "متاثر", pronunciation: "मुतासिर", meaning: "affected" },
+    { word: "جزء", pronunciation: "अंश", meaning: "part" },
+    { word: "متاثر", pronunciation: "मुतास्सिर", meaning: "affected" },
     { word: "مسئول", pronunciation: "मसूल", meaning: "responsible" }
   ],
   chotiye: [
     { word: "یاد", pronunciation: "याद", meaning: "memory" },
-    { word: "یہ", pronunciation: "येह", meaning: "this" },
-    { word: "یقین", pronunciation: "यक़ईन", meaning: "belief" },
-    { word: "پیار", pronunciation: "पयार", meaning: "love" },
-    { word: "نیکی", pronunciation: "नेकि", meaning: "goodness" }
+    { word: "یہ", pronunciation: "ये", meaning: "this" },
+    { word: "یقین", pronunciation: "यक़ीन", meaning: "belief" },
+    { word: "پیار", pronunciation: "प्यार", meaning: "love" },
+    { word: "نیکی", pronunciation: "नेकी", meaning: "goodness" }
   ],
   barriye: [
     { word: "میرے", pronunciation: "मेरे", meaning: "my" },
-    { word: "کیے", pronunciation: "किये", meaning: "did" },
+    { word: "کیے", pronunciation: "किए", meaning: "did" },
     { word: "تیرے", pronunciation: "तेरे", meaning: "your" },
-    { word: "جیسے", pronunciation: "जिसे", meaning: "like/as" },
-    { word: "کیسے", pronunciation: "किसे", meaning: "how" }
+    { word: "جیسے", pronunciation: "जैसे", meaning: "like/as" },
+    { word: "کیسے", pronunciation: "कैसे", meaning: "how" }
   ]
 };
 
 const FORM_FOCUSED_EXAMPLES = {
   bay: [
-    { word: "خواب", pronunciation: "खवाब", meaning: "dream" },
-    { word: "کبھی", pronunciation: "कभि", meaning: "sometimes" }
+    { word: "خواب", pronunciation: "ख्वाब", meaning: "dream" },
+    { word: "کبھی", pronunciation: "कभाई", meaning: "sometimes" }
   ],
   pay: [
-    { word: "سپاہی", pronunciation: "सिपाहि", meaning: "soldier" },
+    { word: "سپاہی", pronunciation: "सिपाही", meaning: "soldier" },
     { word: "آپ", pronunciation: "आप", meaning: "you" }
   ],
   tay: [
@@ -333,22 +333,22 @@ const FORM_FOCUSED_EXAMPLES = {
     { word: "رات", pronunciation: "रात", meaning: "night" }
   ],
   ttay: [
-    { word: "لڑکا", pronunciation: "लरक", meaning: "boy" }
+    { word: "لڑکا", pronunciation: "लड़का", meaning: "boy" }
   ],
   jeem: [
-    { word: "اجازت", pronunciation: "इजाज़अत", meaning: "permission" },
-    { word: "موج", pronunciation: "मुज", meaning: "wave" }
+    { word: "اجازت", pronunciation: "इज़ाज़त", meaning: "permission" },
+    { word: "موج", pronunciation: "मौज", meaning: "wave" }
   ],
   chay: [
-    { word: "بچپن", pronunciation: "बचपन", meaning: "childhood" },
+    { word: "بچپن", pronunciation: "बच्चापन", meaning: "childhood" },
     { word: "سچ", pronunciation: "सच", meaning: "truth" }
   ],
   khay: [
     { word: "بخار", pronunciation: "बुखार", meaning: "fever" },
-    { word: "شیخ", pronunciation: "शिख", meaning: "elder" }
+    { word: "شیخ", pronunciation: "शेख", meaning: "elder" }
   ],
   seen: [
-    { word: "اسکول", pronunciation: "सचूल", meaning: "school" },
+    { word: "اسکول", pronunciation: "स्कूल", meaning: "school" },
     { word: "لباس", pronunciation: "लिबास", meaning: "clothes" }
   ],
   sheen: [
@@ -356,19 +356,19 @@ const FORM_FOCUSED_EXAMPLES = {
     { word: "خوش", pronunciation: "खुश", meaning: "happy" }
   ],
   ain: [
-    { word: "سعادت", pronunciation: "सादत", meaning: "blessing" },
+    { word: "سعادت", pronunciation: "सौदत", meaning: "blessing" },
     { word: "بدیع", pronunciation: "बदी", meaning: "unique" }
   ],
   ghain: [
-    { word: "دھوغا", pronunciation: "धोघ", meaning: "deception" },
-    { word: "بلاغ", pronunciation: "बलाघ", meaning: "delivery" }
+    { word: "دھوغا", pronunciation: "धोखा", meaning: "deception" },
+    { word: "بلاغ", pronunciation: "बलाग़", meaning: "delivery" }
   ],
   fay: [
     { word: "سفر", pronunciation: "सफर", meaning: "journey" },
     { word: "صاف", pronunciation: "साफ", meaning: "clean" }
   ],
   qaaf: [
-    { word: "بقلم", pronunciation: "बक़अलम", meaning: "by pen" },
+    { word: "بقلم", pronunciation: "बक़लम", meaning: "by pen" },
     { word: "حق", pronunciation: "हक़", meaning: "right" }
   ],
   kaaf: [
@@ -377,27 +377,27 @@ const FORM_FOCUSED_EXAMPLES = {
   ],
   gaaf: [
     { word: "نگار", pronunciation: "निगार", meaning: "portrait" },
-    { word: "رنگ", pronunciation: "रङ", meaning: "color" }
+    { word: "رنگ", pronunciation: "रंग", meaning: "color" }
   ],
   laam: [
-    { word: "قلم", pronunciation: "क़अलम", meaning: "pen" },
+    { word: "قلم", pronunciation: "क़लम", meaning: "pen" },
     { word: "دل", pronunciation: "दिल", meaning: "heart" }
   ],
   meem: [
-    { word: "امید", pronunciation: "उमीद", meaning: "hope" },
+    { word: "امید", pronunciation: "उम्मीद", meaning: "hope" },
     { word: "نام", pronunciation: "नाम", meaning: "name" }
   ],
   noon: [
-    { word: "انسان", pronunciation: "इनसान", meaning: "human" },
+    { word: "انسان", pronunciation: "इंसान", meaning: "human" },
     { word: "چمن", pronunciation: "चमन", meaning: "garden" }
   ],
   hey: [
-    { word: "چہرہ", pronunciation: "चेहर", meaning: "face" },
+    { word: "چہرہ", pronunciation: "चेहरा", meaning: "face" },
     { word: "راہ", pronunciation: "राह", meaning: "path" }
   ],
   chotiye: [
     { word: "بیان", pronunciation: "बयान", meaning: "statement" },
-    { word: "بندی", pronunciation: "बनदि", meaning: "bondage" }
+    { word: "بندی", pronunciation: "बनदी", meaning: "bondage" }
   ]
 };
 
