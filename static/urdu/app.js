@@ -125,7 +125,7 @@ const EXAMPLES = {
     { word: "ڈبہ", pronunciation: "डब्बा", meaning: "box" },
     { word: "ڈاک", pronunciation: "डाक", meaning: "mail" },
     { word: "ڈگر", pronunciation: "डगर", meaning: "path" },
-    { word: "لڈو", pronunciation: "लड़ू", meaning: "sweet" },
+    { word: "لڈو", pronunciation: "लड्डू", meaning: "sweet" },
     { word: "ڈھال", pronunciation: "ढाल", meaning: "shield" }
   ],
   zaal: [
@@ -145,9 +145,9 @@ const EXAMPLES = {
   rray: [
     { word: "گاڑی", pronunciation: "गाड़ी", meaning: "vehicle" },
     { word: "پہاڑ", pronunciation: "पहाड़", meaning: "mountain" },
-    { word: "لڑکی", pronunciation: "लड़काि", meaning: "girl" },
+    { word: "لڑکی", pronunciation: "लड़की", meaning: "girl" },
     { word: "مڑنا", pronunciation: "मुड़ना", meaning: "to turn" },
-    { word: "بڑھا", pronunciation: "बढ़ा", meaning: "elderly" }
+    { word: "بڑھا", pronunciation: "बुड्ढा", meaning: "elderly" }
   ],
   zay: [
     { word: "زمین", pronunciation: "ज़मीन", meaning: "earth" },
@@ -178,10 +178,10 @@ const EXAMPLES = {
     { word: "بارش", pronunciation: "बारिश", meaning: "rain" }
   ],
   suad: [
-    { word: "صبر", pronunciation: "सबर", meaning: "patience" },
+    { word: "صبر", pronunciation: "सब्र", meaning: "patience" },
     { word: "صحت", pronunciation: "सेहत", meaning: "health" },
     { word: "صدا", pronunciation: "सदा", meaning: "voice" },
-    { word: "اقتصاد", pronunciation: "इक़तिसाद", meaning: "economy" },
+    { word: "اقتصاد", pronunciation: "इक़्तिसाद", meaning: "economy" },
     { word: "قصہ", pronunciation: "क़िस्सा", meaning: "story" }
   ],
   zuad: [
@@ -210,10 +210,10 @@ const EXAMPLES = {
     { word: "عادت", pronunciation: "आदत", meaning: "habit" },
     { word: "علاج", pronunciation: "इलाज", meaning: "treatment" },
     { word: "موقع", pronunciation: "मौक़ा", meaning: "opportunity" },
-    { word: "عمر", pronunciation: "उमर", meaning: "age" }
+    { word: "عمر", pronunciation: "उम्र", meaning: "age" }
   ],
   ghain: [
-    { word: "غلط", pronunciation: "गलत", meaning: "wrong" },
+    { word: "غلط", pronunciation: "ग़लत", meaning: "wrong" },
     { word: "غروب", pronunciation: "ग़रूब", meaning: "sunset" },
     { word: "غم", pronunciation: "ग़म", meaning: "sorrow" },
     { word: "چراغ", pronunciation: "चिराग़", meaning: "lamp" },
@@ -397,7 +397,7 @@ const FORM_FOCUSED_EXAMPLES = {
   ],
   chotiye: [
     { word: "بیان", pronunciation: "बयान", meaning: "statement" },
-    { word: "بندی", pronunciation: "बनदी", meaning: "bondage" }
+    { word: "بندی", pronunciation: "बन्दी", meaning: "bondage" }
   ]
 };
 
