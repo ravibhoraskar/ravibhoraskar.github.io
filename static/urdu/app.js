@@ -1302,10 +1302,11 @@ function buildVocabularySteps(lesson) {
     vocabularyItem,
     char: { id: `vocab-intro-${lesson.id}-${vocabularyItem.word}` }
   }));
+  const questionSteps = [];
 
   lesson.words.forEach((vocabularyItem) => {
     const otherWords = lesson.words.filter((item) => item.word !== vocabularyItem.word);
-    steps.push({
+    questionSteps.push({
       type: "wordToMeaning",
       prompt: "What does this word mean?",
       answer: vocabularyItem.meaning,
@@ -1313,7 +1314,7 @@ function buildVocabularySteps(lesson) {
       vocabularyItem,
       char: { id: `vocab-${vocabularyItem.word}` }
     });
-    steps.push({
+    questionSteps.push({
       type: "meaningToWord",
       prompt: "Which Urdu word matches this meaning?",
       answer: vocabularyItem.word,
@@ -1323,7 +1324,7 @@ function buildVocabularySteps(lesson) {
     });
   });
 
-  return steps;
+  return [...steps, ...shuffle(questionSteps)];
 }
 
 function buildReviewSteps() {
