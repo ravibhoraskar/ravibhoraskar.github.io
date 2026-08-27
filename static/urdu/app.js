@@ -641,47 +641,51 @@ const LESSONS = LESSON_PLAN.map((ids, idx) => ({
   type: "script"
 }));
 
+const vocabularyWord = (word, pronunciation, meaning) => ({ word, pronunciation, meaning });
+
 const VOCABULARY_LESSONS = [
-  {
-    id: "vocab-1",
-    title: "Vocabulary 1",
-    words: [
-      { word: "عشق", pronunciation: "इश्क़", meaning: "intense love; passion", examples: ["عشق نے دل کو روشن کر دیا۔", "شاعر عشق کو زندگی کی طاقت کہتا ہے۔"] },
-      { word: "جفا", pronunciation: "जफ़ा", meaning: "cruelty; unfaithfulness", examples: ["تیری جفا بھی یاد رہتی ہے۔", "جفا سہہ کر بھی وہ وفادار رہا۔"] },
-      { word: "وفا", pronunciation: "वफ़ा", meaning: "loyalty; faithfulness", examples: ["وفا کا وعدہ نبھانا آسان نہیں۔", "اس کی وفا پر سب کو یقین تھا۔"] },
-      { word: "ہجر", pronunciation: "हिज्र", meaning: "separation from a beloved", examples: ["ہجر کی رات بہت طویل تھی۔", "شاعر نے ہجر کا درد لکھا ہے۔"] }
-    ]
-  },
-  {
-    id: "vocab-2",
-    title: "Vocabulary 2",
-    words: [
-      { word: "وصال", pronunciation: "विसाल", meaning: "union; meeting with a beloved", examples: ["وصال کی گھڑی کا انتظار ہے۔", "وصال نے برسوں کی دوری مٹا دی۔"] },
-      { word: "فراق", pronunciation: "फ़िराक़", meaning: "separation; longing", examples: ["فراق میں آنکھیں نم رہتی ہیں۔", "فراق کا موسم گزرنے کا نام نہیں لیتا۔"] },
-      { word: "آرزو", pronunciation: "आरज़ू", meaning: "desire; cherished wish", examples: ["دل میں ایک آرزو باقی ہے۔", "اس کی آرزو پوری ہو گئی۔"] },
-      { word: "حسرت", pronunciation: "हसरत", meaning: "unfulfilled longing; regret", examples: ["دل میں ملاقات کی حسرت ہے۔", "حسرت آنکھوں میں رہ گئی۔"] }
-    ]
-  },
-  {
-    id: "vocab-3",
-    title: "Vocabulary 3",
-    words: [
-      { word: "غم", pronunciation: "ग़म", meaning: "sorrow; grief", examples: ["غم کو شعر میں ڈھال دیا۔", "اس کے غم میں سب شریک تھے۔"] },
-      { word: "خوشی", pronunciation: "ख़ुशी", meaning: "happiness; joy", examples: ["خوشی کی خبر سن کر سب مسکرائے۔", "شاعر نے خوشی کا گیت گایا۔"] },
-      { word: "سکون", pronunciation: "सुकून", meaning: "peace; tranquility", examples: ["خاموشی میں دل کو سکون ملا۔", "اس کی آواز میں عجیب سکون تھا۔"] },
-      { word: "قرار", pronunciation: "क़रार", meaning: "peace of mind; stability", examples: ["دل کو کہیں قرار نہیں آتا۔", "اس خبر سے اسے قرار ملا۔"] }
-    ]
-  },
-  {
-    id: "vocab-4",
-    title: "Vocabulary 4",
-    words: [
-      { word: "خواب", pronunciation: "ख़्वाब", meaning: "dream; vision", examples: ["اس نے ایک خوب صورت خواب دیکھا۔", "آزادی کا خواب ابھی زندہ ہے۔"] },
-      { word: "امید", pronunciation: "उम्मीद", meaning: "hope; expectation", examples: ["دل میں امید کی روشنی ہے۔", "ہمیں بہتر دنوں کی امید ہے۔"] },
-      { word: "تقدیر", pronunciation: "तक़दीर", meaning: "fate; destiny", examples: ["تقدیر کے فیصلے کون جانتا ہے؟", "محنت نے اس کی تقدیر بدل دی۔"] },
-      { word: "راز", pronunciation: "राज़", meaning: "secret; mystery", examples: ["اس خط میں ایک راز چھپا تھا۔", "کائنات کا راز ابھی باقی ہے۔"] }
-    ]
-  }
+  { id: "vocab-1", title: "Vocabulary 1: Love & Devotion", words: [
+    vocabularyWord("جنون", "Junoon", "obsession"), vocabularyWord("الفت", "Ulfat", "affection"), vocabularyWord("وصل", "Wasl", "union"), vocabularyWord("ہجر", "Hijr", "separation"), vocabularyWord("فراق", "Firaaq", "distance"), vocabularyWord("آشفتہ", "Aashufta", "perplexed; distracted"), vocabularyWord("اخلاص", "Ikhlaas", "sincerity")
+  ] },
+  { id: "vocab-2", title: "Vocabulary 2: The Beloved", words: [
+    vocabularyWord("رخ", "Rukh", "face"), vocabularyWord("زلف", "Zulf", "locks of hair"), vocabularyWord("گیسو", "Geesu", "tresses"), vocabularyWord("تشنہ", "Tashna", "thirsty; desirous"), vocabularyWord("شوخی", "Shokhi", "playfulness"), vocabularyWord("جلوہ", "Jalwa", "radiant sight"), vocabularyWord("تبسم", "Tabassum", "smile")
+  ] },
+  { id: "vocab-3", title: "Vocabulary 3: The Lover & Heart", words: [
+    vocabularyWord("دل", "Dil", "heart"), vocabularyWord("بسمل", "Bismil", "wounded"), vocabularyWord("دیوانہ", "Deewana", "mad in love"), vocabularyWord("جان", "Jaan", "life; soul"), vocabularyWord("بے شمار", "Beshumar", "countless"), vocabularyWord("دل فزا", "Dil-feza", "heart-pleasing")
+  ] },
+  { id: "vocab-4", title: "Vocabulary 4: Sorrow & Grief", words: [
+    vocabularyWord("حسرت", "Hasrat", "unfulfilled desire"), vocabularyWord("درد", "Dard", "pain"), vocabularyWord("آہ", "Aah", "sigh"), vocabularyWord("نالہ", "Nala", "lamentation"), vocabularyWord("اشک", "Ashk", "tears"), vocabularyWord("الم", "Alam", "grief"), vocabularyWord("ملال", "Malal", "regret")
+  ] },
+  { id: "vocab-5", title: "Vocabulary 5: Destiny & World", words: [
+    vocabularyWord("قضا", "Qada", "fate"), vocabularyWord("قدر", "Qadar", "destiny"), vocabularyWord("زمانہ", "Zamana", "world; age"), vocabularyWord("گردش", "Gardish", "vicissitudes; cycles"), vocabularyWord("بلا", "Bala", "calamity"), vocabularyWord("فلک", "Falak", "sky; heavens"), vocabularyWord("آسمان", "Aasman", "sky")
+  ] },
+  { id: "vocab-6", title: "Vocabulary 6: Nature & Spring", words: [
+    vocabularyWord("گل", "Gul", "flower"), vocabularyWord("بلبل", "Bulbul", "nightingale"), vocabularyWord("صیاد", "Sayyaad", "fowler; hunter"), vocabularyWord("قفس", "Qafas", "cage"), vocabularyWord("بہار", "Bahaar", "spring"), vocabularyWord("خزاں", "Khazan", "autumn"), vocabularyWord("چمن", "Chaman", "garden")
+  ] },
+  { id: "vocab-7", title: "Vocabulary 7: Night & Dawn", words: [
+    vocabularyWord("شب", "Shab", "night"), vocabularyWord("سحر", "Sehar", "dawn"), vocabularyWord("ظلمت", "Zulmat", "darkness"), vocabularyWord("ماہ", "Maah", "moon"), vocabularyWord("قمر", "Qamar", "full moon"), vocabularyWord("آفتاب", "Aftaab", "sun"), vocabularyWord("صبح", "Subh", "morning")
+  ] },
+  { id: "vocab-8", title: "Vocabulary 8: Tavern & Wine", words: [
+    vocabularyWord("ساقی", "Saqi", "cup-bearer"), vocabularyWord("رند", "Rind", "intoxicated free-thinker"), vocabularyWord("مے خانہ", "Maikhana", "tavern"), vocabularyWord("پیمانہ", "Paimana", "goblet"), vocabularyWord("بادہ", "Bada", "wine"), vocabularyWord("صراحی", "Suraahi", "flask"), vocabularyWord("خم", "Khum", "wine-jar")
+  ] },
+  { id: "vocab-9", title: "Vocabulary 9: Paths & Destinations", words: [
+    vocabularyWord("منزل", "Manzil", "destination"), vocabularyWord("راہ", "Raah", "path"), vocabularyWord("غبار", "Gubar", "dust; cloud"), vocabularyWord("جادہ", "Jada", "track"), vocabularyWord("گام", "Gaam", "stride; step"), vocabularyWord("راہ نورد", "Rah-naward", "wayfarer"), vocabularyWord("کارواں", "Karwan", "caravan")
+  ] },
+  { id: "vocab-10", title: "Vocabulary 10: Eyes & Gaze", words: [
+    vocabularyWord("چشم", "Chashm", "eye"), vocabularyWord("نظر", "Nazar", "gaze"), vocabularyWord("نگاہ", "Nigaah", "look; sight"), vocabularyWord("دیدہ", "Dida", "eye"), vocabularyWord("آنکھ", "Ankh", "eye"), vocabularyWord("ابرو", "Abroo", "eyebrow"), vocabularyWord("مژگاں", "Mizhgan", "eyelashes")
+  ] },
+  { id: "vocab-11", title: "Vocabulary 11: Beauty & Radiance", words: [
+    vocabularyWord("حسن", "Husn", "beauty"), vocabularyWord("جمال", "Jamal", "elegance"), vocabularyWord("نور", "Noor", "light"), vocabularyWord("پیکر", "Peykar", "figure; form"), vocabularyWord("نزاکت", "Nazakat", "delicacy"), vocabularyWord("رعنائی", "Rana'i", "gracefulness"), vocabularyWord("آفتاب رو", "Aftaab-roo", "sun-faced")
+  ] },
+  { id: "vocab-12", title: "Vocabulary 12: Madness & Wandering", words: [
+    vocabularyWord("وحشت", "Wahshat", "wildness; dread"), vocabularyWord("صحرا", "Sehra", "desert"), vocabularyWord("آوارہ", "Aawara", "wanderer"), vocabularyWord("بیابان", "Biyaban", "wilderness"), vocabularyWord("خرابہ", "Kharaba", "ruin"), vocabularyWord("مجنوں", "Majnoon", "madman"), vocabularyWord("گریباں", "Gireban", "collar")
+  ] },
+  { id: "vocab-13", title: "Vocabulary 13: Fidelity & Betrayal", words: [
+    vocabularyWord("وفا", "Wafa", "loyalty"), vocabularyWord("جفا", "Jafa", "cruelty"), vocabularyWord("صنم", "Sanam", "idol; beloved"), vocabularyWord("باوفا", "Bawafa", "faithful"), vocabularyWord("حرف", "Harf", "blame; letter"), vocabularyWord("پیمان", "Paiman", "promise"), vocabularyWord("عہد", "Ahd", "vow")
+  ] },
+  { id: "vocab-14", title: "Vocabulary 14: Silence & Speech", words: [
+    vocabularyWord("کلام", "Kalam", "speech"), vocabularyWord("بیان", "Bayan", "narration"), vocabularyWord("خاموشی", "Khamoshi", "silence"), vocabularyWord("سکوت", "Sukoot", "stillness"), vocabularyWord("آواز", "Awaaz", "voice"), vocabularyWord("نغمہ", "Naghma", "melody"), vocabularyWord("صدا", "Sada", "echo; call")
+  ] }
 ];
 
 const state = {
@@ -1396,10 +1400,6 @@ function renderStep() {
       <div class="big-glyph" dir="rtl">${vocabularyItem.word}</div>
       <h3>${vocabularyItem.pronunciation}</h3>
       <p class="reading">${vocabularyItem.meaning}</p>
-      <p class="prompt">Example uses</p>
-      <div class="vocabulary-examples">
-        ${vocabularyItem.examples.map((example) => `<div dir="rtl">${example}</div>`).join("")}
-      </div>
     `;
     els.nextBtn.disabled = false;
     state.awaitingContinue = true;
