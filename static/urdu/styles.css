@@ -347,9 +347,13 @@ h1 {
 
 .big-glyph.intro-word {
   display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: 0;
   padding: 0.1rem 0.8rem;
   font-size: clamp(2.4rem, 10vw, 4.2rem);
   line-height: 1;
+  text-align: right;
 }
 
 [dir="rtl"] {
