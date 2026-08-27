@@ -641,50 +641,153 @@ const LESSONS = LESSON_PLAN.map((ids, idx) => ({
   type: "script"
 }));
 
-const vocabularyWord = (word, pronunciation, meaning) => ({ word, pronunciation, meaning });
+const VOCABULARY_WORD_DATA = {
+  "جنون": { pronunciation: "Junoon", meaning: "obsession", example: "اسے شاعری پڑھنے کا جنون ہے۔", exampleMeaning: "He is obsessed with reading poetry." },
+  "الفت": { pronunciation: "Ulfat", meaning: "affection", example: "ان دونوں دوستوں کے درمیان گہری الفت ہے۔", exampleMeaning: "There is deep affection between the two friends." },
+  "وصل": { pronunciation: "Wasl", meaning: "union", example: "طویل انتظار کے بعد انہیں وصل کی خوشی ملی۔", exampleMeaning: "After a long wait, they experienced the joy of reunion." },
+  "ہجر": { pronunciation: "Hijr", meaning: "separation", example: "ہجر کی رات اس کے لیے بہت طویل تھی۔", exampleMeaning: "The night of separation was very long for him." },
+  "فراق": { pronunciation: "Firaaq", meaning: "distance", example: "فراق میں محبوب کی یاد اور بھی ستاتی ہے۔", exampleMeaning: "In separation, memories of one's beloved hurt even more." },
+  "آشفتہ": { pronunciation: "Aashufta", meaning: "perplexed; distracted", example: "خبر سن کر اس کا ذہن آشفتہ ہو گیا۔", exampleMeaning: "His mind became troubled after hearing the news." },
+  "اخلاص": { pronunciation: "Ikhlaas", meaning: "sincerity", example: "اس نے اخلاص سے اپنے دوست کی مدد کی۔", exampleMeaning: "She helped her friend with sincerity." },
+  "رخ": { pronunciation: "Rukh", meaning: "face", example: "اس نے شرم سے اپنا رخ دوسری طرف کر لیا۔", exampleMeaning: "She shyly turned her face away." },
+  "زلف": { pronunciation: "Zulf", meaning: "locks of hair", example: "ہوا میں اس کی زلفیں لہرا رہی تھیں۔", exampleMeaning: "Her locks of hair were flowing in the breeze." },
+  "گیسو": { pronunciation: "Geesu", meaning: "tresses", example: "اس کے گیسو کندھوں تک آ رہے تھے۔", exampleMeaning: "Her tresses reached her shoulders." },
+  "تشنہ": { pronunciation: "Tashna", meaning: "thirsty; desirous", example: "مسافر کئی گھنٹوں کے سفر کے بعد پانی کا تشنہ تھا۔", exampleMeaning: "The traveler was thirsty for water after several hours of travel." },
+  "شوخی": { pronunciation: "Shokhi", meaning: "playfulness", example: "بچے کی شوخی نے سب کو ہنسا دیا۔", exampleMeaning: "The child's playfulness made everyone laugh." },
+  "جلوہ": { pronunciation: "Jalwa", meaning: "radiant sight", example: "صبح کے وقت پہاڑوں کا جلوہ دیکھنے کے قابل تھا۔", exampleMeaning: "The sight of the mountains at dawn was worth seeing." },
+  "تبسم": { pronunciation: "Tabassum", meaning: "smile", example: "اس کے تبسم نے اداس ماحول کو بدل دیا۔", exampleMeaning: "Her smile changed the gloomy atmosphere." },
+  "دل": { pronunciation: "Dil", meaning: "heart", example: "اچھی خبر سن کر میرا دل خوش ہو گیا۔", exampleMeaning: "My heart became happy after hearing the good news." },
+  "بسمل": { pronunciation: "Bismil", meaning: "wounded", example: "شکاری نے بسمل پرندے کو پانی پلایا۔", exampleMeaning: "The hunter gave water to the wounded bird." },
+  "دیوانہ": { pronunciation: "Deewana", meaning: "mad in love", example: "وہ پرانی کتابوں کا دیوانہ ہے۔", exampleMeaning: "He is crazy about old books." },
+  "جان": { pronunciation: "Jaan", meaning: "life; soul", example: "میری جان، اپنا خیال رکھنا۔", exampleMeaning: "My dear, take care of yourself." },
+  "بے شمار": { pronunciation: "Beshumar", meaning: "countless", example: "آسمان پر بے شمار ستارے چمک رہے تھے۔", exampleMeaning: "Countless stars were shining in the sky." },
+  "دل فزا": { pronunciation: "Dil-feza", meaning: "heart-pleasing", example: "باغ کا دل فزا منظر سب کو پسند آیا۔", exampleMeaning: "Everyone liked the heart-pleasing view of the garden." },
+  "حسرت": { pronunciation: "Hasrat", meaning: "unfulfilled desire", example: "اسے بیرون ملک پڑھنے کی حسرت رہ گئی۔", exampleMeaning: "She was left with an unfulfilled desire to study abroad." },
+  "درد": { pronunciation: "Dard", meaning: "pain", example: "چوٹ کی وجہ سے اس کے ہاتھ میں درد ہے۔", exampleMeaning: "His hand hurts because of the injury." },
+  "آہ": { pronunciation: "Aah", meaning: "sigh", example: "بوڑھے شخص نے تھک کر ایک گہری آہ بھری۔", exampleMeaning: "The old man let out a deep sigh after becoming tired." },
+  "نالہ": { pronunciation: "Nala", meaning: "lamentation", example: "مظلوم کی نالہ سن کر لوگ جمع ہو گئے۔", exampleMeaning: "People gathered after hearing the victim's lament." },
+  "اشک": { pronunciation: "Ashk", meaning: "tears", example: "خوشی کے اشک اس کی آنکھوں میں آ گئے۔", exampleMeaning: "Tears of joy came to her eyes." },
+  "الم": { pronunciation: "Alam", meaning: "grief", example: "جنگ کے الم نے پورے شہر کو خاموش کر دیا۔", exampleMeaning: "The grief of the war silenced the whole city." },
+  "ملال": { pronunciation: "Malal", meaning: "regret", example: "غلط فیصلہ کرنے کا اسے آج بھی ملال ہے۔", exampleMeaning: "He still regrets making the wrong decision." },
+  "قضا": { pronunciation: "Qada", meaning: "fate", example: "انسان قضا کے فیصلے کو نہیں بدل سکتا۔", exampleMeaning: "A person cannot change the decree of fate." },
+  "قدر": { pronunciation: "Qadar", meaning: "destiny", example: "وقت کی قدر کرنے والا کبھی پیچھے نہیں رہتا۔", exampleMeaning: "A person who values time never falls behind." },
+  "زمانہ": { pronunciation: "Zamana", meaning: "world; age", example: "زمانہ بدل گیا ہے مگر یہ روایت باقی ہے۔", exampleMeaning: "The world has changed, but this tradition remains." },
+  "گردش": { pronunciation: "Gardish", meaning: "vicissitudes; cycles", example: "زمانے کی گردش نے اس کے حالات بدل دیے۔", exampleMeaning: "The turn of fortune changed his circumstances." },
+  "بلا": { pronunciation: "Bala", meaning: "calamity", example: "طوفان ایک بڑی بلا بن کر شہر پر آیا۔", exampleMeaning: "The storm came upon the city as a great calamity." },
+  "فلک": { pronunciation: "Falak", meaning: "sky; heavens", example: "رات کو فلک پر چاند صاف دکھائی دے رہا تھا۔", exampleMeaning: "The moon was clearly visible in the sky at night." },
+  "آسمان": { pronunciation: "Aasman", meaning: "sky", example: "بارش کے بعد آسمان صاف ہو گیا۔", exampleMeaning: "The sky cleared after the rain." },
+  "گل": { pronunciation: "Gul", meaning: "flower", example: "اس نے میز پر ایک سرخ گل رکھا۔", exampleMeaning: "She placed a red flower on the table." },
+  "بلبل": { pronunciation: "Bulbul", meaning: "nightingale", example: "بلبل صبح سویرے باغ میں گانے لگی۔", exampleMeaning: "The nightingale began singing in the garden early in the morning." },
+  "صیاد": { pronunciation: "Sayyaad", meaning: "fowler; hunter", example: "صیاد نے جال درخت کے نیچے رکھ دیا۔", exampleMeaning: "The fowler placed a net under the tree." },
+  "قفس": { pronunciation: "Qafas", meaning: "cage", example: "اس نے پنجرے کا دروازہ کھول کر پرندے کو آزاد کر دیا۔", exampleMeaning: "He opened the cage and set the bird free." },
+  "بہار": { pronunciation: "Bahaar", meaning: "spring", example: "بہار آتے ہی باغ میں نئے پھول کھل گئے۔", exampleMeaning: "As spring arrived, new flowers bloomed in the garden." },
+  "خزاں": { pronunciation: "Khazan", meaning: "autumn", example: "خزاں میں درختوں کے پتے زرد ہو جاتے ہیں۔", exampleMeaning: "In autumn, the leaves of the trees turn yellow." },
+  "چمن": { pronunciation: "Chaman", meaning: "garden", example: "بچے شام کو چمن میں کھیلنے گئے۔", exampleMeaning: "The children went to play in the garden in the evening." },
+  "شب": { pronunciation: "Shab", meaning: "night", example: "شب کے سناٹے میں دور سے اذان کی آواز آئی۔", exampleMeaning: "In the silence of night, the call to prayer came from far away." },
+  "سحر": { pronunciation: "Sehar", meaning: "dawn", example: "سحر کے وقت ٹھنڈی ہوا چل رہی تھی۔", exampleMeaning: "A cool breeze was blowing at dawn." },
+  "ظلمت": { pronunciation: "Zulmat", meaning: "darkness", example: "چراغ جلتے ہی کمرے کی ظلمت ختم ہو گئی۔", exampleMeaning: "As soon as the lamp was lit, the darkness in the room disappeared." },
+  "ماہ": { pronunciation: "Maah", meaning: "moon", example: "ماہ کی روشنی جھیل کے پانی پر پڑ رہی تھی۔", exampleMeaning: "The moon's light was falling on the lake's water." },
+  "قمر": { pronunciation: "Qamar", meaning: "full moon", example: "قمر بادلوں کے پیچھے چھپ گیا۔", exampleMeaning: "The full moon disappeared behind the clouds." },
+  "آفتاب": { pronunciation: "Aftaab", meaning: "sun", example: "آفتاب نکلتے ہی دھند کم ہونے لگی۔", exampleMeaning: "As the sun rose, the fog began to clear." },
+  "صبح": { pronunciation: "Subh", meaning: "morning", example: "صبح میں نے کھڑکی کھولی اور تازہ ہوا محسوس کی۔", exampleMeaning: "In the morning, I opened the window and felt the fresh air." },
+  "ساقی": { pronunciation: "Saqi", meaning: "cup-bearer", example: "ساقی نے سب مہمانوں کو پانی پیش کیا۔", exampleMeaning: "The cup-bearer offered water to all the guests." },
+  "رند": { pronunciation: "Rind", meaning: "intoxicated free-thinker", example: "رند نے دنیا کی رسموں کی پروا نہیں کی۔", exampleMeaning: "The free-thinker did not care about the world's conventions." },
+  "مے خانہ": { pronunciation: "Maikhana", meaning: "tavern", example: "شاعر نے مے خانہ کے بجائے کتابوں کی محفل پسند کی۔", exampleMeaning: "The poet preferred a gathering of books to a tavern." },
+  "پیمانہ": { pronunciation: "Paimana", meaning: "goblet", example: "اس نے پیمانہ میز پر رکھ دیا۔", exampleMeaning: "He placed the goblet on the table." },
+  "بادہ": { pronunciation: "Bada", meaning: "wine", example: "شاعر کی غزل میں بادہ اور جام کا ذکر ہے۔", exampleMeaning: "The poet's ghazal mentions wine and the cup." },
+  "صراحی": { pronunciation: "Suraahi", meaning: "flask", example: "صراحی سے ٹھنڈا پانی گلاس میں ڈالا گیا۔", exampleMeaning: "Cold water was poured from the flask into the glass." },
+  "خم": { pronunciation: "Khum", meaning: "wine-jar", example: "قدیم تہہ خانے میں شراب کا ایک بڑا خم رکھا تھا۔", exampleMeaning: "A large wine jar was kept in the old cellar." },
+  "منزل": { pronunciation: "Manzil", meaning: "destination", example: "مسافر شام سے پہلے اپنی منزل تک پہنچ گیا۔", exampleMeaning: "The traveler reached his destination before evening." },
+  "راہ": { pronunciation: "Raah", meaning: "path", example: "صحیح راہ چننے کے لیے اس نے استاد سے مشورہ کیا۔", exampleMeaning: "He consulted his teacher to choose the right path." },
+  "غبار": { pronunciation: "Gubar", meaning: "dust; cloud", example: "تیز ہوا سے سڑک کا غبار ہر طرف پھیل گیا۔", exampleMeaning: "The dust from the road spread everywhere in the strong wind." },
+  "جادہ": { pronunciation: "Jada", meaning: "track", example: "پرانا جادہ پہاڑ کے دامن سے گزرتا ہے۔", exampleMeaning: "The old track passes along the foot of the mountain." },
+  "گام": { pronunciation: "Gaam", meaning: "stride; step", example: "منزل ابھی دور ہے، مگر ہر گام ہمیں آگے لے جاتا ہے۔", exampleMeaning: "The destination is still far, but every step takes us forward." },
+  "راہ نورد": { pronunciation: "Rah-naward", meaning: "wayfarer", example: "راہ نورد نے رات ایک چھوٹے گاؤں میں گزاری۔", exampleMeaning: "The wayfarer spent the night in a small village." },
+  "کارواں": { pronunciation: "Karwan", meaning: "caravan", example: "کارواں سورج ڈوبنے سے پہلے اگلے پڑاؤ پر پہنچ گیا۔", exampleMeaning: "The caravan reached the next stop before sunset." },
+  "چشم": { pronunciation: "Chashm", meaning: "eye", example: "اس کی چشم میں خوشی صاف نظر آ رہی تھی۔", exampleMeaning: "Joy was clearly visible in her eye." },
+  "نظر": { pronunciation: "Nazar", meaning: "gaze", example: "اس نے پہلی نظر میں مسئلہ سمجھ لیا۔", exampleMeaning: "He understood the problem at first glance." },
+  "نگاہ": { pronunciation: "Nigaah", meaning: "look; sight", example: "ماں کی نگاہ ہمیشہ اپنے بچوں پر رہتی ہے۔", exampleMeaning: "A mother's gaze is always on her children." },
+  "دیدہ": { pronunciation: "Dida", meaning: "eye", example: "اس نے دیدہ و دل سے مہمان کا استقبال کیا۔", exampleMeaning: "He welcomed the guest with all his heart and eyes." },
+  "آنکھ": { pronunciation: "Ankh", meaning: "eye", example: "آنکھ میں دھول چلی جانے سے اسے تکلیف ہوئی۔", exampleMeaning: "He felt discomfort when dust got into his eye." },
+  "ابرو": { pronunciation: "Abroo", meaning: "eyebrow", example: "اس نے حیرت سے ابرو اٹھائے۔", exampleMeaning: "She raised her eyebrow in surprise." },
+  "مژگاں": { pronunciation: "Mizhgan", meaning: "eyelashes", example: "اس کی مژگاں پر شبنم کے قطرے ٹھہرے تھے۔", exampleMeaning: "Dewdrops rested on her eyelashes." },
+  "حسن": { pronunciation: "Husn", meaning: "beauty", example: "قدرت کے حسن نے سب کو حیران کر دیا۔", exampleMeaning: "The beauty of nature amazed everyone." },
+  "جمال": { pronunciation: "Jamal", meaning: "elegance", example: "قدیم عمارت کا جمال آج بھی قائم ہے۔", exampleMeaning: "The elegance of the old building still endures." },
+  "نور": { pronunciation: "Noor", meaning: "light", example: "سورج کا نور کھڑکی سے کمرے میں داخل ہوا۔", exampleMeaning: "The light of the sun entered the room through the window." },
+  "پیکر": { pronunciation: "Peykar", meaning: "figure; form", example: "وہ صبر و حوصلے کا پیکر ہے۔", exampleMeaning: "She is the embodiment of patience and courage." },
+  "نزاکت": { pronunciation: "Nazakat", meaning: "delicacy", example: "اس پھول کو نزاکت سے ہاتھ میں اٹھاؤ۔", exampleMeaning: "Pick up this flower delicately." },
+  "رعنائی": { pronunciation: "Rana'i", meaning: "gracefulness", example: "بہار نے وادی کی رعنائی بڑھا دی۔", exampleMeaning: "Spring increased the gracefulness of the valley." },
+  "آفتاب رو": { pronunciation: "Aftaab-roo", meaning: "sun-faced", example: "شاعر نے اپنی محبوبہ کو آفتاب رو کہا۔", exampleMeaning: "The poet called his beloved sun-faced." },
+  "وحشت": { pronunciation: "Wahshat", meaning: "wildness; dread", example: "سنسان گھر کی خاموشی نے اس کے دل میں وحشت پیدا کی۔", exampleMeaning: "The silence of the deserted house created dread in his heart." },
+  "صحرا": { pronunciation: "Sehra", meaning: "desert", example: "مسافر صحرا میں پانی کی تلاش کرتا رہا۔", exampleMeaning: "The traveler kept searching for water in the desert." },
+  "آوارہ": { pronunciation: "Aawara", meaning: "wanderer", example: "آوارہ کتے کو ایک خاندان نے گھر دے دیا۔", exampleMeaning: "A family gave a stray dog a home." },
+  "بیابان": { pronunciation: "Biyaban", meaning: "wilderness", example: "وہ بیابان راستے سے گزرنے سے گھبرا رہا تھا۔", exampleMeaning: "He was nervous about traveling through the wilderness." },
+  "خرابہ": { pronunciation: "Kharaba", meaning: "ruin", example: "قدیم محل اب ایک خاموش خرابہ بن چکا ہے۔", exampleMeaning: "The ancient palace has now become a silent ruin." },
+  "مجنوں": { pronunciation: "Majnoon", meaning: "madman", example: "عاشق کو لوگ اس کی وفا کی وجہ سے مجنوں کہتے تھے۔", exampleMeaning: "People called the lover mad because of his devotion." },
+  "گریباں": { pronunciation: "Gireban", meaning: "collar", example: "غم سے اس نے اپنا گریباں پکڑ لیا۔", exampleMeaning: "In grief, he clutched his collar." },
+  "وفا": { pronunciation: "Wafa", meaning: "loyalty", example: "سچی دوستی میں وفا اور اعتماد ضروری ہیں۔", exampleMeaning: "Loyalty and trust are essential in true friendship." },
+  "جفا": { pronunciation: "Jafa", meaning: "cruelty", example: "اس کی جفا نے پرانے دوست کا دل توڑ دیا۔", exampleMeaning: "His cruelty broke the old friend's heart." },
+  "صنم": { pronunciation: "Sanam", meaning: "idol; beloved", example: "شاعر نے اپنی صنم کی تعریف میں غزل لکھی۔", exampleMeaning: "The poet wrote a ghazal praising his beloved." },
+  "باوفا": { pronunciation: "Bawafa", meaning: "faithful", example: "وہ ایک باوفا ساتھی ہے جو مشکل وقت میں ساتھ دیتا ہے۔", exampleMeaning: "He is a faithful companion who stays in difficult times." },
+  "حرف": { pronunciation: "Harf", meaning: "blame; letter", example: "اس نے میری بات کا ایک حرف بھی نہیں بھلایا۔", exampleMeaning: "She did not forget a single word of what I said." },
+  "پیمان": { pronunciation: "Paiman", meaning: "promise", example: "دونوں دوستوں نے ہمیشہ ساتھ رہنے کا پیمان کیا۔", exampleMeaning: "The two friends made a promise to always stay together." },
+  "عہد": { pronunciation: "Ahd", meaning: "vow", example: "اس نے اپنے عہد کو پورا کرنے کے لیے محنت کی۔", exampleMeaning: "He worked hard to fulfill his vow." },
+  "کلام": { pronunciation: "Kalam", meaning: "speech", example: "استاد کا کلام طلبہ کے لیے بہت متاثر کن تھا۔", exampleMeaning: "The teacher's speech was very inspiring for the students." },
+  "بیان": { pronunciation: "Bayan", meaning: "narration", example: "گواہ نے عدالت میں اپنا بیان ریکارڈ کرایا۔", exampleMeaning: "The witness recorded his statement in court." },
+  "خاموشی": { pronunciation: "Khamoshi", meaning: "silence", example: "کلاس میں استاد کے آتے ہی خاموشی چھا گئی۔", exampleMeaning: "Silence fell over the class as soon as the teacher arrived." },
+  "سکوت": { pronunciation: "Sukoot", meaning: "stillness", example: "رات کے سکوت میں دریا کی آواز سنائی دیتی تھی۔", exampleMeaning: "The sound of the river could be heard in the stillness of night." },
+  "آواز": { pronunciation: "Awaaz", meaning: "voice", example: "مجھے باہر سے اپنے بھائی کی آواز سنائی دی۔", exampleMeaning: "I heard my brother's voice from outside." },
+  "نغمہ": { pronunciation: "Naghma", meaning: "melody", example: "پرندوں کا نغمہ صبح کو اور خوب صورت بنا دیتا ہے۔", exampleMeaning: "The birds' melody makes the morning more beautiful." },
+  "صدا": { pronunciation: "Sada", meaning: "echo; call", example: "دور پہاڑوں سے گھنٹی کی صدا آ رہی تھی۔", exampleMeaning: "The sound of a bell was coming from the distant mountains." }
+};
+
+const vocabularyWord = (word) => ({
+  word,
+  ...VOCABULARY_WORD_DATA[word]
+});
 
 const VOCABULARY_LESSONS = [
   { id: "vocab-1", title: "Vocabulary 1: Love & Devotion", words: [
-    vocabularyWord("جنون", "Junoon", "obsession"), vocabularyWord("الفت", "Ulfat", "affection"), vocabularyWord("وصل", "Wasl", "union"), vocabularyWord("ہجر", "Hijr", "separation"), vocabularyWord("فراق", "Firaaq", "distance"), vocabularyWord("آشفتہ", "Aashufta", "perplexed; distracted"), vocabularyWord("اخلاص", "Ikhlaas", "sincerity")
+    vocabularyWord("جنون"), vocabularyWord("الفت"), vocabularyWord("وصل"), vocabularyWord("ہجر"), vocabularyWord("فراق"), vocabularyWord("آشفتہ"), vocabularyWord("اخلاص")
   ] },
   { id: "vocab-2", title: "Vocabulary 2: The Beloved", words: [
-    vocabularyWord("رخ", "Rukh", "face"), vocabularyWord("زلف", "Zulf", "locks of hair"), vocabularyWord("گیسو", "Geesu", "tresses"), vocabularyWord("تشنہ", "Tashna", "thirsty; desirous"), vocabularyWord("شوخی", "Shokhi", "playfulness"), vocabularyWord("جلوہ", "Jalwa", "radiant sight"), vocabularyWord("تبسم", "Tabassum", "smile")
+    vocabularyWord("رخ"), vocabularyWord("زلف"), vocabularyWord("گیسو"), vocabularyWord("تشنہ"), vocabularyWord("شوخی"), vocabularyWord("جلوہ"), vocabularyWord("تبسم")
   ] },
   { id: "vocab-3", title: "Vocabulary 3: The Lover & Heart", words: [
-    vocabularyWord("دل", "Dil", "heart"), vocabularyWord("بسمل", "Bismil", "wounded"), vocabularyWord("دیوانہ", "Deewana", "mad in love"), vocabularyWord("جان", "Jaan", "life; soul"), vocabularyWord("بے شمار", "Beshumar", "countless"), vocabularyWord("دل فزا", "Dil-feza", "heart-pleasing")
+    vocabularyWord("دل"), vocabularyWord("بسمل"), vocabularyWord("دیوانہ"), vocabularyWord("جان"), vocabularyWord("بے شمار"), vocabularyWord("دل فزا")
   ] },
   { id: "vocab-4", title: "Vocabulary 4: Sorrow & Grief", words: [
-    vocabularyWord("حسرت", "Hasrat", "unfulfilled desire"), vocabularyWord("درد", "Dard", "pain"), vocabularyWord("آہ", "Aah", "sigh"), vocabularyWord("نالہ", "Nala", "lamentation"), vocabularyWord("اشک", "Ashk", "tears"), vocabularyWord("الم", "Alam", "grief"), vocabularyWord("ملال", "Malal", "regret")
+    vocabularyWord("حسرت"), vocabularyWord("درد"), vocabularyWord("آہ"), vocabularyWord("نالہ"), vocabularyWord("اشک"), vocabularyWord("الم"), vocabularyWord("ملال")
   ] },
   { id: "vocab-5", title: "Vocabulary 5: Destiny & World", words: [
-    vocabularyWord("قضا", "Qada", "fate"), vocabularyWord("قدر", "Qadar", "destiny"), vocabularyWord("زمانہ", "Zamana", "world; age"), vocabularyWord("گردش", "Gardish", "vicissitudes; cycles"), vocabularyWord("بلا", "Bala", "calamity"), vocabularyWord("فلک", "Falak", "sky; heavens"), vocabularyWord("آسمان", "Aasman", "sky")
+    vocabularyWord("قضا"), vocabularyWord("قدر"), vocabularyWord("زمانہ"), vocabularyWord("گردش"), vocabularyWord("بلا"), vocabularyWord("فلک"), vocabularyWord("آسمان")
   ] },
   { id: "vocab-6", title: "Vocabulary 6: Nature & Spring", words: [
-    vocabularyWord("گل", "Gul", "flower"), vocabularyWord("بلبل", "Bulbul", "nightingale"), vocabularyWord("صیاد", "Sayyaad", "fowler; hunter"), vocabularyWord("قفس", "Qafas", "cage"), vocabularyWord("بہار", "Bahaar", "spring"), vocabularyWord("خزاں", "Khazan", "autumn"), vocabularyWord("چمن", "Chaman", "garden")
+    vocabularyWord("گل"), vocabularyWord("بلبل"), vocabularyWord("صیاد"), vocabularyWord("قفس"), vocabularyWord("بہار"), vocabularyWord("خزاں"), vocabularyWord("چمن")
   ] },
   { id: "vocab-7", title: "Vocabulary 7: Night & Dawn", words: [
-    vocabularyWord("شب", "Shab", "night"), vocabularyWord("سحر", "Sehar", "dawn"), vocabularyWord("ظلمت", "Zulmat", "darkness"), vocabularyWord("ماہ", "Maah", "moon"), vocabularyWord("قمر", "Qamar", "full moon"), vocabularyWord("آفتاب", "Aftaab", "sun"), vocabularyWord("صبح", "Subh", "morning")
+    vocabularyWord("شب"), vocabularyWord("سحر"), vocabularyWord("ظلمت"), vocabularyWord("ماہ"), vocabularyWord("قمر"), vocabularyWord("آفتاب"), vocabularyWord("صبح")
   ] },
   { id: "vocab-8", title: "Vocabulary 8: Tavern & Wine", words: [
-    vocabularyWord("ساقی", "Saqi", "cup-bearer"), vocabularyWord("رند", "Rind", "intoxicated free-thinker"), vocabularyWord("مے خانہ", "Maikhana", "tavern"), vocabularyWord("پیمانہ", "Paimana", "goblet"), vocabularyWord("بادہ", "Bada", "wine"), vocabularyWord("صراحی", "Suraahi", "flask"), vocabularyWord("خم", "Khum", "wine-jar")
+    vocabularyWord("ساقی"), vocabularyWord("رند"), vocabularyWord("مے خانہ"), vocabularyWord("پیمانہ"), vocabularyWord("بادہ"), vocabularyWord("صراحی"), vocabularyWord("خم")
   ] },
   { id: "vocab-9", title: "Vocabulary 9: Paths & Destinations", words: [
-    vocabularyWord("منزل", "Manzil", "destination"), vocabularyWord("راہ", "Raah", "path"), vocabularyWord("غبار", "Gubar", "dust; cloud"), vocabularyWord("جادہ", "Jada", "track"), vocabularyWord("گام", "Gaam", "stride; step"), vocabularyWord("راہ نورد", "Rah-naward", "wayfarer"), vocabularyWord("کارواں", "Karwan", "caravan")
+    vocabularyWord("منزل"), vocabularyWord("راہ"), vocabularyWord("غبار"), vocabularyWord("جادہ"), vocabularyWord("گام"), vocabularyWord("راہ نورد"), vocabularyWord("کارواں")
   ] },
   { id: "vocab-10", title: "Vocabulary 10: Eyes & Gaze", words: [
-    vocabularyWord("چشم", "Chashm", "eye"), vocabularyWord("نظر", "Nazar", "gaze"), vocabularyWord("نگاہ", "Nigaah", "look; sight"), vocabularyWord("دیدہ", "Dida", "eye"), vocabularyWord("آنکھ", "Ankh", "eye"), vocabularyWord("ابرو", "Abroo", "eyebrow"), vocabularyWord("مژگاں", "Mizhgan", "eyelashes")
+    vocabularyWord("چشم"), vocabularyWord("نظر"), vocabularyWord("نگاہ"), vocabularyWord("دیدہ"), vocabularyWord("آنکھ"), vocabularyWord("ابرو"), vocabularyWord("مژگاں")
   ] },
   { id: "vocab-11", title: "Vocabulary 11: Beauty & Radiance", words: [
-    vocabularyWord("حسن", "Husn", "beauty"), vocabularyWord("جمال", "Jamal", "elegance"), vocabularyWord("نور", "Noor", "light"), vocabularyWord("پیکر", "Peykar", "figure; form"), vocabularyWord("نزاکت", "Nazakat", "delicacy"), vocabularyWord("رعنائی", "Rana'i", "gracefulness"), vocabularyWord("آفتاب رو", "Aftaab-roo", "sun-faced")
+    vocabularyWord("حسن"), vocabularyWord("جمال"), vocabularyWord("نور"), vocabularyWord("پیکر"), vocabularyWord("نزاکت"), vocabularyWord("رعنائی"), vocabularyWord("آفتاب رو")
   ] },
   { id: "vocab-12", title: "Vocabulary 12: Madness & Wandering", words: [
-    vocabularyWord("وحشت", "Wahshat", "wildness; dread"), vocabularyWord("صحرا", "Sehra", "desert"), vocabularyWord("آوارہ", "Aawara", "wanderer"), vocabularyWord("بیابان", "Biyaban", "wilderness"), vocabularyWord("خرابہ", "Kharaba", "ruin"), vocabularyWord("مجنوں", "Majnoon", "madman"), vocabularyWord("گریباں", "Gireban", "collar")
+    vocabularyWord("وحشت"), vocabularyWord("صحرا"), vocabularyWord("آوارہ"), vocabularyWord("بیابان"), vocabularyWord("خرابہ"), vocabularyWord("مجنوں"), vocabularyWord("گریباں")
   ] },
   { id: "vocab-13", title: "Vocabulary 13: Fidelity & Betrayal", words: [
-    vocabularyWord("وفا", "Wafa", "loyalty"), vocabularyWord("جفا", "Jafa", "cruelty"), vocabularyWord("صنم", "Sanam", "idol; beloved"), vocabularyWord("باوفا", "Bawafa", "faithful"), vocabularyWord("حرف", "Harf", "blame; letter"), vocabularyWord("پیمان", "Paiman", "promise"), vocabularyWord("عہد", "Ahd", "vow")
+    vocabularyWord("وفا"), vocabularyWord("جفا"), vocabularyWord("صنم"), vocabularyWord("باوفا"), vocabularyWord("حرف"), vocabularyWord("پیمان"), vocabularyWord("عہد")
   ] },
   { id: "vocab-14", title: "Vocabulary 14: Silence & Speech", words: [
-    vocabularyWord("کلام", "Kalam", "speech"), vocabularyWord("بیان", "Bayan", "narration"), vocabularyWord("خاموشی", "Khamoshi", "silence"), vocabularyWord("سکوت", "Sukoot", "stillness"), vocabularyWord("آواز", "Awaaz", "voice"), vocabularyWord("نغمہ", "Naghma", "melody"), vocabularyWord("صدا", "Sada", "echo; call")
+    vocabularyWord("کلام"), vocabularyWord("بیان"), vocabularyWord("خاموشی"), vocabularyWord("سکوت"), vocabularyWord("آواز"), vocabularyWord("نغمہ"), vocabularyWord("صدا")
   ] }
 ];
 
@@ -1400,6 +1503,11 @@ function renderStep() {
       <div class="big-glyph" dir="rtl">${vocabularyItem.word}</div>
       <h3>${vocabularyItem.pronunciation}</h3>
       <p class="reading">${vocabularyItem.meaning}</p>
+      <p>
+        Example:<br/>
+        <span class="vocabulary-example" dir="rtl">${vocabularyItem.example}</span>
+        <span class="vocabulary-example-meaning">${vocabularyItem.exampleMeaning}</span>
+      </p>
     `;
     els.nextBtn.disabled = false;
     state.awaitingContinue = true;
@@ -1432,6 +1540,7 @@ function renderStep() {
       <p class="prompt">${renderPrompt(step.prompt)}</p>
       <div class="big-glyph" dir="rtl">${step.vocabularyItem.word}</div>
       <p class="reading">${step.vocabularyItem.pronunciation}</p>
+      <p class="vocabulary-example" dir="rtl">${step.vocabularyItem.example}</p>
     `;
   } else if (step.type === "meaningToWord") {
     els.lessonCard.innerHTML = `
