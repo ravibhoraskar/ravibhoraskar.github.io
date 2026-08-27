@@ -644,7 +644,7 @@ const LESSONS = LESSON_PLAN.map((ids, idx) => ({
 const VOCABULARY_LESSONS = [
   {
     id: "vocab-1",
-    title: "Poetry Vocabulary 1",
+    title: "Vocabulary 1",
     words: [
       { word: "عشق", pronunciation: "इश्क़", meaning: "intense love; passion", examples: ["عشق نے دل کو روشن کر دیا۔", "شاعر عشق کو زندگی کی طاقت کہتا ہے۔"] },
       { word: "جفا", pronunciation: "जफ़ा", meaning: "cruelty; unfaithfulness", examples: ["تیری جفا بھی یاد رہتی ہے۔", "جفا سہہ کر بھی وہ وفادار رہا۔"] },
@@ -654,7 +654,7 @@ const VOCABULARY_LESSONS = [
   },
   {
     id: "vocab-2",
-    title: "Poetry Vocabulary 2",
+    title: "Vocabulary 2",
     words: [
       { word: "وصال", pronunciation: "विसाल", meaning: "union; meeting with a beloved", examples: ["وصال کی گھڑی کا انتظار ہے۔", "وصال نے برسوں کی دوری مٹا دی۔"] },
       { word: "فراق", pronunciation: "फ़िराक़", meaning: "separation; longing", examples: ["فراق میں آنکھیں نم رہتی ہیں۔", "فراق کا موسم گزرنے کا نام نہیں لیتا۔"] },
@@ -664,7 +664,7 @@ const VOCABULARY_LESSONS = [
   },
   {
     id: "vocab-3",
-    title: "Poetry Vocabulary 3",
+    title: "Vocabulary 3",
     words: [
       { word: "غم", pronunciation: "ग़म", meaning: "sorrow; grief", examples: ["غم کو شعر میں ڈھال دیا۔", "اس کے غم میں سب شریک تھے۔"] },
       { word: "خوشی", pronunciation: "ख़ुशी", meaning: "happiness; joy", examples: ["خوشی کی خبر سن کر سب مسکرائے۔", "شاعر نے خوشی کا گیت گایا۔"] },
@@ -674,7 +674,7 @@ const VOCABULARY_LESSONS = [
   },
   {
     id: "vocab-4",
-    title: "Poetry Vocabulary 4",
+    title: "Vocabulary 4",
     words: [
       { word: "خواب", pronunciation: "ख़्वाब", meaning: "dream; vision", examples: ["اس نے ایک خوب صورت خواب دیکھا۔", "آزادی کا خواب ابھی زندہ ہے۔"] },
       { word: "امید", pronunciation: "उम्मीद", meaning: "hope; expectation", examples: ["دل میں امید کی روشنی ہے۔", "ہمیں بہتر دنوں کی امید ہے۔"] },
@@ -1094,7 +1094,7 @@ function renderVocabularyPath() {
     node.innerHTML = `
       <strong>${lesson.title}</strong>
       <div class="letters">${lesson.words.map((item) => item.word).join(" · ")}</div>
-      <div class="meta">${lesson.words.length} poetry words${state.progress.vocabularyCompleted.includes(lesson.id) ? " • Complete" : ""}</div>
+      <div class="meta">${lesson.words.length} vocabulary words${state.progress.vocabularyCompleted.includes(lesson.id) ? " • Complete" : ""}</div>
     `;
 
     if (unlocked) {
@@ -1190,13 +1190,11 @@ function buildLessonSteps(lesson) {
 }
 
 function buildVocabularySteps(lesson) {
-  const steps = [
-    {
-      type: "vocabIntro",
-      vocabularyItems: lesson.words,
-      char: { id: `vocab-intro-${lesson.id}` }
-    }
-  ];
+  const steps = lesson.words.map((vocabularyItem) => ({
+    type: "vocabIntro",
+    vocabularyItem,
+    char: { id: `vocab-intro-${lesson.id}-${vocabularyItem.word}` }
+  }));
 
   lesson.words.forEach((vocabularyItem) => {
     const otherWords = lesson.words.filter((item) => item.word !== vocabularyItem.word);
@@ -1394,7 +1392,7 @@ function renderStep() {
   if (step.type === "vocabIntro") {
     const vocabularyItem = step.vocabularyItem;
     els.lessonCard.innerHTML = `
-      <p class="prompt">New poetry word</p>
+      <p class="prompt">New vocabulary word</p>
       <div class="big-glyph" dir="rtl">${vocabularyItem.word}</div>
       <h3>${vocabularyItem.pronunciation}</h3>
       <p class="reading">${vocabularyItem.meaning}</p>
