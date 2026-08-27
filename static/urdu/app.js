@@ -1309,7 +1309,7 @@ function buildVocabularySteps(lesson) {
       type: "wordToMeaning",
       prompt: "What does this word mean?",
       answer: vocabularyItem.meaning,
-      choices: shuffle([vocabularyItem.meaning, ...otherWords.map((item) => item.meaning)]),
+      choices: shuffle([vocabularyItem.meaning, ...sample(otherWords, 3).map((item) => item.meaning)]),
       vocabularyItem,
       char: { id: `vocab-${vocabularyItem.word}` }
     });
@@ -1317,7 +1317,7 @@ function buildVocabularySteps(lesson) {
       type: "meaningToWord",
       prompt: "Which Urdu word matches this meaning?",
       answer: vocabularyItem.word,
-      choices: shuffle([vocabularyItem.word, ...otherWords.map((item) => item.word)]),
+      choices: shuffle([vocabularyItem.word, ...sample(otherWords, 3).map((item) => item.word)]),
       vocabularyItem,
       char: { id: `vocab-${vocabularyItem.word}` }
     });
