@@ -1501,7 +1501,7 @@ function renderStep() {
     const vocabularyItem = step.vocabularyItem;
     els.lessonCard.innerHTML = `
       <p class="prompt">New vocabulary word</p>
-      <div class="big-glyph" dir="rtl">${vocabularyItem.word}</div>
+      <button type="button" class="big-glyph intro-word" data-word="${vocabularyItem.word}" data-pronunciation="${vocabularyItem.pronunciation}" dir="rtl">${vocabularyItem.word}</button>
       <h3>${vocabularyItem.pronunciation}</h3>
       <p class="reading">${vocabularyItem.meaning}</p>
       <p>
@@ -1510,6 +1510,7 @@ function renderStep() {
         <span class="vocabulary-example-meaning">${vocabularyItem.exampleMeaning}</span>
       </p>
     `;
+    bindIntroWordAudio(els.lessonCard);
     els.nextBtn.disabled = false;
     state.awaitingContinue = true;
     return;

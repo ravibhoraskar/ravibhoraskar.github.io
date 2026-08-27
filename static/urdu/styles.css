@@ -345,6 +345,13 @@ h1 {
   margin: 12px 0;
 }
 
+.big-glyph.intro-word {
+  display: block;
+  padding: 0.1rem 0.8rem;
+  font-size: clamp(2.4rem, 10vw, 4.2rem);
+  line-height: 1;
+}
+
 [dir="rtl"] {
   font-family: "Noto Nastaliq Urdu", sans-serif;
 }
