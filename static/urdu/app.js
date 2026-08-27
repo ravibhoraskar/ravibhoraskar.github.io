@@ -637,8 +637,52 @@ const CHAR_MAP = Object.fromEntries(CHARACTERS.map((item) => [item.id, item]));
 const LESSONS = LESSON_PLAN.map((ids, idx) => ({
   id: idx + 1,
   title: `Lesson ${idx + 1}`,
-  newChars: ids.map((id) => CHAR_MAP[id])
+  newChars: ids.map((id) => CHAR_MAP[id]),
+  type: "script"
 }));
+
+const VOCABULARY_LESSONS = [
+  {
+    id: "vocab-1",
+    title: "Poetry Vocabulary 1",
+    words: [
+      { word: "عشق", pronunciation: "इश्क़", meaning: "intense love; passion", examples: ["عشق نے دل کو روشن کر دیا۔", "شاعر عشق کو زندگی کی طاقت کہتا ہے۔"] },
+      { word: "جفا", pronunciation: "जफ़ा", meaning: "cruelty; unfaithfulness", examples: ["تیری جفا بھی یاد رہتی ہے۔", "جفا سہہ کر بھی وہ وفادار رہا۔"] },
+      { word: "وفا", pronunciation: "वफ़ा", meaning: "loyalty; faithfulness", examples: ["وفا کا وعدہ نبھانا آسان نہیں۔", "اس کی وفا پر سب کو یقین تھا۔"] },
+      { word: "ہجر", pronunciation: "हिज्र", meaning: "separation from a beloved", examples: ["ہجر کی رات بہت طویل تھی۔", "شاعر نے ہجر کا درد لکھا ہے۔"] }
+    ]
+  },
+  {
+    id: "vocab-2",
+    title: "Poetry Vocabulary 2",
+    words: [
+      { word: "وصال", pronunciation: "विसाल", meaning: "union; meeting with a beloved", examples: ["وصال کی گھڑی کا انتظار ہے۔", "وصال نے برسوں کی دوری مٹا دی۔"] },
+      { word: "فراق", pronunciation: "फ़िराक़", meaning: "separation; longing", examples: ["فراق میں آنکھیں نم رہتی ہیں۔", "فراق کا موسم گزرنے کا نام نہیں لیتا۔"] },
+      { word: "آرزو", pronunciation: "आरज़ू", meaning: "desire; cherished wish", examples: ["دل میں ایک آرزو باقی ہے۔", "اس کی آرزو پوری ہو گئی۔"] },
+      { word: "حسرت", pronunciation: "हसरत", meaning: "unfulfilled longing; regret", examples: ["دل میں ملاقات کی حسرت ہے۔", "حسرت آنکھوں میں رہ گئی۔"] }
+    ]
+  },
+  {
+    id: "vocab-3",
+    title: "Poetry Vocabulary 3",
+    words: [
+      { word: "غم", pronunciation: "ग़म", meaning: "sorrow; grief", examples: ["غم کو شعر میں ڈھال دیا۔", "اس کے غم میں سب شریک تھے۔"] },
+      { word: "خوشی", pronunciation: "ख़ुशी", meaning: "happiness; joy", examples: ["خوشی کی خبر سن کر سب مسکرائے۔", "شاعر نے خوشی کا گیت گایا۔"] },
+      { word: "سکون", pronunciation: "सुकून", meaning: "peace; tranquility", examples: ["خاموشی میں دل کو سکون ملا۔", "اس کی آواز میں عجیب سکون تھا۔"] },
+      { word: "قرار", pronunciation: "क़रार", meaning: "peace of mind; stability", examples: ["دل کو کہیں قرار نہیں آتا۔", "اس خبر سے اسے قرار ملا۔"] }
+    ]
+  },
+  {
+    id: "vocab-4",
+    title: "Poetry Vocabulary 4",
+    words: [
+      { word: "خواب", pronunciation: "ख़्वाब", meaning: "dream; vision", examples: ["اس نے ایک خوب صورت خواب دیکھا۔", "آزادی کا خواب ابھی زندہ ہے۔"] },
+      { word: "امید", pronunciation: "उम्मीद", meaning: "hope; expectation", examples: ["دل میں امید کی روشنی ہے۔", "ہمیں بہتر دنوں کی امید ہے۔"] },
+      { word: "تقدیر", pronunciation: "तक़दीर", meaning: "fate; destiny", examples: ["تقدیر کے فیصلے کون جانتا ہے؟", "محنت نے اس کی تقدیر بدل دی۔"] },
+      { word: "راز", pronunciation: "राज़", meaning: "secret; mystery", examples: ["اس خط میں ایک راز چھپا تھا۔", "کائنات کا راز ابھی باقی ہے۔"] }
+    ]
+  }
+];
 
 const state = {
   progress: loadProgress(),
@@ -659,6 +703,7 @@ const els = {
   screenLesson: document.getElementById("screenLesson"),
   screenResult: document.getElementById("screenResult"),
   lessonPath: document.getElementById("lessonPath"),
+  vocabularyPath: document.getElementById("vocabularyPath"),
   lessonCount: document.getElementById("lessonCount"),
   xpCount: document.getElementById("xpCount"),
   streakCount: document.getElementById("streakCount"),
@@ -720,6 +765,7 @@ function normalizeCharStats(stats) {
 function loadProgress() {
   const empty = {
     completed: [],
+    vocabularyCompleted: [],
     bestScores: {},
     xp: 0,
     streak: 0,
@@ -737,6 +783,7 @@ function loadProgress() {
     const parsed = JSON.parse(raw);
     const progress = {
       completed: Array.isArray(parsed.completed) ? parsed.completed : [],
+      vocabularyCompleted: Array.isArray(parsed.vocabularyCompleted) ? parsed.vocabularyCompleted : [],
       bestScores: parsed.bestScores || {},
       xp: Number(parsed.xp || 0),
       streak: Number(parsed.streak || 0),
@@ -973,8 +1020,8 @@ function weaknessScore(charId) {
 }
 
 function renderTopStats() {
-  const completedCount = state.progress.completed.length;
-  els.lessonCount.textContent = `${completedCount}/${LESSONS.length}`;
+  const completedCount = state.progress.completed.length + state.progress.vocabularyCompleted.length;
+  els.lessonCount.textContent = `${completedCount}/${LESSONS.length + VOCABULARY_LESSONS.length}`;
   els.xpCount.textContent = state.progress.xp;
   els.streakCount.textContent = state.progress.streak;
   els.goalCount.textContent = `${Math.min(state.progress.dailyXp, DAILY_GOAL_XP)}/${DAILY_GOAL_XP}`;
@@ -1028,8 +1075,37 @@ function renderPath() {
     els.lessonPath.appendChild(node);
   });
 
+  renderVocabularyPath();
+
   renderTopStats();
   populatePlacementSelector();
+}
+
+function renderVocabularyPath() {
+  els.vocabularyPath.innerHTML = "";
+
+  VOCABULARY_LESSONS.forEach((lesson, index) => {
+    const node = document.createElement("button");
+    const unlocked = index === 0 || state.progress.vocabularyCompleted.includes(VOCABULARY_LESSONS[index - 1].id);
+    node.className = `lesson-node ${unlocked ? "unlocked" : "locked"}`;
+    if (state.progress.vocabularyCompleted.includes(lesson.id)) {
+      node.classList.add("done");
+    }
+    node.innerHTML = `
+      <strong>${lesson.title}</strong>
+      <div class="letters">${lesson.words.map((item) => item.word).join(" · ")}</div>
+      <div class="meta">${lesson.words.length} poetry words${state.progress.vocabularyCompleted.includes(lesson.id) ? " • Complete" : ""}</div>
+    `;
+
+    if (unlocked) {
+      node.addEventListener("click", () => startVocabularyLesson(lesson.id));
+    } else {
+      node.disabled = true;
+      node.title = "Complete the previous vocabulary lesson first";
+    }
+
+    els.vocabularyPath.appendChild(node);
+  });
 }
 
 function buildPracticeSteps(chars, introduced) {
@@ -1113,6 +1189,38 @@ function buildLessonSteps(lesson) {
   return [...introSteps, ...practice];
 }
 
+function buildVocabularySteps(lesson) {
+  const steps = [
+    {
+      type: "vocabIntro",
+      vocabularyItems: lesson.words,
+      char: { id: `vocab-intro-${lesson.id}` }
+    }
+  ];
+
+  lesson.words.forEach((vocabularyItem) => {
+    const otherWords = lesson.words.filter((item) => item.word !== vocabularyItem.word);
+    steps.push({
+      type: "wordToMeaning",
+      prompt: "What does this word mean?",
+      answer: vocabularyItem.meaning,
+      choices: shuffle([vocabularyItem.meaning, ...otherWords.map((item) => item.meaning)]),
+      vocabularyItem,
+      char: { id: `vocab-${vocabularyItem.word}` }
+    });
+    steps.push({
+      type: "meaningToWord",
+      prompt: "Which Urdu word matches this meaning?",
+      answer: vocabularyItem.word,
+      choices: shuffle([vocabularyItem.word, ...otherWords.map((item) => item.word)]),
+      vocabularyItem,
+      char: { id: `vocab-${vocabularyItem.word}` }
+    });
+  });
+
+  return steps;
+}
+
 function buildReviewSteps() {
   const unlocked = getUnlockedChars();
   const sortedWeak = [...unlocked].sort((a, b) => weaknessScore(b.id) - weaknessScore(a.id));
@@ -1179,6 +1287,15 @@ function startSession(mode, lessonId = null) {
     state.lessonSteps = buildReviewSteps();
     els.lessonTitle.textContent = "Targeted Review: your weakest letters";
     els.lessonModeTag.textContent = "Review";
+  } else if (mode === "vocabulary") {
+    const vocabularyLesson = VOCABULARY_LESSONS.find((lesson) => lesson.id === lessonId);
+    if (!vocabularyLesson) {
+      return;
+    }
+    state.currentLesson = vocabularyLesson;
+    state.lessonSteps = buildVocabularySteps(vocabularyLesson);
+    els.lessonTitle.textContent = vocabularyLesson.title;
+    els.lessonModeTag.textContent = "Vocabulary";
   } else if (mode === "placement") {
     state.placementTarget = lessonId;
     state.currentLesson = {
@@ -1212,6 +1329,10 @@ function startLesson(lessonId) {
 
 function startReview() {
   startSession("review");
+}
+
+function startVocabularyLesson(lessonId) {
+  startSession("vocabulary", lessonId);
 }
 
 function startPlacement() {
@@ -1270,6 +1391,23 @@ function renderStep() {
     return;
   }
 
+  if (step.type === "vocabIntro") {
+    const vocabularyItem = step.vocabularyItem;
+    els.lessonCard.innerHTML = `
+      <p class="prompt">New poetry word</p>
+      <div class="big-glyph" dir="rtl">${vocabularyItem.word}</div>
+      <h3>${vocabularyItem.pronunciation}</h3>
+      <p class="reading">${vocabularyItem.meaning}</p>
+      <p class="prompt">Example uses</p>
+      <div class="vocabulary-examples">
+        ${vocabularyItem.examples.map((example) => `<div dir="rtl">${example}</div>`).join("")}
+      </div>
+    `;
+    els.nextBtn.disabled = false;
+    state.awaitingContinue = true;
+    return;
+  }
+
   if (step.type === "pickSound") {
     els.lessonCard.innerHTML = `
       <p class="prompt">${renderPrompt(step.prompt)}</p>
@@ -1290,6 +1428,17 @@ function renderStep() {
     els.lessonCard.innerHTML = `
       <p class="prompt">${renderPrompt(step.prompt)}</p>
       <p class="reading">Tip: focus on dots and tail shape.</p>
+    `;
+  } else if (step.type === "wordToMeaning") {
+    els.lessonCard.innerHTML = `
+      <p class="prompt">${renderPrompt(step.prompt)}</p>
+      <div class="big-glyph" dir="rtl">${step.vocabularyItem.word}</div>
+      <p class="reading">${step.vocabularyItem.pronunciation}</p>
+    `;
+  } else if (step.type === "meaningToWord") {
+    els.lessonCard.innerHTML = `
+      <p class="prompt">${renderPrompt(step.prompt)}</p>
+      <div class="reading vocabulary-meaning">${step.vocabularyItem.meaning}</div>
     `;
   }
 
@@ -1384,6 +1533,10 @@ function finishSession(reason = "completed") {
     }
   }
 
+  if (state.mode === "vocabulary" && passed && !state.progress.vocabularyCompleted.includes(state.currentLesson.id)) {
+    state.progress.vocabularyCompleted.push(state.currentLesson.id);
+  }
+
   if (state.mode === "placement" && passed) {
     const unlockedLessons = Array.from({ length: state.placementTarget - 1 }, (_, index) => index + 1);
     const completed = new Set(state.progress.completed);
@@ -1407,7 +1560,14 @@ function finishSession(reason = "completed") {
     els.resultTitle.textContent = "Out of hearts";
     els.resultSummary.textContent = `You scored ${ratio}% and earned ${xpEarned} XP. Try again with careful letter matching.`;
   } else if (passed) {
-    els.resultTitle.textContent = state.mode === "review" ? "Review complete" : state.mode === "placement" ? "Placement passed" : "Lesson complete";
+    els.resultTitle.textContent =
+      state.mode === "review"
+        ? "Review complete"
+        : state.mode === "placement"
+        ? "Placement passed"
+        : state.mode === "vocabulary"
+        ? "Vocabulary lesson complete"
+        : "Lesson complete";
     els.resultSummary.textContent = `You scored ${ratio}% and earned ${xpEarned} XP.`;
   } else {
     els.resultTitle.textContent = "Keep practicing";
@@ -1426,9 +1586,16 @@ function finishSession(reason = "completed") {
       ? "Next lesson unlocked."
       : "Score 70% or above to unlock the next lesson.";
 
+  const vocabularyNextText =
+    state.mode === "vocabulary"
+      ? passed
+        ? "Next vocabulary lesson unlocked."
+        : "Score 70% or above to unlock the next vocabulary lesson."
+      : nextText;
+
   els.resultBreakdown.innerHTML = `
     <div>Correct answers: ${state.score}/${state.attempts}</div>
-    <div>${nextText}</div>
+    <div>${vocabularyNextText}</div>
     <div>${unlockedNext ? "Great momentum. Continue while the character shapes are fresh." : "Use targeted review to strengthen weak letters."}</div>
   `;
 
@@ -1462,7 +1629,11 @@ els.retryBtn.addEventListener("click", () => {
     return;
   }
   if (state.currentLesson && state.currentLesson.id !== "review") {
-    startLesson(state.currentLesson.id);
+    if (state.mode === "vocabulary") {
+      startVocabularyLesson(state.currentLesson.id);
+    } else {
+      startLesson(state.currentLesson.id);
+    }
   }
 });
 els.exitLessonBtn.addEventListener("click", () => {
