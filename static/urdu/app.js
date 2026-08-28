@@ -670,7 +670,7 @@ const VOCABULARY_WORD_DATA = {
   "الم": { pronunciation: "अलम", meaning: "grief", example: "جنگ کے الم نے پورے شہر کو خاموش کر دیا۔", exampleMeaning: "The grief of the war silenced the whole city." },
   "ملال": { pronunciation: "मलाल", meaning: "regret", example: "غلط فیصلہ کرنے کا اسے آج بھی ملال ہے۔", exampleMeaning: "He still regrets making the wrong decision." },
   "قضا": { pronunciation: "क़ज़ा", meaning: "fate", example: "انسان قضا کے فیصلے کو نہیں بدل سکتا۔", exampleMeaning: "A person cannot change the decree of fate." },
-  "قدر": { pronunciation: "क़दर", meaning: "destiny", example: "وقت کی قدر کرنے والا کبھی پیچھے نہیں رہتا۔", exampleMeaning: "A person who values time never falls behind." },
+  "قدر": { pronunciation: "क़दर", meaning: "respect", example: "وقت کی قدر کرنے والا کبھی پیچھے نہیں رہتا۔", exampleMeaning: "A person who values time never falls behind." },
   "زمانہ": { pronunciation: "ज़माना", meaning: "world; age", example: "زمانہ بدل گیا ہے مگر یہ روایت باقی ہے۔", exampleMeaning: "The world has changed, but this tradition remains." },
   "گردش": { pronunciation: "गर्दिश", meaning: "vicissitudes; cycles", example: "زمانے کی گردش نے اس کے حالات بدل دیے۔", exampleMeaning: "The turn of fortune changed his circumstances." },
   "بلا": { pronunciation: "बला", meaning: "calamity", example: "طوفان ایک بڑی بلا بن کر شہر پر آیا۔", exampleMeaning: "The storm came upon the city as a great calamity." },
