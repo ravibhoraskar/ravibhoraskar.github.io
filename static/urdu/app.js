@@ -1303,6 +1303,9 @@ function buildVocabularySteps(lesson) {
     char: { id: `vocab-intro-${lesson.id}-${vocabularyItem.word}` }
   }));
   const questionSteps = [];
+  const lessonIndex = VOCABULARY_LESSONS.findIndex((item) => item.id === lesson.id);
+  const previousWords = VOCABULARY_LESSONS.slice(0, lessonIndex).flatMap((item) => item.words);
+  const learnedWords = [...previousWords, ...lesson.words];
 
   lesson.words.forEach((vocabularyItem) => {
     const otherWords = lesson.words.filter((item) => item.word !== vocabularyItem.word);
@@ -1319,6 +1322,18 @@ function buildVocabularySteps(lesson) {
       prompt: "Which Urdu word matches this meaning?",
       answer: vocabularyItem.word,
       choices: shuffle([vocabularyItem.word, ...sample(otherWords, 3).map((item) => item.word)]),
+      vocabularyItem,
+      char: { id: `vocab-${vocabularyItem.word}` }
+    });
+  });
+
+  sample(previousWords, 4).forEach((vocabularyItem) => {
+    const distractors = sample(learnedWords, 3, [vocabularyItem]).map((item) => item.meaning);
+    questionSteps.push({
+      type: "wordToMeaning",
+      prompt: "Review: What does this word mean?",
+      answer: vocabularyItem.meaning,
+      choices: shuffle([vocabularyItem.meaning, ...distractors]),
       vocabularyItem,
       char: { id: `vocab-${vocabularyItem.word}` }
     });
