@@ -832,7 +832,10 @@ const els = {
   answerFeedback: document.getElementById("answerFeedback"),
   startReviewBtn: document.getElementById("startReviewBtn"),
   placementLessonSelect: document.getElementById("placementLessonSelect"),
-  startPlacementBtn: document.getElementById("startPlacementBtn")
+  startPlacementBtn: document.getElementById("startPlacementBtn"),
+  startVocabularyReviewBtn: document.getElementById("startVocabularyReviewBtn"),
+  vocabularyPlacementLessonSelect: document.getElementById("vocabularyPlacementLessonSelect"),
+  startVocabularyPlacementBtn: document.getElementById("startVocabularyPlacementBtn")
 };
 
 function todayKey() {
@@ -1149,6 +1152,30 @@ function populatePlacementSelector() {
   els.placementLessonSelect.value = String(suggested);
 }
 
+function populateVocabularyPlacementSelector() {
+  if (!els.vocabularyPlacementLessonSelect) {
+    return;
+  }
+  
+  els.vocabularyPlacementLessonSelect.innerHTML = "";
+
+  VOCABULARY_LESSONS.slice(1).forEach((lesson) => {
+    const option = document.createElement("option");
+    const lessonNum = parseInt(lesson.id.replace("vocab-", ""));
+    option.value = String(lessonNum);
+    option.textContent = lesson.title;
+    els.vocabularyPlacementLessonSelect.appendChild(option);
+  });
+
+  const completedIndices = state.progress.vocabularyCompleted
+    .map((id) => VOCABULARY_LESSONS.findIndex((lesson) => lesson.id === id))
+    .filter((idx) => idx !== -1);
+  
+  const unlockedMax = completedIndices.length > 0 ? Math.max(...completedIndices) + 1 : 0;
+  const suggested = Math.min(Math.max(unlockedMax + 1, 2), VOCABULARY_LESSONS.length);
+  els.vocabularyPlacementLessonSelect.value = String(suggested);
+}
+
 function renderPath() {
   els.lessonPath.innerHTML = "";
 
@@ -1186,6 +1213,7 @@ function renderPath() {
 
   renderTopStats();
   populatePlacementSelector();
+  populateVocabularyPlacementSelector();
 }
 
 function renderVocabularyPath() {
@@ -1375,6 +1403,81 @@ function buildPlacementSteps(targetLessonId) {
   return practice;
 }
 
+function buildVocabularyReviewSteps() {
+  const completedLessons = state.progress.vocabularyCompleted
+    .map((id) => VOCABULARY_LESSONS.findIndex((lesson) => lesson.id === id))
+    .filter((idx) => idx !== -1);
+  
+  if (completedLessons.length === 0) {
+    return [];
+  }
+  
+  const highestCompletedIdx = Math.max(...completedLessons);
+  const learnedWords = VOCABULARY_LESSONS.slice(0, highestCompletedIdx + 1).flatMap((lesson) => lesson.words);
+  
+  if (learnedWords.length === 0) {
+    return [];
+  }
+  
+  const targetWords = sample(learnedWords, Math.min(6, learnedWords.length));
+  const questionSteps = [];
+  
+  targetWords.forEach((vocabularyItem) => {
+    const distractors = sample(learnedWords, 3, [vocabularyItem]).map((item) => item.meaning);
+    questionSteps.push({
+      type: "wordToMeaning",
+      prompt: "Review: What does this word mean?",
+      answer: vocabularyItem.meaning,
+      choices: shuffle([vocabularyItem.meaning, ...distractors]),
+      vocabularyItem,
+      char: { id: `vocab-${vocabularyItem.word}` }
+    });
+    questionSteps.push({
+      type: "meaningToWord",
+      prompt: "Review: Which Urdu word matches this meaning?",
+      answer: vocabularyItem.word,
+      choices: shuffle([vocabularyItem.word, ...sample(learnedWords, 3, [vocabularyItem]).map((item) => item.word)]),
+      vocabularyItem,
+      char: { id: `vocab-${vocabularyItem.word}` }
+    });
+  });
+  
+  return shuffle(questionSteps);
+}
+
+function buildVocabularyPlacementSteps(targetLessonIndex) {
+  const testedWords = VOCABULARY_LESSONS.slice(0, Math.max(0, targetLessonIndex)).flatMap((lesson) => lesson.words);
+  
+  if (testedWords.length === 0) {
+    return [];
+  }
+  
+  const focusWords = sample(testedWords, Math.min(8, testedWords.length));
+  const questionSteps = [];
+  
+  focusWords.forEach((vocabularyItem) => {
+    const distractors = sample(testedWords, 3, [vocabularyItem]).map((item) => item.meaning);
+    questionSteps.push({
+      type: "wordToMeaning",
+      prompt: "What does this word mean?",
+      answer: vocabularyItem.meaning,
+      choices: shuffle([vocabularyItem.meaning, ...distractors]),
+      vocabularyItem,
+      char: { id: `vocab-${vocabularyItem.word}` }
+    });
+    questionSteps.push({
+      type: "meaningToWord",
+      prompt: "Which Urdu word matches this meaning?",
+      answer: vocabularyItem.word,
+      choices: shuffle([vocabularyItem.word, ...sample(testedWords, 3, [vocabularyItem]).map((item) => item.word)]),
+      vocabularyItem,
+      char: { id: `vocab-${vocabularyItem.word}` }
+    });
+  });
+  
+  return shuffle(questionSteps).slice(0, 12);
+}
+
 function showScreen(name) {
   [els.screenPath, els.screenLesson, els.screenResult].forEach((screen) => {
     screen.classList.remove("active");
@@ -1408,6 +1511,26 @@ function startSession(mode, lessonId = null) {
     state.lessonSteps = buildReviewSteps();
     els.lessonTitle.textContent = "Targeted Review: your weakest letters";
     els.lessonModeTag.textContent = "Review";
+  } else if (mode === "vocabularyReview") {
+    state.currentLesson = {
+      id: "vocabularyReview",
+      title: "Vocabulary Review",
+      words: []
+    };
+    state.lessonSteps = buildVocabularyReviewSteps();
+    els.lessonTitle.textContent = "Vocabulary Review: words you've learned";
+    els.lessonModeTag.textContent = "Vocabulary Review";
+  } else if (mode === "vocabularyPlacement") {
+    state.placementTarget = lessonId;
+    state.currentLesson = {
+      id: "vocabularyPlacement",
+      title: `Vocabulary Placement to Lesson ${lessonId}`,
+      words: []
+    };
+    const targetLessonIndex = VOCABULARY_LESSONS.findIndex((lesson) => lesson.id === `vocab-${lessonId}`);
+    state.lessonSteps = buildVocabularyPlacementSteps(Math.max(0, targetLessonIndex));
+    els.lessonTitle.textContent = `Vocabulary Placement: test to unlock Lesson ${lessonId}`;
+    els.lessonModeTag.textContent = "Vocabulary Placement";
   } else if (mode === "vocabulary") {
     const vocabularyLesson = VOCABULARY_LESSONS.find((lesson) => lesson.id === lessonId);
     if (!vocabularyLesson) {
@@ -1462,6 +1585,18 @@ function startPlacement() {
     return;
   }
   startSession("placement", targetLessonId);
+}
+
+function startVocabularyReview() {
+  startSession("vocabularyReview");
+}
+
+function startVocabularyPlacement() {
+  const targetLessonId = Number(els.vocabularyPlacementLessonSelect?.value || 1);
+  if (!targetLessonId || targetLessonId <= 1) {
+    return;
+  }
+  startSession("vocabularyPlacement", targetLessonId);
 }
 
 function renderStep() {
@@ -1675,6 +1810,14 @@ function finishSession(reason = "completed") {
     }
   }
 
+  if (state.mode === "vocabularyPlacement" && passed) {
+    const targetLessonIndex = state.placementTarget;
+    const unlockedLessons = Array.from({ length: Math.max(0, targetLessonIndex - 1) }, (_, index) => VOCABULARY_LESSONS[index]?.id).filter(Boolean);
+    const completed = new Set(state.progress.vocabularyCompleted);
+    unlockedLessons.forEach((lessonId) => completed.add(lessonId));
+    state.progress.vocabularyCompleted = [...completed];
+  }
+
   state.progress.xp += xpEarned;
   state.progress.dailyXp += xpEarned;
   updateStreakOnActivity();
@@ -1689,6 +1832,10 @@ function finishSession(reason = "completed") {
         ? "Review complete"
         : state.mode === "placement"
         ? "Placement passed"
+        : state.mode === "vocabularyReview"
+        ? "Vocabulary review complete"
+        : state.mode === "vocabularyPlacement"
+        ? "Vocabulary placement passed"
         : state.mode === "vocabulary"
         ? "Vocabulary lesson complete"
         : "Lesson complete";
@@ -1706,6 +1853,12 @@ function finishSession(reason = "completed") {
       ? passed
         ? `Lessons 1-${state.placementTarget - 1} marked complete. Lesson ${state.placementTarget} is now unlocked.`
         : `Score ${passThreshold}% or above to unlock Lesson ${state.placementTarget}.`
+      : state.mode === "vocabularyReview"
+      ? "Vocabulary review mode always stays available from the path screen."
+      : state.mode === "vocabularyPlacement"
+      ? passed
+        ? `Vocabulary lessons 1-${state.placementTarget - 1} marked complete. Lesson ${state.placementTarget} is now unlocked.`
+        : `Score ${passThreshold}% or above to unlock Vocabulary Lesson ${state.placementTarget}.`
       : passed
       ? "Next lesson unlocked."
       : "Score 70% or above to unlock the next lesson.";
@@ -1752,7 +1905,15 @@ els.retryBtn.addEventListener("click", () => {
     startReview();
     return;
   }
-  if (state.currentLesson && state.currentLesson.id !== "review") {
+  if (state.mode === "vocabularyReview") {
+    startVocabularyReview();
+    return;
+  }
+  if (state.mode === "vocabularyPlacement") {
+    startVocabularyPlacement();
+    return;
+  }
+  if (state.currentLesson && state.currentLesson.id !== "review" && state.currentLesson.id !== "vocabularyReview" && state.currentLesson.id !== "vocabularyPlacement") {
     if (state.mode === "vocabulary") {
       startVocabularyLesson(state.currentLesson.id);
     } else {
@@ -1766,6 +1927,12 @@ els.exitLessonBtn.addEventListener("click", () => {
 });
 els.startReviewBtn.addEventListener("click", startReview);
 els.startPlacementBtn.addEventListener("click", startPlacement);
+if (els.startVocabularyReviewBtn) {
+  els.startVocabularyReviewBtn.addEventListener("click", startVocabularyReview);
+}
+if (els.vocabularyPlacementLessonSelect && els.startVocabularyPlacementBtn) {
+  els.startVocabularyPlacementBtn.addEventListener("click", startVocabularyPlacement);
+}
 
 renderPath();
 showScreen(els.screenPath);
