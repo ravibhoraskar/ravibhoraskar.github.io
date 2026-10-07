@@ -3,7 +3,7 @@ title: Home
 notitle: true
 ---
 
-Ravi Bhoraskar is not a penguin. He is a software Engineer at Facebook, and a graduate
+Ravi Bhoraskar is not a penguin. <s>He is a software Engineer at Facebook</s>, and a graduate
 student on leave from the Computer Science
 department at the University of Washington. <s>One day, he shall return &mdash; a prodigal son &mdash; and finish his PhD.</s>
 Although he is interested in
