@@ -79,15 +79,29 @@ seen any evidence of widespread fradulent voting that warrants spending hundreds
 of millions of dollars a year, and making it more onerous to vote. Voting no on this
 
 - **Prop 40: Billionaire Tax - <span style="color:red;">NO</span>**:
-Similar to Prop 3 above, I support taxes imposed by the legislature with some 
+A wealth tax on assets over a billion USD. Similar to Prop 3 above, I support 
+taxes imposed by the legislature with some 
 rigour, rather than based on vibes alone. Voting no on this
 
-- **Prop 41: Billionaire Tax - <span style="color:red;">NO</span>**:
+- **Prop 41: Limits to Taxation - <span style="color:red;">NO</span>**:
+This one puts a limit on what taxes may be levied (and hence undoes Prop 40). My
+position on taxation remains consistent. Voting no to another ballot initiative
+that makes changes to taxation
 
-- **Prop 42: Billionaire Tax - <span style="color:red;">NO</span>**:
+- **Prop 42: Limits to Taxation - <span style="color:red;">NO</span>**:
+And another one, this one prohibiting wealth taxes. Voting no.
 
-- **Prop 43: Billionaire Tax - <span style="color:red;">NO</span>**:
+- **Prop 43: Higher threshold for voter-led taxes - <span style="color:green;">YES</span>**:
+Another taxation related ballot proposition, but this time I'm voting yes? This one 
+seeks to restrict what one can do with ballot proposition, increasing the voting
+threshold for such tax increases to 2/3 from majority. Since I'm not a fan of
+passing taxation by ballot initiative, I'm voting yes on this. It was also passed
+near unanimously by the state legislature, which is a good sanity check for me
 
-- **Prop 44: Billionaire Tax - <span style="color:red;">NO</span>**:
+- **Prop 44: Community Health Clinics - <span style="color:red;">NO</span>**:
+Another one, similar to Prop 38, which seems like a pretty nuanced and technical subject
+that every California voter need not have a say in. Let Sacramento pass this if it 
+wants to
 
-- **Prop 45: Billionaire Tax - <span style="color:red;">NO</span>**:
+- **Prop 45: Expedite CEQA review  - <span style="color:green;">YES</span>**:
+CEQA has long been used as a way to block projects by anyone with a grievance against them. 
