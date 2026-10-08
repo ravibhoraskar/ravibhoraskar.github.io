@@ -48,9 +48,46 @@ Repeal's 1988's Prop 78, and allows (but does not compel) local governments to s
 up campaign financing programs. On how I feel about campaign financing — I'd prefer
 leveling the playing field by limiting how much wealthy candidates can spend, rather
 than by giving less wealthy candidates more money. However, I'm voting for this prop
-because it seems like an okay band-aid, and because is un-constrains local governments. 
+because it seems like an okay band-aid, and because is un-constrains local governments
 
-- **Prop 5: Tweaks Recalls - <span style="color:green;">YES</span>**:
+- **Prop 5: Changes to Recall Elections - <span style="color:green;">YES</span>**: Changes statewide
+recall elections to remove the second question about who should be the replacement
+if the recall succeeds. I'd rather we get rid of recalls altogether (or make them 
+harder than they are right now), but in the absence of that, this seems like a reasonable
+change, and one that can only be made by ballot proposition, so voting yes
 
+- **Prop 37: Home loans - <span style="color:red;">NO</span>**: 
+Trying to fix housing affordability from the demand side seems like a poor idea, 
+especially when the supply is so artificially constrained. In other words, giving people 
+more  money to buy homes without building any extra homes will just make homes more 
+expensive. I also don't understand why the state needs to be in the mortgage business — 
+banks seem to be doing a good enough job. Seems like not great policy, and also not
+something that the legislature couldn't do if it wanted. Voting no
 
+- **Prop 38: Immunology Bond - <span style="color:red;">NO</span>**:
+Why should California spend 0.25% of its annual budget on immunology research, versus 
+other medical research, or other research in Biology, Chemistry, or other fields? 
+It is possible that this is a good idea, but this seems like a far too technical a 
+subject for every California voter to have to weigh in. The legislature should do 
+this if it thinks it is worth doing. I'm voting no
 
+- **Prop 39: Voter ID - <span style="color:red;">NO</span>**:
+In principle, this seems like an issue similar to gerrymandering, where partisan 
+politicans' interests may not be aligned with the general population, given that 
+fradulent voting could benefit one party more than the other. However, I have not
+seen any evidence of widespread fradulent voting that warrants spending hundreds
+of millions of dollars a year, and making it more onerous to vote. Voting no on this
+
+- **Prop 40: Billionaire Tax - <span style="color:red;">NO</span>**:
+Similar to Prop 3 above, I support taxes imposed by the legislature with some 
+rigour, rather than based on vibes alone. Voting no on this
+
+- **Prop 41: Billionaire Tax - <span style="color:red;">NO</span>**:
+
+- **Prop 42: Billionaire Tax - <span style="color:red;">NO</span>**:
+
+- **Prop 43: Billionaire Tax - <span style="color:red;">NO</span>**:
+
+- **Prop 44: Billionaire Tax - <span style="color:red;">NO</span>**:
+
+- **Prop 45: Billionaire Tax - <span style="color:red;">NO</span>**:
