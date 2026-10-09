@@ -1,7 +1,6 @@
 ---
 title: "How I'm voting in the November 2026 election (Part 1)"
 date: "2026-10-07"
-draft: true
 ---
 Here is how I am voting on the ballot propositions in the election next month.
 I write this not necessarily as endorsements, but because the act of writing this
