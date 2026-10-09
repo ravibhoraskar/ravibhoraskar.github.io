@@ -98,10 +98,12 @@ so I will cover those in a second part
   And another one, this time prohibiting wealth taxes. I’m voting no.
 
 - **Prop 43: Higher Threshold for Voter-Led Taxes — <span style="color:green;">YES</span>**:
-  Another tax-related ballot proposition, but this time I’m voting yes. This one
-  seeks to restrict what can be done with ballot propositions by increasing the
+  I'm on the fence about this about this one. It is another tax-related ballot 
+  proposition, and I should probably vote no, consistent with the ones above.
+  However, this one
+  seeks to restrict what can be done with ballot propositions in the future, by increasing the
   voting threshold for such tax increases to two-thirds from a simple majority.
-  Since I’m not a fan of passing taxation by ballot initiative, I’m voting yes on
+  Since I’m not a fan of passing taxation by ballot initiative, I’m considering voting yes on
   this. It was also passed near-unanimously by the state legislature, which is a
   good sanity check for me
 
