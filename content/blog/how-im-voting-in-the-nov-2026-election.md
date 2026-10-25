@@ -39,10 +39,11 @@ so I will cover those in a second part
   against ballot initiatives constraining them, so voting yes
 
 - **Prop 3: Tax Rate Increase — <span style="color:red;">NO</span>**:
-  Increases marginal tax rates on high incomes by 1–3%. In general, tax
-  slabs going up with time makes sense, since dollars are worth less over time due
-  to inflation. I would have voted for this if it had come from the legislature
-  rather than as a ballot initiative, or say, if it were endorsed by the governor. As
+  Increases marginal tax rates on high incomes by 1–3%. I'm not opposed to the
+  tax increase, but I'd rather that tax policy is decided by Sacramento than 
+  arbitrarily by ballot proposition.
+  I would have voted for this if it had come from the legislature, or say, 
+  if it were endorsed by the governor. As
   it stands, I don’t trust that the numbers are set sensibly or correctly, so it
   is safer to vote no
 
