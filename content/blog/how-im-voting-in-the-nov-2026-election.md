@@ -96,17 +96,14 @@ so I will cover those in a second part
   initiative that makes changes to taxation
 
 - **Prop 42: Limits to Taxation — <span style="color:red;">NO</span>**:
-  And another one, this time prohibiting wealth taxes. I’m voting no.
+  And another one, this time prohibiting wealth taxes. I’m voting no
 
-- **Prop 43: Higher Threshold for Voter-Led Taxes — <span style="color:green;">YES</span>**:
-  I'm on the fence about this about this one. It is another tax-related ballot 
-  proposition, and I should probably vote no, consistent with the ones above.
-  However, this one
-  seeks to restrict what can be done with ballot propositions in the future, by increasing the
-  voting threshold for such tax increases to two-thirds from a simple majority.
-  Since I’m not a fan of passing taxation by ballot initiative, I’m considering voting yes on
-  this. It was also passed near-unanimously by the state legislature, which is a
-  good sanity check for me
+- **Prop 43: Higher Threshold for Voter-Led Taxes — <span style="color:red;">NO</span>**:
+  This proposition would require a ⅔ majority ballot proposition instead of 50% 
+  for any tax increases. Tax policy should be set by the legislature, and not require
+  a ballot proposition at all. This prop moves in the opposite direction --- require 
+  a "super ballot initiative" rather than a regular one, hence voting no
+
 
 - **Prop 44: Community Health Clinics — <span style="color:red;">NO</span>**:
   Another one, similar to Prop 38, which seems like a fairly nuanced and
